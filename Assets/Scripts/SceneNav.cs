@@ -55,6 +55,23 @@ public class SceneNav : MonoBehaviour
         //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
+    public void sendOTP()
+    {
+        Debug.Log("send otp pepega");
+        //Time.timeScale = 1;
+        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    public void registerAccount()
+    {
+        Debug.Log("send register details ");
+        //Time.timeScale = 1;
+        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+
+
+
     public void exitGame()
     {
         Debug.Log("quitting");
