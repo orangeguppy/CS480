@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class SceneNav : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,26 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Leaderboard", LoadSceneMode.Single);
+    }
+
+    public void loadMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    public void loadRegister()
+    {
+        Debug.Log("Register here");
+        //Time.timeScale = 1;
+        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    public void loadPasswordReset()
+    {
+        Debug.Log("reset pw here");
+        //Time.timeScale = 1;
+        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void exitGame()
