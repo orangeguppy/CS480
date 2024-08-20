@@ -70,8 +70,6 @@ public class SceneNav : MonoBehaviour
     }
 
 
-
-
     public void exitGame()
     {
         Debug.Log("quitting");

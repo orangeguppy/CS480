@@ -7,18 +7,20 @@ using TMPro;
 
 public class AuthClient : MonoBehaviour
 {
+    private static SceneNav sceneNav;
     // First get the fields that contain the username and password
     private static TMP_InputField username;
     private static TMP_InputField password;
 
-    void Start()
+    public static IEnumerator Login()
     {
         username = GameObject.FindWithTag("Username").GetComponent<TMP_InputField>();
         password = GameObject.FindWithTag("Password").GetComponent<TMP_InputField>();
-    }
+        if (sceneNav == null)
+        {
+            sceneNav = GameObject.Find("Canvas").GetComponent<SceneNav>();
+        }
 
-    public static IEnumerator Login()
-    {
         // Use UnityWebRequest for HTTP requests
         var formData = new WWWForm();
         formData.AddField("username", username.text);
@@ -32,6 +34,7 @@ public class AuthClient : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError($"Login failed: {request.error}");
+                yield break;
             }
             else
             {
@@ -41,6 +44,7 @@ public class AuthClient : MonoBehaviour
                 LoginResponse response = JsonUtility.FromJson<LoginResponse>(jsonResponse);
                 Debug.Log("Token: " + response.access_token);
                 Debug.Log("User ID: " + response.token_type);
+                sceneNav.loadMainMenu();
             }
         }
     }

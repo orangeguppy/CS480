@@ -18,11 +18,35 @@ public class AuthButtonController : MonoBehaviour
     {
         StartCoroutine(Login());
     }
+
+    public void StartCreateAccount()
+    {
+        StartCoroutine(CreateAccount());
+    }
+
+    public void StartSendOTP()
+    {
+        StartCoroutine(SendOTPCoroutine());
+    }
+
+    public void StartPWReset()
+    {
+        StartCoroutine(UserClient.SendPwRequestCoroutine());
+    }
     
     public IEnumerator Login()
     {
         // Check if the AuthClient instance exists and start the Login coroutine
         yield return StartCoroutine(AuthClient.Login());
-        sceneNav.loadMainMenu();
+    }
+
+    public IEnumerator CreateAccount()
+    {
+        yield return StartCoroutine(UserClient.CreateUserCoroutine());
+    }
+
+    public IEnumerator SendOTPCoroutine()
+    {
+        yield return StartCoroutine(UserClient.SendOTPEmailCoroutine());
     }
 }
