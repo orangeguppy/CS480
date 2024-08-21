@@ -31,12 +31,7 @@ public class AuthClient : MonoBehaviour
             Debug.Log("Sending request now");
             yield return request.SendWebRequest();
 
-            if (request.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogError($"Login failed: {request.error}");
-                yield break;
-            }
-            else
+            if (request.result == UnityWebRequest.Result.Success)
             {
                 Debug.Log("Success");
 
@@ -45,6 +40,19 @@ public class AuthClient : MonoBehaviour
                 Debug.Log("Token: " + response.access_token);
                 Debug.Log("User ID: " + response.token_type);
                 sceneNav.loadMainMenu();
+            }
+            else if (request.responseCode == 403)
+            {
+                Debug.Log("Email not verified, need to enter OTP");
+                SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
+                GameObject loginPage = GameObject.Find("SignInPage");
+                GameObject emailVerificationPage = sceneController.verifyEmailAddrPage;
+                loginPage.SetActive(false);
+                emailVerificationPage.SetActive(true);
+            }
+            else
+            {
+                Debug.LogError($"Login failed: {request.error}");
             }
         }
     }

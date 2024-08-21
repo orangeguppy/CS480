@@ -26,3 +26,10 @@ public class PWResetRequest
     public int otp;
     public string password;
 }
+
+[System.Serializable]
+public class AccActivationRequest
+{
+    public string username;
+    public int otp;
+}

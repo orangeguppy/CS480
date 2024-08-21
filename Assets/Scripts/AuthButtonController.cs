@@ -33,6 +33,11 @@ public class AuthButtonController : MonoBehaviour
     {
         StartCoroutine(UserClient.SendPwRequestCoroutine());
     }
+
+    public void StartAccActivation()
+    {
+        StartCoroutine(UserClient.ActivateAccRequestCoroutine());
+    }
     
     public IEnumerator Login()
     {

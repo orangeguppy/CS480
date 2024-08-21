@@ -9,6 +9,11 @@ TagManager:
   - ConfirmPassword
   - NewUserUsername
   - NewUserPassword
+  - EmailForOTPPwReset
+  - EmailForPwReset
+  - OTPForPwReset
+  - PwForPwReset
+  - ConfirmPwForPwReset
   layers:
   - Default
   - TransparentFX

@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 111859053}
   - component: {fileID: 111859052}
   m_Layer: 5
-  m_Name: Send OTP
+  m_Name: Reset Pw Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,6 +580,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1512524349}
         m_TargetAssemblyTypeName: SceneNav, Assembly-CSharp
         m_MethodName: sendOTP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1065675521}
+        m_TargetAssemblyTypeName: AuthButtonController, Assembly-CSharp
+        m_MethodName: StartPWReset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1477,7 +1489,7 @@ GameObject:
   - component: {fileID: 425379137}
   m_Layer: 5
   m_Name: Email Input
-  m_TagString: Untagged
+  m_TagString: EmailForOTPPwReset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1941,7 +1953,7 @@ GameObject:
   - component: {fileID: 447465310}
   m_Layer: 5
   m_Name: New Password
-  m_TagString: Untagged
+  m_TagString: PwForPwReset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2459,7 +2471,7 @@ GameObject:
   - component: {fileID: 636113029}
   m_Layer: 5
   m_Name: Email Input
-  m_TagString: Untagged
+  m_TagString: EmailForPwReset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2913,7 +2925,7 @@ GameObject:
   - component: {fileID: 690938859}
   m_Layer: 5
   m_Name: Confirm Password
-  m_TagString: Untagged
+  m_TagString: ConfirmPwForPwReset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4971,8 +4983,9 @@ GameObject:
   - component: {fileID: 1065675519}
   - component: {fileID: 1065675518}
   - component: {fileID: 1065675520}
+  - component: {fileID: 1065675521}
   m_Layer: 0
-  m_Name: AuthController
+  m_Name: ButtonController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5015,6 +5028,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a806a76aa75c810448a0c1fd62345991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1065675521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065675517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75a5afd1711ba8478a24f9a3f48559c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1068414344
@@ -5234,6 +5259,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1065675521}
+        m_TargetAssemblyTypeName: AuthButtonController, Assembly-CSharp
+        m_MethodName: StartSendOTP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1512524349}
         m_TargetAssemblyTypeName: SceneNav, Assembly-CSharp
         m_MethodName: sendOTP
@@ -7135,7 +7172,7 @@ GameObject:
   - component: {fileID: 1566096886}
   m_Layer: 5
   m_Name: OTP
-  m_TagString: Untagged
+  m_TagString: OTPForPwReset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

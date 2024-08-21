@@ -57,6 +57,11 @@ public class UserClient : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 Debug.Log("Success: " + request.downloadHandler.text);
+                SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
+                GameObject currentPage = sceneController.createAccPage;
+                GameObject nextPage = sceneController.verifyEmailAddrPage;
+                currentPage.SetActive(false);
+                nextPage.SetActive(true);
             }
             else
             {
@@ -143,6 +148,49 @@ public class UserClient : MonoBehaviour
             {
                 // Process the response
                 Debug.Log("Response: " + request.downloadHandler.text);
+            }
+        }
+    }
+
+    public static IEnumerator ActivateAccRequestCoroutine()
+    {
+        TMP_InputField email = GameObject.Find("EmailForAccVerification").GetComponent<TMP_InputField>();
+        TMP_InputField otp = GameObject.Find("OTPForAccVerification").GetComponent<TMP_InputField>();
+
+        // Base URL
+        string url = "http://127.0.0.1:8000/users/activate-account";
+
+        // Create JSON payload
+        AccActivationRequest requestData = new AccActivationRequest { username = email.text, otp = int.Parse(otp.text) };
+        string jsonData = JsonUtility.ToJson(requestData);
+
+        // Create the UnityWebRequest
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        {
+            // Attach JSON data as raw bytes
+            request.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Send the request and wait for a response
+            yield return request.SendWebRequest();
+
+            // Check for errors
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("Error: " + request.error);
+            }
+            else
+            {
+                // Process the response
+                Debug.Log("Response: " + request.downloadHandler.text);
+
+                // Destroy the current page and show the next one
+                SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
+                GameObject currentPage = sceneController.verifyEmailAddrPage;
+                GameObject nextPage = sceneController.registrationCompletePage;
+                currentPage.SetActive(false);
+                nextPage.SetActive(true);
             }
         }
     }
