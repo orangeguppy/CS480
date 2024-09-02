@@ -5,4 +5,5 @@ public class SceneController : MonoBehaviour
     public GameObject createAccPage;
     public GameObject verifyEmailAddrPage;
     public GameObject registrationCompletePage;
+    public GameObject resetPw;
 }
