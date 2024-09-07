@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMvmtOne : MonoBehaviour
+public class EnemyMvmtTwo : MonoBehaviour
 {
     public float speed;
     public float rotationSpeed = 25f;
@@ -11,7 +11,7 @@ public class EnemyMvmtOne : MonoBehaviour
 
     void Start()
     {
-        target = EnemyPathOne.waypoints[0];
+        target = EnemyPathTwo.waypoints[0];
     }
 
     // move btw waypoints
@@ -38,13 +38,13 @@ public class EnemyMvmtOne : MonoBehaviour
     void GetNextWaypoint()
     {
         // kill enemy at last waypt
-        if (waypointIdx >= EnemyPathOne.waypoints.Length - 1)
+        if (waypointIdx >= EnemyPathTwo.waypoints.Length - 1)
         {
             Destroy(gameObject);
             return;
         }
 
         waypointIdx++;
-        target = EnemyPathOne.waypoints[waypointIdx];
+        target = EnemyPathTwo.waypoints[waypointIdx];
     }
 }
