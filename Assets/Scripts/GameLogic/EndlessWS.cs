@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EndlessWS : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EndlessWS : MonoBehaviour
     private int waveNumber = 0;
     public Transform spawnpoint;
     public float spawnDiff = 0.2f;  //time btw each unit in wave
+    public TextMeshProUGUI waveNumText;
 
     public bool currSpawning = false;
     public bool gameStarted = false;
@@ -46,6 +48,7 @@ public class EndlessWS : MonoBehaviour
             }
 
             countdown -= Time.deltaTime;
+            waveNumText.text = Mathf.Round(countdown).ToString();
         }
     }
 
