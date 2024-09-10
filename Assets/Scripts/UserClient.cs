@@ -65,7 +65,9 @@ public class UserClient : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Error: " + request.error);
+                Debug.Log("Error: " + request.downloadHandler.text);
+                PopUpController popUpController = FindObjectOfType<PopUpController>();
+                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
             }
         }
     }
@@ -81,7 +83,7 @@ public class UserClient : MonoBehaviour
         string url = "http://127.0.0.1:8000/otp";
 
         // Create JSON payload
-        OTPRequest requestData = new OTPRequest { username = recipient_email_otp_pw.text };
+        OTPRequest requestData = new OTPRequest { username = recipient_email_otp_pw.text, new_acc=false };
         string jsonData = JsonUtility.ToJson(requestData);
 
         // Create the UnityWebRequest
@@ -99,11 +101,21 @@ public class UserClient : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError("Error: " + request.error);
+                PopUpController popUpController = FindObjectOfType<PopUpController>();
+                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
+                // Do not go to the next screen
             }
             else
             {
                 // Process the response
                 Debug.Log("Response: " + request.downloadHandler.text);
+                // Go to the next screen
+                SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
+                GameObject currentPage = sceneController.sendOTP;
+                GameObject nextPage = sceneController.resetPwPage;
+                currentPage.SetActive(false);
+                nextPage.SetActive(true);
+
             }
         }
     }
@@ -143,11 +155,19 @@ public class UserClient : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError("Error: " + request.error);
+                PopUpController popUpController = FindObjectOfType<PopUpController>();
+                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
             }
             else
             {
                 // Process the response
                 Debug.Log("Response: " + request.downloadHandler.text);
+                // Destroy the current page and show the next one
+                SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
+                GameObject currentPage = sceneController.sendOTP;
+                GameObject nextPage = sceneController.resetPwPage;
+                currentPage.SetActive(false);
+                nextPage.SetActive(true);
             }
         }
     }
@@ -179,6 +199,8 @@ public class UserClient : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError("Error: " + request.error);
+                PopUpController popUpController = FindObjectOfType<PopUpController>();
+                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
             }
             else
             {

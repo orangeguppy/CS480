@@ -47,6 +47,7 @@ public class AuthButtonController : MonoBehaviour
 
     public IEnumerator CreateAccount()
     {
+        Debug.Log("Here");
         yield return StartCoroutine(UserClient.CreateUserCoroutine());
     }
 

@@ -16,6 +16,8 @@ public class AuthClient : MonoBehaviour
     {
         username = GameObject.FindWithTag("Username").GetComponent<TMP_InputField>();
         password = GameObject.FindWithTag("Password").GetComponent<TMP_InputField>();
+        PopUpController popUpController = FindObjectOfType<PopUpController>();
+    
         if (sceneNav == null)
         {
             sceneNav = GameObject.Find("Canvas").GetComponent<SceneNav>();
@@ -33,6 +35,7 @@ public class AuthClient : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
+                popUpController.ShowPopup("green", "Success", "Login successful!");
                 Debug.Log("Success");
 
                 string jsonResponse = request.downloadHandler.text;
@@ -43,7 +46,8 @@ public class AuthClient : MonoBehaviour
             }
             else if (request.responseCode == 403)
             {
-                Debug.Log("Email not verified, need to enter OTP");
+                Debug.LogError($"Login failed: {request.downloadHandler.text}");
+                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
                 GameObject loginPage = GameObject.Find("SignInPage");
                 GameObject emailVerificationPage = sceneController.verifyEmailAddrPage;
@@ -52,7 +56,8 @@ public class AuthClient : MonoBehaviour
             }
             else
             {
-                Debug.LogError($"Login failed: {request.error}");
+                Debug.LogError($"Login failed: {request.downloadHandler.text}");
+                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
             }
         }
     }

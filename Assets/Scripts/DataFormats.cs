@@ -17,6 +17,7 @@ public class UserData
 public class OTPRequest
 {
     public string username;
+    public bool new_acc;
 }
 
 [System.Serializable]
@@ -32,4 +33,10 @@ public class AccActivationRequest
 {
     public string username;
     public int otp;
+}
+
+[System.Serializable]
+public class HTTPResponse
+{
+    public string detail;
 }
