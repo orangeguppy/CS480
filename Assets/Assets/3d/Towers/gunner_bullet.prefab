@@ -82,3 +82,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+  isMissile: 0
+  onHitEffect: {fileID: 0}
+  explosionRadius: 0

@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class TurretBBB : MonoBehaviour
 {
+    // custom turret script for bb
+
     [Header("Targeting")]
     public string targetTag = "Enemy";
     private Transform target;
@@ -11,16 +13,16 @@ public class Turret : MonoBehaviour
     [Header("Turret Parts")]
     public Transform rotatePart;
     public Transform bulletPrefab;
-    public Transform firingPoint;
-    public GameObject flash;
+    public Transform firingPoint1;
+    public Transform firingPoint2;
 
     [Header("Turret Stats")]
-    public float range = 5f;    
+    public float range = 5f;
     public float fireRate = 1f; // higher == faster
     private float fireCooldown = 0f;
     public int damage = 5;
 
-    private Coroutine flashCoroutine;
+    private bool useFiringPoint1 = true; // Keeps track of which firing point to use
 
     void Start()
     {
@@ -31,8 +33,7 @@ public class Turret : MonoBehaviour
     {
         if (target == null)
         {
-            StopFlashEffect();
-            return;  //stop muzzle flash & reset when curr target dies/outofrange
+            return;
         }
 
         RotateTowardsTarget();
@@ -64,7 +65,7 @@ public class Turret : MonoBehaviour
 
         target = nearestEnemy != null && shortestDistance <= range ? nearestEnemy.transform : null;
     }
-    
+
     //rotato potato
     void RotateTowardsTarget()
     {
@@ -76,44 +77,16 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        ActivateFlashEffect();
-        //Destroy(target.gameObject);
-        GameObject bulletObject = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation).gameObject;
+        // Alternate between firingPoint1 and firingPoint2
+        Transform chosenFiringPoint = useFiringPoint1 ? firingPoint1 : firingPoint2;
+        useFiringPoint1 = !useFiringPoint1; // Toggle between firing points
+
+        GameObject bulletObject = Instantiate(bulletPrefab, chosenFiringPoint.position, chosenFiringPoint.rotation).gameObject;
         Bullet bullet = bulletObject.GetComponent<Bullet>();
 
         if (bullet != null)
         {
             bullet.Hit(target);
-        }
-    }
-
-    void ActivateFlashEffect()
-    {
-        flash.SetActive(true);
-
-        // reset the flash effect coroutine if alr active
-        if (flashCoroutine != null)
-        {
-            StopCoroutine(flashCoroutine);
-        }
-
-        flashCoroutine = StartCoroutine(DisableFlash());
-    }
-
-    IEnumerator DisableFlash()
-    {
-        yield return new WaitForSeconds(2f);
-        flash.SetActive(false);
-    }
-
-    void StopFlashEffect()
-    {
-        flash.SetActive(false);
-
-        if (flashCoroutine != null)
-        {
-            StopCoroutine(flashCoroutine);
-            flashCoroutine = null;
         }
     }
 
@@ -124,3 +97,4 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 }
+
