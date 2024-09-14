@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class EnemyMvmtOne : MonoBehaviour
 {
-    public float speed;
+
     public float rotationSpeed = 25f;
     private Transform target;
     private int waypointIdx = 0;
+
+    [Header("Enemy Stats")]
+    public float speed;
+    public int health;
 
     void Start()
     {

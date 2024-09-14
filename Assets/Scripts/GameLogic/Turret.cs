@@ -18,6 +18,7 @@ public class Turret : MonoBehaviour
     public float range = 5f;    
     public float fireRate = 1f;
     private float fireCooldown = 0f;
+    public int damage = 5;
 
     private Coroutine flashCoroutine;
 
@@ -76,7 +77,7 @@ public class Turret : MonoBehaviour
     void Shoot()
     {
         ActivateFlashEffect();
-
+        //Destroy(target.gameObject);
         GameObject bulletObject = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation).gameObject;
         Bullet bullet = bulletObject.GetComponent<Bullet>();
 

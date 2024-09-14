@@ -8,8 +8,10 @@ public class BuildManager : MonoBehaviour
 {
     public GameObject menu; // Shared menu across all platforms
     public Color hoverColor;
-    public float heightOffset = 0.5f;
-    public float distanceOffsetFactor;
+    public float heightOffset = 0.2f;
+
+    public float xOffset = 0f; // Manual offset on the x-axis
+    public float zOffset = 0f; // Manual offset on the z-axis
 
     private Renderer rend;
     private Color startColor;
@@ -36,7 +38,10 @@ public class BuildManager : MonoBehaviour
 
     void OnMouseEnter()
     {
-        rend.material.color = hoverColor;
+        if(turret == null)
+        {
+            rend.material.color = hoverColor; // only highlight when buildable
+        }
     }
 
     void OnMouseExit()
@@ -72,18 +77,13 @@ public class BuildManager : MonoBehaviour
                 // Activate and position the shared menu
                 menu.SetActive(true);
 
-                // Calculate the dynamic offset based on this platform's position
-                Vector3 centerPoint = Vector3.zero; // Center of the scene or designated point
-                float distanceFromCenter = Vector3.Distance(transform.position, centerPoint);
-                float dynamicOffset = distanceFromCenter * distanceOffsetFactor;
-
                 // Adjust the menu's position to be above the platform
                 Vector3 newPosition = transform.position;
                 newPosition.y += heightOffset;
 
-                // Apply dynamic offset towards the center
-                Vector3 directionToCenter = (centerPoint - transform.position).normalized;
-                newPosition += directionToCenter * dynamicOffset;
+                // Manually adjust the x and z axes with the new offsets
+                newPosition.x += xOffset;
+                newPosition.z += zOffset;
 
                 // Set the menu's new position
                 menu.transform.position = newPosition;
@@ -140,3 +140,4 @@ public class BuildManager : MonoBehaviour
         }
     }
 }
+

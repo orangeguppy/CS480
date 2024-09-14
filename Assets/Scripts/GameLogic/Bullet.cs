@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
-    public float speed = 75f;
+    public float speed = 25f;
+    public bool isMissile;
 
     public void Hit (Transform _target)
     {
@@ -41,7 +42,16 @@ public class Bullet : MonoBehaviour
 
     void DamageTarget()
     {
-        Debug.Log("ow");
-        Destroy(gameObject);
+        
+        if (isMissile)
+        {
+            Debug.Log("boom");
+        }
+        else
+        {
+            Debug.Log("ow");
+            Destroy(gameObject);
+        }
+        
     }
 }
