@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 16232194}
   - component: {fileID: 16232193}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WaveTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 265189405}
   - component: {fileID: 265189404}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: BuyFlamethrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1007,7 +1007,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 265189405}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 899995489}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: BuyFlamethrower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &265189405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,6 +1129,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 284614969}
+  - component: {fileID: 284614970}
+  - component: {fileID: 284614971}
   m_Layer: 0
   m_Name: GameMgr
   m_TagString: Untagged
@@ -1140,8 +1154,39 @@ Transform:
   - {fileID: 478184188}
   - {fileID: 24523329}
   - {fileID: 4154577}
+  - {fileID: 1322187776}
+  - {fileID: 989149363}
+  - {fileID: 841075621}
+  - {fileID: 1021758244}
+  - {fileID: 1012890633}
+  - {fileID: 581161225}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &284614970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284614968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94acbf3682b1df4c8b2419aaa4ed3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingMoney: 500
+--- !u!114 &284614971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284614968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &286354530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &506369977
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1628,7 +1673,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 284614969}
     m_Modifications:
     - target: {fileID: 1294733841131794, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_Name
@@ -1656,15 +1701,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1692,6 +1737,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1294733841131794, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
   m_PrefabInstance: {fileID: 581161221}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &581161225 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
+  m_PrefabInstance: {fileID: 581161221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &654770824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,7 +1755,7 @@ GameObject:
   - component: {fileID: 654770827}
   - component: {fileID: 654770826}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BuyGunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1775,13 +1825,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 899995489}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: BuyGunner
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2289,7 +2339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841075620}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2313,7 +2363,7 @@ Transform:
   - {fileID: 1392251148}
   - {fileID: 1255450376}
   - {fileID: 1785877897}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 284614969}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &841075622
 MonoBehaviour:
@@ -2493,6 +2543,7 @@ GameObject:
   - component: {fileID: 899995488}
   - component: {fileID: 899995487}
   - component: {fileID: 899995486}
+  - component: {fileID: 899995489}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2585,6 +2636,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899995484}
   m_CullTransparentMesh: 1
+--- !u!114 &899995489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899995484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4165398a04f8e3a4ea771645c315cbd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunner:
+    prefab: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
+    cost: 100
+  zapper:
+    prefab: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
+    cost: 150
+  bomber:
+    prefab: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
+    cost: 200
+  flamethrower:
+    prefab: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
+    cost: 200
 --- !u!1 &913070244
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,7 +2766,7 @@ GameObject:
   - component: {fileID: 958819998}
   - component: {fileID: 958819997}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: BuyBomber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2760,7 +2835,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 958819998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 899995489}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: BuyBomber
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &958819998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2824,7 +2911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989149362}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2842,7 +2929,7 @@ Transform:
   - {fileID: 1922380590}
   - {fileID: 286354531}
   - {fileID: 741672138}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 284614969}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &989149364
 MonoBehaviour:
@@ -2892,9 +2979,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1294733841131794, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
   m_PrefabInstance: {fileID: 1803946559}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1012890633 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
+  m_PrefabInstance: {fileID: 1803946559}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1021758241 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1294733841131794, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
+  m_PrefabInstance: {fileID: 1229011753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1021758244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
   m_PrefabInstance: {fileID: 1229011753}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1063633806
@@ -3101,7 +3198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1215145166
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3224,7 +3321,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 284614969}
     m_Modifications:
     - target: {fileID: 1294733841131794, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_Name
@@ -3252,7 +3349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3260,7 +3357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3503,7 +3600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322187775}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3524,7 +3621,7 @@ Transform:
   - {fileID: 269596876}
   - {fileID: 1397299501}
   - {fileID: 690090706}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 284614969}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1322187777
 MonoBehaviour:
@@ -3768,7 +3865,7 @@ GameObject:
   - component: {fileID: 1518165749}
   - component: {fileID: 1518165748}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PlayerInfoUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4154,7 +4251,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 284614969}
     m_Modifications:
     - target: {fileID: 1294733841131794, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_Name
@@ -4182,7 +4279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4190,7 +4287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4776653709342072, guid: cd89c56a1fcd0534a946f51a4cf9e51b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4226,7 +4323,7 @@ GameObject:
   - component: {fileID: 1883338611}
   - component: {fileID: 1883338610}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: BuyZapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4295,7 +4392,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1883338611}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 899995489}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: BuyZapper
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1883338611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4708,8 +4817,8 @@ GameObject:
   - component: {fileID: 8670761335058598048}
   - component: {fileID: 3127129693498141688}
   - component: {fileID: 2320798169927828238}
-  - component: {fileID: 8670761335058598049}
   - component: {fileID: 8670761335058598050}
+  - component: {fileID: 8670761335058598051}
   m_Layer: 0
   m_Name: Cylinder.004
   m_TagString: Untagged
@@ -5115,8 +5224,8 @@ GameObject:
   - component: {fileID: 3316992657959910615}
   - component: {fileID: 9203870080584554368}
   - component: {fileID: 7783642028802570112}
-  - component: {fileID: 9203870080584554369}
   - component: {fileID: 9203870080584554370}
+  - component: {fileID: 9203870080584554371}
   m_Layer: 0
   m_Name: Cylinder.002
   m_TagString: Untagged
@@ -5186,8 +5295,8 @@ GameObject:
   - component: {fileID: 8946660039593685406}
   - component: {fileID: 4829784950352802329}
   - component: {fileID: 6944656103721740627}
-  - component: {fileID: 8946660039593685407}
   - component: {fileID: 8946660039593685408}
+  - component: {fileID: 8946660039593685409}
   m_Layer: 0
   m_Name: Cylinder.005
   m_TagString: Untagged
@@ -5365,8 +5474,8 @@ GameObject:
   - component: {fileID: 6645823805072617802}
   - component: {fileID: 5366159435381953342}
   - component: {fileID: 7202271455417376164}
-  - component: {fileID: 7202271455417376165}
   - component: {fileID: 7202271455417376166}
+  - component: {fileID: 7202271455417376167}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -5385,8 +5494,8 @@ GameObject:
   - component: {fileID: 6426448321036913511}
   - component: {fileID: 568357330898338005}
   - component: {fileID: 4505331246453862759}
-  - component: {fileID: 6426448321036913512}
   - component: {fileID: 6426448321036913513}
+  - component: {fileID: 6426448321036913514}
   m_Layer: 0
   m_Name: Cylinder.008
   m_TagString: Untagged
@@ -5488,8 +5597,8 @@ GameObject:
   - component: {fileID: 6732398566642370842}
   - component: {fileID: 6816842341102423451}
   - component: {fileID: 1746654310148687658}
-  - component: {fileID: 6816842341102423452}
   - component: {fileID: 6816842341102423453}
+  - component: {fileID: 6816842341102423454}
   m_Layer: 0
   m_Name: Cylinder.006
   m_TagString: Untagged
@@ -5547,8 +5656,8 @@ GameObject:
   - component: {fileID: 8218352542491558950}
   - component: {fileID: 8189099294417195705}
   - component: {fileID: 1834477640475607277}
-  - component: {fileID: 8218352542491558951}
   - component: {fileID: 8218352542491558952}
+  - component: {fileID: 8218352542491558953}
   m_Layer: 0
   m_Name: Cylinder.011
   m_TagString: Untagged
@@ -5786,8 +5895,8 @@ GameObject:
   - component: {fileID: 3732820751047538821}
   - component: {fileID: 6768739085622585765}
   - component: {fileID: 7743480366319794843}
-  - component: {fileID: 7743480366319794844}
   - component: {fileID: 7743480366319794845}
+  - component: {fileID: 7743480366319794846}
   m_Layer: 0
   m_Name: Cylinder.010
   m_TagString: Untagged
@@ -5986,27 +6095,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652924857488}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &6426448321036913512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3676624721045994119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &6426448321036913513
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6029,6 +6117,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &6426448321036913514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676624721045994119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!1 &6507901978019420286
 GameObject:
   m_ObjectHideFlags: 0
@@ -6058,8 +6164,8 @@ GameObject:
   - component: {fileID: 5993847947777007541}
   - component: {fileID: 8777296173907116846}
   - component: {fileID: 8089062573986196040}
-  - component: {fileID: 8777296173907116847}
   - component: {fileID: 8777296173907116848}
+  - component: {fileID: 8777296173907116849}
   m_Layer: 0
   m_Name: Cylinder.007
   m_TagString: Untagged
@@ -6154,27 +6260,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3849762624328074067}
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
---- !u!114 &6816842341102423452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3849762624328074067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 1.2
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &6816842341102423453
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6197,6 +6282,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &6816842341102423454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3849762624328074067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!1 &6919683764030261027
 GameObject:
   m_ObjectHideFlags: 0
@@ -6208,8 +6311,8 @@ GameObject:
   - component: {fileID: 3924232458697382513}
   - component: {fileID: 3763447768122517703}
   - component: {fileID: 3280927519951818341}
-  - component: {fileID: 6919683764030261028}
   - component: {fileID: 6919683764030261029}
+  - component: {fileID: 6919683764030261030}
   m_Layer: 0
   m_Name: Cylinder.009
   m_TagString: Untagged
@@ -6217,27 +6320,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6919683764030261028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6919683764030261027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &6919683764030261029
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6260,6 +6342,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &6919683764030261030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919683764030261027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!23 &6944656103721740627
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6486,27 +6586,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7202271455417376165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3655000510265304443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &7202271455417376166
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6529,6 +6608,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &7202271455417376167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655000510265304443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!33 &7236462063621560653
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6697,27 +6794,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7743480366319794844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245042010815133760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &7743480366319794845
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6740,6 +6816,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &7743480366319794846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245042010815133760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!23 &7783642028802570112
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6898,27 +6992,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652924857488}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8218352542491558951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4160148093494701647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &8218352542491558952
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6941,6 +7014,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &8218352542491558953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160148093494701647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!1 &8224663808266898453
 GameObject:
   m_ObjectHideFlags: 0
@@ -7028,8 +7119,8 @@ GameObject:
   - component: {fileID: 6738450967745493418}
   - component: {fileID: 4109396432119298922}
   - component: {fileID: 7071182760651899841}
-  - component: {fileID: 8513859187136744009}
   - component: {fileID: 8513859187136744010}
+  - component: {fileID: 8513859187136744011}
   m_Layer: 0
   m_Name: Cylinder.001
   m_TagString: Untagged
@@ -7037,27 +7128,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8513859187136744009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8513859187136744008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &8513859187136744010
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7080,6 +7150,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &8513859187136744011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513859187136744008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!4 &8670761335058598048
 Transform:
   m_ObjectHideFlags: 0
@@ -7095,27 +7183,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652924857488}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8670761335058598049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843214209246367489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &8670761335058598050
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7138,6 +7205,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &8670761335058598051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843214209246367489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!1 &8700725330521803885
 GameObject:
   m_ObjectHideFlags: 0
@@ -7149,8 +7234,8 @@ GameObject:
   - component: {fileID: 5666261586007040191}
   - component: {fileID: 4812060307404398566}
   - component: {fileID: 1129496810406543554}
-  - component: {fileID: 8700725330521803886}
   - component: {fileID: 8700725330521803887}
+  - component: {fileID: 8700725330521803888}
   m_Layer: 0
   m_Name: Cylinder.003
   m_TagString: Untagged
@@ -7158,27 +7243,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8700725330521803886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8700725330521803885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 1.5
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &8700725330521803887
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7201,6 +7265,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &8700725330521803888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700725330521803885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!33 &8751516053465261712
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7217,27 +7299,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6512510687839552093}
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
---- !u!114 &8777296173907116847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512510687839552093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &8777296173907116848
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7260,6 +7321,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &8777296173907116849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512510687839552093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!4 &8857944161297716956
 Transform:
   m_ObjectHideFlags: 0
@@ -7290,27 +7369,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652924857488}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8946660039593685407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2800250516708925796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &8946660039593685408
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7333,6 +7391,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &8946660039593685409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800250516708925796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!4 &9078949020165869380
 Transform:
   m_ObjectHideFlags: 0
@@ -7364,27 +7440,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2490194675160337517}
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
---- !u!114 &9203870080584554369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2490194675160337517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1063633806}
-  hoverColor: {r: 0.27058825, g: 0.8039216, b: 0.83137256, a: 0}
-  heightOffset: 0.2
-  xOffset: 0.15
-  zOffset: -1.5
-  gunner: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-  zapper: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-  bomber: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-  flamer: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
 --- !u!64 &9203870080584554370
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7407,6 +7462,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c55ddf9f54556be45a9f15ee27f9be04, type: 3}
+--- !u!114 &9203870080584554371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490194675160337517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecbaf314d2bb3c4e94da3caabf400a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.24296904, g: 0.7924528, b: 0.78678125, a: 0}
+  turret: {fileID: 0}
+  buildMenu: {fileID: 1063633806}
+  heightOffset: 0.2
+  xOffset: 0
+  zOffset: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7414,13 +7487,7 @@ SceneRoots:
   - {fileID: 858785182}
   - {fileID: 128715102}
   - {fileID: 543450652924857488}
-  - {fileID: 1322187776}
-  - {fileID: 989149363}
-  - {fileID: 841075621}
   - {fileID: 284614969}
-  - {fileID: 1229011753}
-  - {fileID: 1803946559}
-  - {fileID: 581161221}
   - {fileID: 1518165751}
-  - {fileID: 2140188790}
   - {fileID: 1063633807}
+  - {fileID: 2140188790}
