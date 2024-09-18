@@ -83,6 +83,7 @@ public class PlatformManager : MonoBehaviour
             // Update the currently active menu and selected platform
             currentOpenMenu = buildMenu;
             selectedPlatform = this;
+            
         }
     }
 
@@ -90,7 +91,7 @@ public class PlatformManager : MonoBehaviour
     {
         if (turret != null)
         {
-            Debug.Log("Turret already exists on this platform");
+            Debug.Log("Turret alr here");
             return;
         }
 
@@ -99,4 +100,6 @@ public class PlatformManager : MonoBehaviour
         currentOpenMenu = null;
         selectedPlatform = null;
     }
+
+
 }

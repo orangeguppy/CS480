@@ -44,11 +44,27 @@ public class EnemyMvmtOne : MonoBehaviour
         // kill enemy at last waypt
         if (waypointIdx >= EnemyPathOne.waypoints.Length - 1)
         {
+            PlayerInfo.Lives--;
             Destroy(gameObject);
             return;
         }
 
         waypointIdx++;
         target = EnemyPathOne.waypoints[waypointIdx];
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+        //add money
     }
 }

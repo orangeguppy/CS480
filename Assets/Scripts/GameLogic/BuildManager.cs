@@ -17,7 +17,7 @@ public class BuildManager : MonoBehaviour
 
     private Blueprint turretToBuild;
     private PlatformManager selectedPlatform; // Store the platform on which we want to build the turret
-
+    public GameObject buildEffect;
 
     public void SetTurretToBuild(Blueprint turret)
     {
@@ -46,5 +46,7 @@ public class BuildManager : MonoBehaviour
         Vector3 platformOffset = new Vector3(0f, 0.1f, 0f);
         GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, platform.transform.position + platformOffset, Quaternion.identity);
         platform.turret = turret;
+        GameObject effect = (GameObject)Instantiate(buildEffect, platform.transform.position + platformOffset, Quaternion.identity);
+        Destroy(effect, 2f);
     }
 }
