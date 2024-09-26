@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunTest : MonoBehaviour
+public class Bomber : MonoBehaviour
 {
     [Header("Targeting")]
     public string targetTag = "Enemy";
@@ -10,16 +10,14 @@ public class GunTest : MonoBehaviour
 
     [Header("Turret Parts")]
     public Transform rotatePart;
+    public Transform missilePrefab;
     public Transform firingPoint;
-    public GameObject flash;
 
     [Header("Turret Stats")]
     public float range = 5f;
     public float fireRate = 1f; // higher == faster
     private float fireCooldown = 0f;
-    public int damage = 5;
-
-    private Coroutine flashCoroutine;
+    public int damage;
 
     void Start()
     {
@@ -30,8 +28,7 @@ public class GunTest : MonoBehaviour
     {
         if (target == null)
         {
-            StopFlashEffect();
-            return;  //stop muzzle flash & reset when curr target dies/outofrange
+            return;  
         }
 
         RotateTowardsTarget();
@@ -75,43 +72,13 @@ public class GunTest : MonoBehaviour
 
     void Shoot()
     {
-        ActivateFlashEffect();
-        Damage(target);
-    }
+        GameObject missileObject = Instantiate(missilePrefab, firingPoint.position, firingPoint.rotation).gameObject;
+        Missile missile = missileObject.GetComponent<Missile>();
 
-    void Damage(Transform enemy)
-    {
-        Enemy e = enemy.GetComponent<Enemy>();
-        e.TakeDamage(damage);
-    }
-
-    void ActivateFlashEffect()
-    {
-        flash.SetActive(true);
-
-        // reset the flash effect coroutine if alr active
-        if (flashCoroutine != null)
+        if (missile != null)
         {
-            StopCoroutine(flashCoroutine);
-        }
-
-        flashCoroutine = StartCoroutine(DisableFlash());
-    }
-
-    IEnumerator DisableFlash()
-    {
-        yield return new WaitForSeconds(2f);
-        flash.SetActive(false);
-    }
-
-    void StopFlashEffect()
-    {
-        flash.SetActive(false);
-
-        if (flashCoroutine != null)
-        {
-            StopCoroutine(flashCoroutine);
-            flashCoroutine = null;
+            missile.Hit(target);
+            missile.SetDamage(damage);
         }
     }
 

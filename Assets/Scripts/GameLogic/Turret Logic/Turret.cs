@@ -18,7 +18,7 @@ public class Turret : MonoBehaviour
     public float range = 5f;    
     public float fireRate = 1f; // higher == faster
     private float fireCooldown = 0f;
-    public int damage = 5;
+    public int damage;
 
     private Coroutine flashCoroutine;
 
@@ -84,6 +84,7 @@ public class Turret : MonoBehaviour
         if (bullet != null)
         {
             bullet.Hit(target);
+            //bullet.SetDamage(damage);
         }
     }
 

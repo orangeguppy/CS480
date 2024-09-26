@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5984221067127025924}
   - component: {fileID: 761439539663771803}
   - component: {fileID: 2551804124094163533}
+  - component: {fileID: 8933243605125310872}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Enemy
@@ -113,10 +114,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8601895386949660419}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e60bcd5891a52b49add74965ffa3969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
   rotationSpeed: 20
+--- !u!114 &8933243605125310872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601895386949660419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fea20573d2eeb54ebd75978e3092ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathType: 3
+  rotationSpeed: 25
+  speed: 4
+  health: 10

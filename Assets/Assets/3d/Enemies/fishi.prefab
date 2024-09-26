@@ -66,6 +66,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 12328dcc6781ca741b50ef2b279566c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6908221924859912906}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 12328dcc6781ca741b50ef2b279566c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8190294489623431185}
   m_SourcePrefab: {fileID: 100100000, guid: 12328dcc6781ca741b50ef2b279566c4, type: 3}
 --- !u!1 &8887596455892062784 stripped
 GameObject:
@@ -79,7 +82,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8887596455892062784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82a9b8a6501bfb64eba35153a0f1831a, type: 3}
   m_Name: 
@@ -109,3 +112,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 12328dcc6781ca741b50ef2b279566c4, type: 3}
+--- !u!114 &8190294489623431185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8887596455892062784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fea20573d2eeb54ebd75978e3092ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathType: 0
+  rotationSpeed: 25
+  speed: 8
+  health: 10

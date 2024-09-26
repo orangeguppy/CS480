@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &990040420145327141
 Transform:
   m_ObjectHideFlags: 0
@@ -230,6 +230,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1a1b02eef6a99347aad6e7abb849e00, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1480183320745627601}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1a1b02eef6a99347aad6e7abb849e00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3042001174877180227}
   m_SourcePrefab: {fileID: 100100000, guid: e1a1b02eef6a99347aad6e7abb849e00, type: 3}
 --- !u!1 &356583337942532171 stripped
 GameObject:
@@ -243,7 +246,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356583337942532171}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c83eb9cb3bfcdc940bf1b0ad322e6a51, type: 3}
   m_Name: 
@@ -255,6 +258,26 @@ MonoBehaviour:
   flash: {fileID: 5374730210159702609}
   range: 5
   fireRate: 3
+  damage: 5
+--- !u!114 &3042001174877180227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356583337942532171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1a9a7eb1339af48951189910dba902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Enemy
+  rotatePart: {fileID: 1132943397864282865}
+  firingPoint: {fileID: 990040420145327141}
+  flash: {fileID: 5374730210159702609}
+  range: 5
+  fireRate: 2
+  damage: 5
 --- !u!4 &1132943397864282865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e1a1b02eef6a99347aad6e7abb849e00, type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3179235298526372883}
   - component: {fileID: 5699075076864919134}
   - component: {fileID: -8381945695373315245}
+  - component: {fileID: 67592873251146069}
   m_Layer: 0
   m_Name: Sphere 1
   m_TagString: Enemy
@@ -113,9 +114,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8317837124232213266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab684f47da453194b8e548e7cac0f048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  rotationSpeed: 25
+--- !u!114 &67592873251146069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8317837124232213266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fea20573d2eeb54ebd75978e3092ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathType: 1
+  rotationSpeed: 25
+  speed: 5
+  health: 10

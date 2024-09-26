@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2255970816790891019}
   - component: {fileID: 3490216668031053583}
+  - component: {fileID: 3020534864301775750}
   m_Layer: 0
   m_Name: bomber_heavy
   m_TagString: Untagged
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442560551862948017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c83eb9cb3bfcdc940bf1b0ad322e6a51, type: 3}
   m_Name: 
@@ -148,7 +149,26 @@ MonoBehaviour:
   flash: {fileID: 8841368740190781255}
   range: 10
   fireRate: 0.3
-  damage: 5
+  damage: 20
+--- !u!114 &3020534864301775750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442560551862948017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f409aff68b49cf44384c7a9c6e3411e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Enemy
+  rotatePart: {fileID: 2255970816790891019}
+  missilePrefab: {fileID: 5324785274274176081, guid: 3cbf011fe93d3df4ea589c33515ba978, type: 3}
+  firingPoint: {fileID: 4764482989341121618}
+  range: 10
+  fireRate: 0.3
+  damage: 20
 --- !u!1 &3061677424276038624
 GameObject:
   m_ObjectHideFlags: 0

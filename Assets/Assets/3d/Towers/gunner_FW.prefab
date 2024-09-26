@@ -133,15 +133,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d712c89ee5fd5ae4abbf87bf16127455, type: 2}
     - target: {fileID: -8679921383154817045, guid: 4ded4df69e2c7ae4d9101e22dd21fe4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.34201765
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ded4df69e2c7ae4d9101e22dd21fe4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.099998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ded4df69e2c7ae4d9101e22dd21fe4a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: -3.1114736
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ded4df69e2c7ae4d9101e22dd21fe4a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -293,6 +293,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ded4df69e2c7ae4d9101e22dd21fe4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3959785409174593602}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4ded4df69e2c7ae4d9101e22dd21fe4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4138462213632816006}
   m_SourcePrefab: {fileID: 100100000, guid: 4ded4df69e2c7ae4d9101e22dd21fe4a, type: 3}
 --- !u!1 &5938222859346946325 stripped
 GameObject:
@@ -306,7 +309,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5938222859346946325}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c83eb9cb3bfcdc940bf1b0ad322e6a51, type: 3}
   m_Name: 
@@ -317,7 +320,27 @@ MonoBehaviour:
   firingPoint: {fileID: 886674523479595635}
   flash: {fileID: 2141395534631015307}
   range: 5
-  fireRate: 1
+  fireRate: 2.5
+  damage: 9
+--- !u!114 &4138462213632816006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938222859346946325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1a9a7eb1339af48951189910dba902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Enemy
+  rotatePart: {fileID: 6423011123603895215}
+  firingPoint: {fileID: 886674523479595635}
+  flash: {fileID: 2141395534631015307}
+  range: 5
+  fireRate: 2.5
+  damage: 9
 --- !u!4 &6423011123603895215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ded4df69e2c7ae4d9101e22dd21fe4a, type: 3}

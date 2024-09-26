@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5313961601676940015}
   - component: {fileID: 534011112402540867}
   - component: {fileID: -3336992215000731406}
+  - component: {fileID: 3590509388855486575}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Enemy
@@ -122,3 +123,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   rotationSpeed: 25
+--- !u!114 &3590509388855486575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526187913077067944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fea20573d2eeb54ebd75978e3092ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathType: 1
+  rotationSpeed: 25
+  speed: 6
+  health: 10

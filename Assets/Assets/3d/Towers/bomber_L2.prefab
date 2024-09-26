@@ -592,6 +592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6792059709394119188}
   - component: {fileID: 2514794312792674023}
+  - component: {fileID: 7618300374275744227}
   m_Layer: 0
   m_Name: bomber_L2
   m_TagString: Untagged
@@ -632,7 +633,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6127691539567980718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c83eb9cb3bfcdc940bf1b0ad322e6a51, type: 3}
   m_Name: 
@@ -642,6 +643,25 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1715458827473549033, guid: 9f3d685561b7f1e499448f42f09387ec, type: 3}
   firingPoint: {fileID: 6960751484999953754}
   flash: {fileID: 6488981328790236703}
+  range: 10
+  fireRate: 0.6
+  damage: 5
+--- !u!114 &7618300374275744227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127691539567980718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f409aff68b49cf44384c7a9c6e3411e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Enemy
+  rotatePart: {fileID: 6792059709394119188}
+  missilePrefab: {fileID: 1715458827473549033, guid: 9f3d685561b7f1e499448f42f09387ec, type: 3}
+  firingPoint: {fileID: 6960751484999953754}
   range: 10
   fireRate: 0.6
   damage: 5

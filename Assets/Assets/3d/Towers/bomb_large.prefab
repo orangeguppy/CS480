@@ -74,14 +74,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c501f60aa6bf1e4baba2d231320e9e1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7873493637971865097}
+      addedObject: {fileID: 7230712183937494583}
   m_SourcePrefab: {fileID: 100100000, guid: 7c501f60aa6bf1e4baba2d231320e9e1, type: 3}
 --- !u!1 &4804988211911165675 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c501f60aa6bf1e4baba2d231320e9e1, type: 3}
   m_PrefabInstance: {fileID: 5651971918806039482}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7873493637971865097
+--- !u!114 &7230712183937494583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,10 +90,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4804988211911165675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b71cd38c9fd7f4b9fc6e3da697dcc1, type: 3}
+  m_Script: {fileID: 11500000, guid: ad7dc0512e81c5d43b3c735a63165c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
-  isMissile: 1
-  onHitEffect: {fileID: 1352952055292810, guid: d8628f56ce986894a9be0c0fc92627bd, type: 3}
+  onHitEffect: {fileID: 2908354754028252766, guid: 849f2ea10f8ead04d9184d4ac1d5e40f, type: 3}
   explosionRadius: 3
+  damage: 0
