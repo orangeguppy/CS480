@@ -6,10 +6,10 @@ public class TeslacoilTest : MonoBehaviour
 {
     [Header("Targeting")]
     public string targetTag = "Enemy";
-    private Transform target;
+    //private Transform target;
 
     [Header("FX")]
-    public ParticleSystem strikePrefab; // the prefab of the particle effect
+    public ParticleSystem strikePrefab;
 
     [Header("Turret Stats")]
     public float range;
@@ -19,15 +19,12 @@ public class TeslacoilTest : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f); // call UpdateTarget 2x/s
+        //InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f); // call UpdateTarget 2x/s
     }
 
     void Update()
     {
-        if (target == null)
-        {
-            return;  // reset when current target dies/out of range
-        }
+
 
         if (fireCooldown <= 0f)
         {
@@ -37,7 +34,7 @@ public class TeslacoilTest : MonoBehaviour
 
         fireCooldown -= Time.deltaTime;
     }
-
+    /*
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
@@ -55,7 +52,7 @@ public class TeslacoilTest : MonoBehaviour
         }
 
         target = nearestEnemy != null && shortestDistance <= range ? nearestEnemy.transform : null;
-    }
+    }*/
 
     void Shoot()
     {
@@ -66,10 +63,9 @@ public class TeslacoilTest : MonoBehaviour
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy <= range)
             {
-                // Play the particle effect at each enemy's position
                 ParticleAtEnemy(enemy.transform);
 
-                // Deal damage to and stun each enemy
+                // Deal damage to each enemy
                 Damage(enemy.transform);
             }
         }
@@ -85,18 +81,16 @@ public class TeslacoilTest : MonoBehaviour
 
     }
 
-    // Plays the particle effect at the enemy's position
     void ParticleAtEnemy(Transform enemy)
     {
         // Instantiate the particle system at the enemy's position and rotation
         ParticleSystem ln = Instantiate(strikePrefab, enemy.position, Quaternion.identity);
         ln.Play();
 
-        // Optionally destroy the particle system after it has played
         Destroy(ln.gameObject, ln.main.duration);
     }
 
-    // Turret range visualization on click
+    // turret range viz onclick
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
