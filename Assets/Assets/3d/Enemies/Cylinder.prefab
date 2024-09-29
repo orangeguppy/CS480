@@ -116,7 +116,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526187913077067944}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab684f47da453194b8e548e7cac0f048, type: 3}
   m_Name: 
@@ -137,5 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathType: 1
   rotationSpeed: 25
-  speed: 6
+  initSpeed: 6
   health: 10
+  gold: 5

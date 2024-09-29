@@ -7,6 +7,7 @@ public class Zapper : MonoBehaviour
     [Header("Targeting")]
     public string targetTag = "Enemy";
     private Transform target;
+    private Enemy targetEnemy;
 
     [Header("Turret Parts")]
     public Transform firingPoint;
@@ -15,6 +16,7 @@ public class Zapper : MonoBehaviour
     [Header("Turret Stats")]
     public float range = 5f;
     public int damage;
+    public float slowAmt; // 1 = stun
 
     void Start()
     {
@@ -51,17 +53,16 @@ public class Zapper : MonoBehaviour
             }
         }
 
-        target = nearestEnemy != null && shortestDistance <= range ? nearestEnemy.transform : null;
+        //target = nearestEnemy != null && shortestDistance <= range ? nearestEnemy.transform : null;
+        if (nearestEnemy != null && shortestDistance <= range)
+        {
+            target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy> ();
+        } else
+        {
+            target = null;
+        }
     }
-
-
-
-    void Damage(Transform enemy)
-    {
-        Enemy e = enemy.GetComponent<Enemy>();
-        e.TakeDamage(damage);
-    }
-
 
     // turret range viz onclick
     void OnDrawGizmosSelected()
@@ -72,6 +73,9 @@ public class Zapper : MonoBehaviour
 
     void shootLaser()
     {
+        targetEnemy.TakeDamage(damage * Time.deltaTime); //DoT effect
+        targetEnemy.Slow(slowAmt);
+
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true;

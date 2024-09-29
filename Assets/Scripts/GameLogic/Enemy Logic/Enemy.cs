@@ -6,14 +6,16 @@ public class Enemy : MonoBehaviour
 {
     public enum PathType { PathOne, PathTwo, PathThree, PathFour }
     public PathType pathType = PathType.PathOne; // choose the path type from Inspector
-
+    [Header("Enemy Mvmt")]
     public float rotationSpeed = 25f;
     private Transform target;
     private int waypointIdx = 0;
 
     [Header("Enemy Stats")]
-    public float speed;
-    public int health;
+    public float initSpeed;
+    private float speed;
+    public float health;
+    public int gold;
 
     void Start()
     {
@@ -32,6 +34,8 @@ public class Enemy : MonoBehaviour
         {
             target = EnemyPathFour.waypoints[0];
         }
+
+        speed = initSpeed;
     }
 
     // Move between waypoints
@@ -46,6 +50,8 @@ public class Enemy : MonoBehaviour
         {
             GetNextWaypoint();
         }
+
+        speed = initSpeed;
     }
 
     void RotateTowardsTarget(Vector3 direction)
@@ -69,7 +75,7 @@ public class Enemy : MonoBehaviour
         target = GetCurrentPathWaypoints()[waypointIdx];
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
@@ -78,9 +84,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void Slow(float amount)
+    {
+        speed = initSpeed * (1f - amount);
+    }
+
     void Die()
     {
         Destroy(gameObject);
+        PlayerInfo.Money += gold;
     }
 
     // Helper method to get the current path waypoints

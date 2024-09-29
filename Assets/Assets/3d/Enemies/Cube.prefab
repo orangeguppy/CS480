@@ -135,5 +135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathType: 3
   rotationSpeed: 25
-  speed: 4
+  initSpeed: 4
   health: 10
+  gold: 4

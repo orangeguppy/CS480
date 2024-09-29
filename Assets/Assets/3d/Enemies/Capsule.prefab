@@ -106,7 +106,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 7
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2581564863345513170
@@ -138,5 +138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathType: 0
   rotationSpeed: 25
-  speed: 2
+  initSpeed: 2
   health: 10
+  gold: 3

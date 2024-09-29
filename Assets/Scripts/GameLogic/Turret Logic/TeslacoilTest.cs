@@ -69,7 +69,7 @@ public class TeslacoilTest : MonoBehaviour
                 // Play the particle effect at each enemy's position
                 ParticleAtEnemy(enemy.transform);
 
-                // Deal damage to each enemy
+                // Deal damage to and stun each enemy
                 Damage(enemy.transform);
             }
         }
@@ -82,6 +82,7 @@ public class TeslacoilTest : MonoBehaviour
         {
             e.TakeDamage(damage);
         }
+
     }
 
     // Plays the particle effect at the enemy's position

@@ -272,6 +272,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 5347062744391057368}
   range: 5
   damage: 1
+  slowAmt: 0.4
 --- !u!120 &5347062744391057368
 LineRenderer:
   serializedVersion: 2
