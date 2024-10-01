@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using System.Text.RegularExpressions;
 using UnityEngine.UI;
 using TMPro;
 
@@ -13,21 +14,100 @@ public class UserClient : MonoBehaviour
     private static TMP_InputField confirmPassword;
     private static TMP_InputField recipient_email_otp_pw;
 
+    // Regular expression for validating an email address
+    private static readonly string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+    public static bool ValidateEmail(string email)
+    {
+        PopUpController popUpController = FindObjectOfType<PopUpController>();
+
+        // Reject null strings
+        if (string.IsNullOrWhiteSpace(email))
+        {
+            popUpController.ShowPopup("red", "Error", "Please enter an email address");
+            return false;
+        }
+
+        // Check if the email address is valid
+        bool isValid = Regex.IsMatch(email, emailPattern);
+        if (isValid == false)
+        {
+            popUpController.ShowPopup("red", "Error", "Please enter a valid email address");
+        }
+        return isValid;
+    }
+
+    public static bool ValidatePassword(string password)
+    {
+        Debug.Log(password);
+        PopUpController popUpController = FindObjectOfType<PopUpController>();
+
+        // Reject null strings
+        if (string.IsNullOrWhiteSpace(password))
+        {
+            popUpController.ShowPopup("red", "Error", "Please enter a password");
+            return false;
+        }
+
+        // Define password strength criteria:
+        // - At least 8 characters long
+        // - Contains at least 1 uppercase letter
+        // - Contains at least 1 lowercase letter
+        // - Contains at least 1 digit
+        // - Contains at least 1 special character (!@#$%^&*)
+        if (password.Length < 8)
+        {
+            popUpController.ShowPopup("red", "Error", "Password must be at least 8 characters long");
+            return false;
+        }
+
+        if (Regex.IsMatch(password, @"[A-Z]") == false || Regex.IsMatch(password, @"[a-z]") == false)
+        {
+            popUpController.ShowPopup("red", "Error", "Password must have at least one upper case and one lower case alphabet character");
+            return false;
+        }
+
+        if (Regex.IsMatch(password, @"\d") == false)
+        {
+            popUpController.ShowPopup("red", "Error", "Password must have at least one digit");
+            return false;
+        }
+
+        if (Regex.IsMatch(password, @"[\W_]") == false)
+        {
+            popUpController.ShowPopup("red", "Error", "Password must have at least one special character");
+            return false;
+        } 
+        return true;
+    }
+
     public static IEnumerator CreateUserCoroutine()
     {
+        PopUpController popUpController = FindObjectOfType<PopUpController>();
         username = GameObject.FindWithTag("NewUserUsername").GetComponent<TMP_InputField>();
         password = GameObject.FindWithTag("NewUserPassword").GetComponent<TMP_InputField>();
         confirmPassword = GameObject.FindWithTag("ConfirmPassword").GetComponent<TMP_InputField>();
 
         if (password.text != confirmPassword.text)
         {
-            Debug.Log("The passwords don't match. User not created.");
+            popUpController.ShowPopup("red", "Error", "The passwords don't match. User not created");
             yield break;
         }
 
-        Debug.Log("Username is");
-        Debug.Log(username.text);
-        Debug.Log(password.text);
+        // Validate email and password
+        bool emailIsValid = ValidateEmail(username.text);
+        bool pwIsValid = ValidatePassword(password.text);
+
+        if (emailIsValid == false || pwIsValid == false)
+        {
+            yield break;
+        }
+
+        // Don't create a user if any are false
+        // Debug.Log("Username is");
+        // Debug.Log(username.text);
+        // Debug.Log(password.text);
+
         // Create the user data object
         UserData userData = new UserData
         {
@@ -65,9 +145,11 @@ public class UserClient : MonoBehaviour
             }
             else
             {
-                Debug.Log("Error: " + request.downloadHandler.text);
-                PopUpController popUpController = FindObjectOfType<PopUpController>();
-                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
+                string res = request.downloadHandler.text;
+                HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
+                res = httpRes.detail;
+                Debug.Log("Error: " + res);
+                popUpController.ShowPopup("red", "Error", res);
             }
         }
     }
@@ -100,15 +182,21 @@ public class UserClient : MonoBehaviour
             // Check for errors
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("Error: " + request.error);
+                string res = request.downloadHandler.text;
+                HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
+                res = httpRes.detail;
+                Debug.LogError("Error: " + res);
                 PopUpController popUpController = FindObjectOfType<PopUpController>();
-                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
+                popUpController.ShowPopup("red", "Error", res);
                 // Do not go to the next screen
             }
             else
             {
                 // Process the response
-                Debug.Log("Response: " + request.downloadHandler.text);
+                string res = request.downloadHandler.text;
+                HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
+                res = httpRes.detail;
+                Debug.Log("Response: " + res);
                 // Go to the next screen
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
                 GameObject currentPage = sceneController.sendOTP;
@@ -154,9 +242,12 @@ public class UserClient : MonoBehaviour
             // Check for errors
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("Error: " + request.error);
+                string res = request.downloadHandler.text;
+                HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
+                res = httpRes.detail;
+                Debug.LogError("Error: " + res);
                 PopUpController popUpController = FindObjectOfType<PopUpController>();
-                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
+                popUpController.ShowPopup("red", "Error", res);
             }
             else
             {
@@ -198,9 +289,12 @@ public class UserClient : MonoBehaviour
             // Check for errors
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("Error: " + request.error);
+                string res = request.downloadHandler.text;
+                HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
+                res = httpRes.detail;
+                Debug.LogError("Error: " + res);
                 PopUpController popUpController = FindObjectOfType<PopUpController>();
-                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
+                popUpController.ShowPopup("red", "Error", res);
             }
             else
             {

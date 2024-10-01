@@ -42,12 +42,17 @@ public class AuthClient : MonoBehaviour
                 LoginResponse response = JsonUtility.FromJson<LoginResponse>(jsonResponse);
                 Debug.Log("Token: " + response.access_token);
                 Debug.Log("User ID: " + response.token_type);
+                // Save the access token to PlayerPrefs
+                PlayerPrefs.SetString("AccessToken", response.access_token);
                 sceneNav.loadMainMenu();
             }
             else if (request.responseCode == 403)
             {
+                string res = request.downloadHandler.text;
+                HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
+                res = httpRes.detail;
                 Debug.LogError($"Login failed: {request.downloadHandler.text}");
-                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
+                popUpController.ShowPopup("red", "Error", res);
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
                 GameObject loginPage = GameObject.Find("SignInPage");
                 GameObject emailVerificationPage = sceneController.verifyEmailAddrPage;
@@ -56,8 +61,11 @@ public class AuthClient : MonoBehaviour
             }
             else
             {
+                string res = request.downloadHandler.text;
+                HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
+                res = httpRes.detail;
                 Debug.LogError($"Login failed: {request.downloadHandler.text}");
-                popUpController.ShowPopup("red", "Error", request.downloadHandler.text);
+                popUpController.ShowPopup("red", "Error", res);
             }
         }
     }

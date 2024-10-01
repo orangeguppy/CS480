@@ -17,12 +17,10 @@ public class PopUpController : MonoBehaviour
 
     public void ShowPopup(string colour, string status, string body)
     {
-        int bodyLength = body.Length;
-        int endIndex = (bodyLength - 11) - 2;
         msgStatus.text = status;
-        msgBody.text = body.Substring(11, endIndex);
+        msgBody.text = body;
         switch (colour) {
-            case "blue":
+            default:
                 box.sprite = blueBox;
                 break;
             case "green":
