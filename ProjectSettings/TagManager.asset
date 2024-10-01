@@ -15,6 +15,7 @@ TagManager:
   - PwForPwReset
   - ConfirmPwForPwReset
   - SendOTPForEmailVerification
+  - Enemy
   layers:
   - Default
   - TransparentFX
