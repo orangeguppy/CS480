@@ -231,6 +231,8 @@ public class UserClient : MonoBehaviour
         // Create the UnityWebRequest
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
+            PopUpController popUpController = FindObjectOfType<PopUpController>();
+
             // Attach JSON data as raw bytes
             request.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
             request.downloadHandler = new DownloadHandlerBuffer();
@@ -246,13 +248,13 @@ public class UserClient : MonoBehaviour
                 HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
                 res = httpRes.detail;
                 Debug.LogError("Error: " + res);
-                PopUpController popUpController = FindObjectOfType<PopUpController>();
                 popUpController.ShowPopup("red", "Error", res);
             }
             else
             {
                 // Process the response
-                Debug.Log("Response: " + request.downloadHandler.text);
+                Debug.Log("Pw Response: " + request.downloadHandler.text);
+                popUpController.ShowPopup("green", "Success", "Password changed!");
                 // Destroy the current page and show the next one
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
                 GameObject currentPage = sceneController.sendOTP;
@@ -278,6 +280,8 @@ public class UserClient : MonoBehaviour
         // Create the UnityWebRequest
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
+            // Create pop up
+            PopUpController popUpController = FindObjectOfType<PopUpController>();
             // Attach JSON data as raw bytes
             request.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
             request.downloadHandler = new DownloadHandlerBuffer();
@@ -293,13 +297,13 @@ public class UserClient : MonoBehaviour
                 HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
                 res = httpRes.detail;
                 Debug.LogError("Error: " + res);
-                PopUpController popUpController = FindObjectOfType<PopUpController>();
                 popUpController.ShowPopup("red", "Error", res);
             }
             else
             {
                 // Process the response
-                Debug.Log("Response: " + request.downloadHandler.text);
+                Debug.Log("Pw Response: " + request.downloadHandler.text);
+                popUpController.ShowPopup("green", "Success", "Account activated!");
 
                 // Destroy the current page and show the next one
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
