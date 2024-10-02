@@ -10,7 +10,7 @@ public class EndlessWS : MonoBehaviour
     public float timeDiff = 7f; //time btw waves
     private float countdown = 3f; //first wave timer
 
-    private int waveNumber = 0;
+    public static int waveNumber = 0;
     public Transform spawnpoint;
     public float spawnDiff = 0.2f;  //time btw each unit in wave
     public TextMeshProUGUI waveNumText;

@@ -9,8 +9,8 @@ public class PlatformManager : MonoBehaviour
     private Color startColor;
 
     public GameObject turret;
-    public GameObject buildMenu; //UI
-
+    public GameObject buildMenu; // UI for building turrets
+    public GameObject upgradeMenu; // UI for upgrading turrets
 
     private static GameObject currentOpenMenu = null;
     private static PlatformManager selectedPlatform = null;
@@ -20,8 +20,6 @@ public class PlatformManager : MonoBehaviour
     public float xOffset = 0f;
     public float zOffset = 0f;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -43,63 +41,84 @@ public class PlatformManager : MonoBehaviour
 
     void OnMouseDown()
     {
+        // If a turret exists, show the upgrade menu
         if (turret != null)
         {
-            Debug.Log("nobuild");
-            return;
+            HandleMenu(upgradeMenu);
+        }
+        else
+        {
+            HandleMenu(buildMenu);
         }
 
-
-        //Set platform 
+        // Set the current selected platform in BuildManager
         BuildManager.instance.SetSelectedPlatform(this);
+    }
 
-        //Close menu if alr open
-        if (currentOpenMenu == buildMenu && selectedPlatform == this)
+    private void HandleMenu(GameObject menu)
+    {
+        if (currentOpenMenu == menu && selectedPlatform == this)
         {
-            buildMenu.SetActive(false);
+            menu.SetActive(false);
             currentOpenMenu = null;
             selectedPlatform = null;
         }
         else
         {
-           
             if (currentOpenMenu != null)
             {
                 currentOpenMenu.SetActive(false);
             }
 
-            buildMenu.SetActive(true);
+            menu.SetActive(true);
+            SetMenuPosition(menu);
 
-            // Adjust the menu's position
-            Vector3 offset = new Vector3(xOffset, heightOffset, zOffset);
-            Vector3 newPosition = transform.position + offset;
-            //newPosition.y += heightOffset;
-            //newPosition.x += xOffset;
-            //newPosition.z += zOffset;
-
-            // Set the menu's new position
-            buildMenu.transform.position = newPosition;
-
-            // Update the currently active menu and selected platform
-            currentOpenMenu = buildMenu;
+            currentOpenMenu = menu;
             selectedPlatform = this;
-            
         }
+    }
+
+    private void SetMenuPosition(GameObject menu)
+    {
+        Vector3 offset = new Vector3(xOffset, heightOffset, zOffset);
+        Vector3 newPosition = transform.position + offset;
+        menu.transform.position = newPosition;
     }
 
     public void BuildTurret()
     {
         if (turret != null)
         {
-            Debug.Log("Turret alr here");
+            Debug.Log("Turret already here");
             return;
         }
 
+        // Build the selected turret using the BuildManager
         BuildManager.instance.BuildOn(this);
-        currentOpenMenu.SetActive(false); // Hide the menu after building the turret
-        currentOpenMenu = null;
-        selectedPlatform = null;
+
+        HideMenu();
     }
 
+    public void UpgradeTurret()
+    {
+        if (turret == null)
+        {
+            Debug.Log("No turret to upgrade");
+            return;
+        }
 
+        // Your upgrade logic here
+
+        HideMenu();
+    }
+
+    private void HideMenu()
+    {
+        if (currentOpenMenu != null)
+        {
+            currentOpenMenu.SetActive(false);
+            currentOpenMenu = null;
+            selectedPlatform = null;
+        }
+    }
 }

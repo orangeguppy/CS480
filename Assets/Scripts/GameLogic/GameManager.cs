@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private bool gameOver = false;
+    public GameObject gameOverScreen;
     void Start()
     {
         
@@ -28,5 +29,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("gg no re");
         gameOver = true;
+        gameOverScreen.SetActive(true);
     }
 }

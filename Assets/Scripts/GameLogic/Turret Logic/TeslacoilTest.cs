@@ -6,7 +6,6 @@ public class TeslacoilTest : MonoBehaviour
 {
     [Header("Targeting")]
     public string targetTag = "Enemy";
-    //private Transform target;
 
     [Header("FX")]
     public ParticleSystem strikePrefab;
@@ -17,15 +16,8 @@ public class TeslacoilTest : MonoBehaviour
     private float fireCooldown = 0f;
     public int damage;
 
-    void Start()
-    {
-        //InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f); // call UpdateTarget 2x/s
-    }
-
     void Update()
     {
-
-
         if (fireCooldown <= 0f)
         {
             Shoot();
@@ -34,25 +26,7 @@ public class TeslacoilTest : MonoBehaviour
 
         fireCooldown -= Time.deltaTime;
     }
-    /*
-    void UpdateTarget()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
 
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
-        }
-
-        target = nearestEnemy != null && shortestDistance <= range ? nearestEnemy.transform : null;
-    }*/
 
     void Shoot()
     {
