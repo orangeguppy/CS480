@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class SubmitPopupController : MonoBehaviour
 {
+    public GameObject ScoreUI;
     public Button submitButton;
     public GameObject popupPrefab;
     public void ShowUI()
@@ -13,5 +14,14 @@ public class SubmitPopupController : MonoBehaviour
     public void HideUI()
     {
         popupPrefab.SetActive(false);
+    }
+
+    public void showScoreUI()
+    {
+        ScoreUI.SetActive(true);
+    }
+    public void hideScoreUI()
+    {
+        ScoreUI.SetActive(false);
     }
 }
