@@ -1,17 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class QuizUIController : MonoBehaviour
 {
-    public Text questionNumberText;
-    public Text questionText;
+    public TextMeshProUGUI questionNumberText;
+    public TextMeshProUGUI questionText;
     public Toggle[] optionToggles;
     public Button submitButton;
     public Button leftButton;
     public Button rightButton;
-    public GameObject submitPopup;
-    public Button yesButton;
-    public Button noButton;
 
     private QuizManager quizManager;
     private QuizState quizState;
@@ -36,7 +34,7 @@ public class QuizUIController : MonoBehaviour
 
         for (int i = 0; i < optionToggles.Length; i++)
         {
-            optionToggles[i].GetComponentInChildren<Text>().text = question.GetOption(i);
+            optionToggles[i].GetComponentInChildren<TextMeshProUGUI>().text = question.GetOption(i);
             optionToggles[i].isOn = quizState.IsOptionSelected(index, i);
             optionToggles[i].group = question.correct_answer.Count > 1 ? null : optionToggles[0].group;
         }
@@ -47,11 +45,9 @@ public class QuizUIController : MonoBehaviour
 
     private void SetupListeners()
     {
-        submitButton.onClick.AddListener(ShowSubmitPopup);
+        submitButton.onClick.AddListener(quizManager.SubmitQuiz);
         leftButton.onClick.AddListener(() => quizManager.NavigateQuestion(-1));
         rightButton.onClick.AddListener(() => quizManager.NavigateQuestion(1));
-        yesButton.onClick.AddListener(quizManager.SubmitQuiz);
-        noButton.onClick.AddListener(CloseSubmitPopup);
 
         for (int i = 0; i < optionToggles.Length; i++)
         {
@@ -60,19 +56,8 @@ public class QuizUIController : MonoBehaviour
         }
     }
 
-    private void ShowSubmitPopup()
-    {
-        submitPopup.SetActive(true);
-    }
-
-    private void CloseSubmitPopup()
-    {
-        submitPopup.SetActive(false);
-    }
-
     public void DisplayQuizResult(QuizResult result)
     {
-        // Implement result display logic here
         Debug.Log($"Quiz Score: {result.score}, Improved: {result.improved}");
     }
 }

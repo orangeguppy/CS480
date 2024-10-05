@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class QuizState
 {
-    public string Subcategory { get; set; } = "email_web"; // Default value, change as needed
+    public string Subcategory { get; set; } = "SSRF"; // Default value, change as needed
     public string UserEmail { get; set; } = "test@email.com"; // Default value, change as needed
 
     public List<QuizQuestion> QuizQuestions { get; private set; }
