@@ -7,10 +7,8 @@ public class QuizUIController : MonoBehaviour
     public TextMeshProUGUI questionNumberText;
     public TextMeshProUGUI questionText;
     public Toggle[] optionToggles;
-    public Button submitButton;
     public Button leftButton;
     public Button rightButton;
-
     private QuizManager quizManager;
     private QuizState quizState;
 
@@ -45,7 +43,6 @@ public class QuizUIController : MonoBehaviour
 
     private void SetupListeners()
     {
-        submitButton.onClick.AddListener(quizManager.SubmitQuiz);
         leftButton.onClick.AddListener(() => quizManager.NavigateQuestion(-1));
         rightButton.onClick.AddListener(() => quizManager.NavigateQuestion(1));
 
@@ -54,10 +51,5 @@ public class QuizUIController : MonoBehaviour
             int index = i;
             optionToggles[i].onValueChanged.AddListener((bool isOn) => quizManager.UpdateAnswer(index, isOn));
         }
-    }
-
-    public void DisplayQuizResult(QuizResult result)
-    {
-        Debug.Log($"Quiz Score: {result.score}, Improved: {result.improved}");
     }
 }

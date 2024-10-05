@@ -18,8 +18,14 @@ public class QuizManager : MonoBehaviour
     private IEnumerator InitializeQuiz()
     {
         yield return StartCoroutine(apiService.FetchQuizQuestions(quizState.Subcategory, quizState.UserEmail));
-        quizState.SetQuizQuestions(apiService.QuizQuestions);
-        uiController.InitializeUI(quizState);
+        if (apiService.QuizQuestions != null && apiService.QuizQuestions.Count > 0)
+        {
+            quizState.SetQuizQuestions(apiService.QuizQuestions);
+            uiController.InitializeUI(quizState);
+        }
+        else
+        {
+        }
     }
 
     public void NavigateQuestion(int direction)
@@ -31,16 +37,5 @@ public class QuizManager : MonoBehaviour
     public void UpdateAnswer(int optionIndex, bool isSelected)
     {
         quizState.UpdateAnswer(optionIndex, isSelected);
-    }
-
-    public void SubmitQuiz()
-    {
-        StartCoroutine(SubmitQuizCoroutine());
-    }
-
-    private IEnumerator SubmitQuizCoroutine()
-    {
-        yield return StartCoroutine(apiService.SubmitQuiz(quizState.Subcategory, quizState.UserEmail, quizState.UserAnswers));
-        uiController.DisplayQuizResult(apiService.QuizResult);
     }
 }
