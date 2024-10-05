@@ -10,12 +10,13 @@ public class L2UpgradeManager : MonoBehaviour
     private PlatformManager target;
 
     [Header("Buttons")]
-    public Button upgradeButton;
+    public Button upgrade1Button;
+
     public Button sellButton;
 
 
     [Header("Faded Button Settings")]
-    public float fadeAlpha = 0.5f; // Set to how transparent you want the button to be when inactive
+    public float fadeAlpha = 0.5f;
 
 
 
@@ -32,7 +33,7 @@ public class L2UpgradeManager : MonoBehaviour
     {
         upgradeMenuUI.SetActive(false);
     }
-
+    /*
     void UpdateButtonState(Button button, bool canAfford)
     {
         ColorBlock colorBlock = button.colors;
@@ -67,20 +68,15 @@ public class L2UpgradeManager : MonoBehaviour
             textColor.a = alpha;
             buttonText.color = textColor;
         }
-    }
+    }*/
 
     public void Upgrade()
     {
-        target.UpgradeTurret();
-        Debug.Log("upgrade");
+        target.Stage2Upgrade();
     }
 
     public void Sell()
     {
-        /*if (PlayerInfo.Money >= zapper.cost)
-        {
-            buildManager.SetTurretToBuild(zapper);
-        }*/
-        Debug.Log("sell");
+        target.Sell();
     }
 }

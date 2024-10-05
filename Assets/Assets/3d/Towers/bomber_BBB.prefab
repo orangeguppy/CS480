@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Enemy
   rotatePart: {fileID: 1668696964344613268}
-  bulletPrefab: {fileID: 1715458827473549033, guid: 9f3d685561b7f1e499448f42f09387ec, type: 3}
+  missilePrefab: {fileID: 1715458827473549033, guid: 9f3d685561b7f1e499448f42f09387ec, type: 3}
   firingPoint1: {fileID: 4834081563356643637}
   firingPoint2: {fileID: 840063776555746084}
   range: 7

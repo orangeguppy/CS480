@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeMenuUI: {fileID: 25803033}
-  upgradeButton: {fileID: 724622010}
+  upgrade1Button: {fileID: 724622010}
   sellButton: {fileID: 1659840443}
   fadeAlpha: 0.5
 --- !u!1 &28295688
@@ -909,7 +909,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 106587623}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1657061159}
+        m_TargetAssemblyTypeName: L3UpgradeManager, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &106587623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,7 +1136,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 148261162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1657061159}
+        m_TargetAssemblyTypeName: L3UpgradeManager, Assembly-CSharp
+        m_MethodName: UpgradeB
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &148261162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1958,8 +1982,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildEffect: {fileID: 7874908414489445064, guid: 6098b8f4184aaaf4ab9c12c27573d8b0, type: 3}
-  upgradeEffect: {fileID: 0}
+  upgradeEffect: {fileID: 2783493571665486770, guid: 5e9014578eeae92499b586b43736bfe4, type: 3}
   L2upgradeUI: {fileID: 25803038}
+  L3upgradeUI: {fileID: 1657061159}
   buyUI: {fileID: 899995490}
 --- !u!114 &284614972
 MonoBehaviour:
@@ -2198,7 +2223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Upgrade</b>
+  m_text: '<b>Upgrade A </b>
 
     $1100'
   m_isRightToLeft: 0
@@ -3742,7 +3767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Upgrade</b>
+  m_text: '<b>Upgrade B</b>
 
     $1100'
   m_isRightToLeft: 0
@@ -4207,23 +4232,43 @@ MonoBehaviour:
   gunner:
     prefab: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
     cost: 100
-    upgrade: {fileID: 356583337942532171, guid: 2d1cb1ffc3193444e8c82daf01e598f7, type: 3}
-    upgradeCost: 123
+    stage2: {fileID: 356583337942532171, guid: 2d1cb1ffc3193444e8c82daf01e598f7, type: 3}
+    stage2UpgradeCost: 10
+    level: 0
+    stage3A: {fileID: 5938222859346946325, guid: f8fccb5bc9b05a5448fd6fc7154f5383, type: 3}
+    stage3AUpgradeCost: 11
+    stage3B: {fileID: 2381195798902971391, guid: c69f50e158eac3541903f23349411e3f, type: 3}
+    stage3BUpgradeCost: 12
   zapper:
     prefab: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
     cost: 150
-    upgrade: {fileID: 3323388641264355447, guid: 25fdd9be4bcb572459789aa228036b97, type: 3}
-    upgradeCost: 0
+    stage2: {fileID: 3323388641264355447, guid: 25fdd9be4bcb572459789aa228036b97, type: 3}
+    stage2UpgradeCost: 1
+    level: 0
+    stage3A: {fileID: 6125059127887134557, guid: 10aa222342cc97449abe30d833ecb712, type: 3}
+    stage3AUpgradeCost: 2
+    stage3B: {fileID: 8394146701180821740, guid: ddca488f5dcd03e49846f2a941bf6242, type: 3}
+    stage3BUpgradeCost: 3
   bomber:
     prefab: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
     cost: 200
-    upgrade: {fileID: 6127691539567980718, guid: fe38db05bb6fe8247be675824b9e5b78, type: 3}
-    upgradeCost: 0
+    stage2: {fileID: 6127691539567980718, guid: fe38db05bb6fe8247be675824b9e5b78, type: 3}
+    stage2UpgradeCost: 1
+    level: 0
+    stage3A: {fileID: 2045680557324030766, guid: b6db55ece09ce3c4181bf78e1f977c26, type: 3}
+    stage3AUpgradeCost: 2
+    stage3B: {fileID: 1442560551862948017, guid: f18b5d06e5f4c604c9b5d36548fbd9f2, type: 3}
+    stage3BUpgradeCost: 3
   flamethrower:
     prefab: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
     cost: 200
-    upgrade: {fileID: 4108454273166221811, guid: 2f3bc21cb60b76143a2a07322271d997, type: 3}
-    upgradeCost: 0
+    stage2: {fileID: 4108454273166221811, guid: 2f3bc21cb60b76143a2a07322271d997, type: 3}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 2841364585293625895, guid: 959304f43c7389c47815d27981e3ec48, type: 3}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 1108606245600990443, guid: b7b803cd6a06bdd48bb22cdb49ba4573, type: 3}
+    stage3BUpgradeCost: 0
   gunnerButton: {fileID: 654770826}
   zapperButton: {fileID: 1883338610}
   bomberButton: {fileID: 958819997}
@@ -5253,7 +5298,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1203542974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1657061159}
+        m_TargetAssemblyTypeName: L3UpgradeManager, Assembly-CSharp
+        m_MethodName: UpgradeA
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1203542974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7142,6 +7199,7 @@ GameObject:
   - component: {fileID: 1657061158}
   - component: {fileID: 1657061157}
   - component: {fileID: 1657061156}
+  - component: {fileID: 1657061159}
   m_Layer: 5
   m_Name: Upgrade (1)
   m_TagString: Untagged
@@ -7235,6 +7293,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657061154}
   m_CullTransparentMesh: 1
+--- !u!114 &1657061159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657061154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ec7747f48e044faaf380fbf276026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalUpgradeUI: {fileID: 1657061154}
+  upgradeButton: {fileID: 1203542973}
+  upgrade2Button: {fileID: 148261161}
+  sellButton: {fileID: 106587622}
+  fadeAlpha: 0.5
 --- !u!1 &1659840441
 GameObject:
   m_ObjectHideFlags: 0
@@ -9780,8 +9855,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6507901978019420286
@@ -9948,8 +10028,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6919683764030261027
@@ -10011,8 +10096,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &6944656103721740627
@@ -10280,8 +10370,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!33 &7236462063621560653
@@ -10491,8 +10586,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &7783642028802570112
@@ -10692,8 +10792,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8224663808266898453
@@ -10831,8 +10936,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8670761335058598048
@@ -10889,8 +10999,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8700725330521803885
@@ -10952,8 +11067,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!33 &8751516053465261712
@@ -11011,8 +11131,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8857944161297716956
@@ -11084,8 +11209,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &9078949020165869380
@@ -11158,8 +11288,13 @@ MonoBehaviour:
   turretBlueprint:
     prefab: {fileID: 0}
     cost: 0
-    upgrade: {fileID: 0}
-    upgradeCost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    level: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
   isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807

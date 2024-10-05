@@ -22,6 +22,7 @@ public class BuildManager : MonoBehaviour
     public GameObject upgradeEffect;
 
     public L2UpgradeManager L2upgradeUI; // upgrade UI
+    public L3UpgradeManager L3upgradeUI;
     public BuyManager buyUI; // buy UI
 
 
@@ -49,8 +50,9 @@ public class BuildManager : MonoBehaviour
     public void DeselectPlatform()
     {
         selectedPlatform = null;
-        L2upgradeUI.HideUI();
         buyUI.HideUI();
+        L2upgradeUI.HideUI();
+        L3upgradeUI.HideUI();
     }
 
     public void ShowUpgradeMenu(PlatformManager platform)
@@ -58,6 +60,7 @@ public class BuildManager : MonoBehaviour
         SetSelectedPlatform(platform);
         L2upgradeUI.TargetPlatform(platform); // Position the upgrade menu correctly
         buyUI.HideUI(); // Hide the buy menu when showing the upgrade menu
+        L3upgradeUI.HideUI();
     }
 
     // Show the buy UI if no turret exists
@@ -66,6 +69,15 @@ public class BuildManager : MonoBehaviour
         SetSelectedPlatform(platform);
         buyUI.TargetPlatform(platform); // Position the buy menu correctly
         L2upgradeUI.HideUI(); // Hide the upgrade menu when showing the buy menu
+        L3upgradeUI.HideUI();
+    }
+
+    public void ShowFinalUpgradeMenu(PlatformManager platform)
+    {
+        SetSelectedPlatform(platform);
+        L3upgradeUI.TargetPlatform(platform); // Position the upgrade menu correctly
+        buyUI.HideUI(); // Hide the buy menu when showing the upgrade menu
+        L2upgradeUI.HideUI();
     }
 
     public Blueprint GetTurret()

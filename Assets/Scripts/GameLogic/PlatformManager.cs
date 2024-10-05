@@ -55,8 +55,18 @@ public class PlatformManager : MonoBehaviour
             // Show the appropriate menu based on whether a turret exists
             if (turret != null)
             {
-                Debug.Log("Show upgradeMenu");
-                buildManager.ShowUpgradeMenu(this); // Show upgrade UI if turret exists
+                if (turretBlueprint.level == 1)
+                {
+                    // Show stage 2 upgrade menu if the turret is level 1
+                    Debug.Log("Show stage 2 upgrade menu");
+                    buildManager.ShowUpgradeMenu(this); // Show level 2 upgrade menu
+                }
+                else if (turretBlueprint.level == 2)
+                {
+                    // Show stage 3 upgrade menu if the turret is level 2
+                    Debug.Log("Show stage 3 upgrade menu");
+                    buildManager.ShowFinalUpgradeMenu(this); // Show level 3 upgrade menu
+                }
             }
             else
             {
@@ -75,7 +85,6 @@ public class PlatformManager : MonoBehaviour
             return;
         }
 
-        // Build the selected turret using the BuildManager
         Build(buildManager.GetTurret());
 
     }
@@ -97,9 +106,10 @@ public class PlatformManager : MonoBehaviour
 
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, transform.position + platformOffset, Quaternion.identity);
         Destroy(effect, 2f);
+        turretBlueprint.level = 1;
     }
 
-    public void UpgradeTurret()
+    public void Stage2Upgrade()
     {
         if (turret == null)
         {
@@ -107,27 +117,96 @@ public class PlatformManager : MonoBehaviour
             return;
         }
 
-        if (PlayerInfo.Money < turretBlueprint.upgradeCost)
+        if (PlayerInfo.Money < turretBlueprint.stage2UpgradeCost)
         {
             Debug.Log("cant upgrade,broke");
             return;
         }
 
-        PlayerInfo.Money -= turretBlueprint.upgradeCost;
+        PlayerInfo.Money -= turretBlueprint.stage2UpgradeCost;
         Debug.Log(" Left $" + PlayerInfo.Money);
         //out with old
         Destroy(turret);
 
         //in with the new
-        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgrade, transform.position + platformOffset, Quaternion.identity);
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.stage2, transform.position + platformOffset, Quaternion.identity);
         turret = _turret;
 
-        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, transform.position + platformOffset, Quaternion.identity);
+        GameObject effect = (GameObject)Instantiate(buildManager.upgradeEffect, transform.position + platformOffset, Quaternion.identity);
         Destroy(effect, 2f);
 
-        Debug.Log("lvlup");
+        Debug.Log("STG2");
+        turretBlueprint.level = 2;
 
-        //HideMenu();
+        buildManager.DeselectPlatform();
     }
 
+    public void Sell()
+    {
+        Debug.Log("sell turr");
+    }
+
+    public void Stage3AUpgrade()
+    {
+        if (turret == null)
+        {
+            Debug.Log("No turret to upgrade");
+            return;
+        }
+
+        if (PlayerInfo.Money < turretBlueprint.stage3AUpgradeCost)
+        {
+            Debug.Log("cant upgrade,broke");
+            return;
+        }
+
+        PlayerInfo.Money -= turretBlueprint.stage3AUpgradeCost;
+        Debug.Log(" Left $" + PlayerInfo.Money);
+        //out with old
+        Destroy(turret);
+
+        //in with the new
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.stage3A, transform.position + platformOffset, Quaternion.identity);
+        turret = _turret;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.upgradeEffect, transform.position + platformOffset, Quaternion.identity);
+        Destroy(effect, 2f);
+
+        Debug.Log("3A");
+        turretBlueprint.level = 3;
+
+        buildManager.DeselectPlatform();
+    }
+
+    public void Stage3BUpgrade()
+    {
+        if (turret == null)
+        {
+            Debug.Log("No turret to upgrade");
+            return;
+        }
+
+        if (PlayerInfo.Money < turretBlueprint.stage3BUpgradeCost)
+        {
+            Debug.Log("cant upgrade,broke");
+            return;
+        }
+
+        PlayerInfo.Money -= turretBlueprint.stage3BUpgradeCost;
+        Debug.Log(" Left $" + PlayerInfo.Money);
+        //out with old
+        Destroy(turret);
+
+        //in with the new
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.stage3B, transform.position + platformOffset, Quaternion.identity);
+        turret = _turret;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.upgradeEffect, transform.position + platformOffset, Quaternion.identity);
+        Destroy(effect, 2f);
+
+        Debug.Log("3B");
+        turretBlueprint.level = 3;
+
+        buildManager.DeselectPlatform();
+    }
 }
