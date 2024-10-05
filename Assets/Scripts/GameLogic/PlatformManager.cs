@@ -9,21 +9,21 @@ public class PlatformManager : MonoBehaviour
     private Color startColor;
 
     public GameObject turret;
-    public GameObject buildMenu; // UI for building turrets
-    public GameObject upgradeMenu; // UI for upgrading turrets
+    public Blueprint turretBlueprint;
+    public bool isUpgradable;
 
-    private static GameObject currentOpenMenu = null;
-    private static PlatformManager selectedPlatform = null;
+
+    BuildManager buildManager;
 
     [Header("Menu Adj")]
-    public float heightOffset = 0.2f;
-    public float xOffset = 0f;
-    public float zOffset = 0f;
+    public Vector3 platformOffset;
 
     void Start()
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+        buildManager = BuildManager.instance;
+        platformOffset = new Vector3(0f, 0.1f, 0f);
     }
 
     void OnMouseEnter()
@@ -41,49 +41,31 @@ public class PlatformManager : MonoBehaviour
 
     void OnMouseDown()
     {
-        // If a turret exists, show the upgrade menu
-        if (turret != null)
+        // If the platform is already selected, deselect it and hide the menus
+        if (buildManager.IsPlatformSelected(this))
         {
-            HandleMenu(upgradeMenu);
+            Debug.Log("Hide Menu");
+            buildManager.DeselectPlatform(); // Use DeselectPlatform to hide the menus
         }
         else
         {
-            HandleMenu(buildMenu);
-        }
+            // Set the selected platform to ensure correct positioning of the menus
+            buildManager.SetSelectedPlatform(this);
 
-        // Set the current selected platform in BuildManager
-        BuildManager.instance.SetSelectedPlatform(this);
-    }
-
-    private void HandleMenu(GameObject menu)
-    {
-        if (currentOpenMenu == menu && selectedPlatform == this)
-        {
-            menu.SetActive(false);
-            currentOpenMenu = null;
-            selectedPlatform = null;
-        }
-        else
-        {
-            if (currentOpenMenu != null)
+            // Show the appropriate menu based on whether a turret exists
+            if (turret != null)
             {
-                currentOpenMenu.SetActive(false);
+                Debug.Log("Show upgradeMenu");
+                buildManager.ShowUpgradeMenu(this); // Show upgrade UI if turret exists
             }
-
-            menu.SetActive(true);
-            SetMenuPosition(menu);
-
-            currentOpenMenu = menu;
-            selectedPlatform = this;
+            else
+            {
+                Debug.Log("Show buyMenu");
+                buildManager.ShowBuyMenu(this); // Show buy UI if no turret exists
+            }
         }
     }
 
-    private void SetMenuPosition(GameObject menu)
-    {
-        Vector3 offset = new Vector3(xOffset, heightOffset, zOffset);
-        Vector3 newPosition = transform.position + offset;
-        menu.transform.position = newPosition;
-    }
 
     public void BuildTurret()
     {
@@ -94,9 +76,27 @@ public class PlatformManager : MonoBehaviour
         }
 
         // Build the selected turret using the BuildManager
-        BuildManager.instance.BuildOn(this);
+        Build(buildManager.GetTurret());
 
-        HideMenu();
+    }
+
+    public void Build(Blueprint blueprint)
+    {
+        if (PlayerInfo.Money < blueprint.cost)
+        {
+            Debug.Log("broke no money");
+            return;
+        }
+
+        PlayerInfo.Money -= blueprint.cost;
+        Debug.Log(" Left $" + PlayerInfo.Money);
+        
+        GameObject _turret = (GameObject)Instantiate(blueprint.prefab, transform.position + platformOffset, Quaternion.identity);
+        turret = _turret;
+        turretBlueprint = blueprint;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, transform.position + platformOffset, Quaternion.identity);
+        Destroy(effect, 2f);
     }
 
     public void UpgradeTurret()
@@ -107,18 +107,27 @@ public class PlatformManager : MonoBehaviour
             return;
         }
 
-        // Your upgrade logic here
-
-        HideMenu();
-    }
-
-    private void HideMenu()
-    {
-        if (currentOpenMenu != null)
+        if (PlayerInfo.Money < turretBlueprint.upgradeCost)
         {
-            currentOpenMenu.SetActive(false);
-            currentOpenMenu = null;
-            selectedPlatform = null;
+            Debug.Log("cant upgrade,broke");
+            return;
         }
+
+        PlayerInfo.Money -= turretBlueprint.upgradeCost;
+        Debug.Log(" Left $" + PlayerInfo.Money);
+        //out with old
+        Destroy(turret);
+
+        //in with the new
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgrade, transform.position + platformOffset, Quaternion.identity);
+        turret = _turret;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, transform.position + platformOffset, Quaternion.identity);
+        Destroy(effect, 2f);
+
+        Debug.Log("lvlup");
+
+        //HideMenu();
     }
+
 }

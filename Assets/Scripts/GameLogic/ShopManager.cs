@@ -7,6 +7,8 @@ public class ShopManager : MonoBehaviour
 {
     BuildManager buildManager;
 
+    public BuyManager buyUI; // buy UI
+
     [Header("Turret Prefabs")]
     public Blueprint gunner;
     public Blueprint zapper;
@@ -77,6 +79,7 @@ public class ShopManager : MonoBehaviour
         if (PlayerInfo.Money >= gunner.cost)
         {
             buildManager.SetTurretToBuild(gunner);
+            buildManager.DeselectPlatform();
         }
     }
 
@@ -85,6 +88,7 @@ public class ShopManager : MonoBehaviour
         if (PlayerInfo.Money >= zapper.cost)
         {
             buildManager.SetTurretToBuild(zapper);
+            buildManager.DeselectPlatform();
         }
     }
 
@@ -93,6 +97,7 @@ public class ShopManager : MonoBehaviour
         if (PlayerInfo.Money >= bomber.cost)
         {
             buildManager.SetTurretToBuild(bomber);
+            buildManager.DeselectPlatform();
         }
     }
 
@@ -101,6 +106,7 @@ public class ShopManager : MonoBehaviour
         if (PlayerInfo.Money >= flamethrower.cost)
         {
             buildManager.SetTurretToBuild(flamethrower);
+            buildManager.DeselectPlatform();
         }
     }
 }

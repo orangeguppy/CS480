@@ -19,9 +19,7 @@ public class SubmitPopupController : MonoBehaviour
     public void showScoreUI()
     {
         ScoreUI.SetActive(true);
+        HideUI();
     }
-    public void hideScoreUI()
-    {
-        ScoreUI.SetActive(false);
-    }
+
 }
