@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 public class QuizAPIService
 {
-    private const string API_URL = "http://localhost:8000/api/v1/quizzes";
+    private const string API_URL = "https://0.0.0.0:8000/api/v1/";
 
     public List<QuizQuestion> QuizQuestions { get; private set; }
     public QuizResult QuizResult { get; private set; }
@@ -20,7 +20,7 @@ public class QuizAPIService
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("Error: " + request.error);
+                // Debug.LogError("Error: " + request.error);
             }
             else
             {

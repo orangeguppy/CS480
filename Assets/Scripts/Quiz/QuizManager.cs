@@ -4,11 +4,12 @@ using System.Collections;
 public class QuizManager : MonoBehaviour
 {
     public QuizUIController uiController;
-    public QuizAPIService apiService;
-    public QuizState quizState;
+    private QuizAPIService apiService;
+    private QuizState quizState;
 
     private void Start()
     {
+        uiController = GetComponent<QuizUIController>();
         quizState = new QuizState();
         apiService = new QuizAPIService();
         StartCoroutine(InitializeQuiz());
