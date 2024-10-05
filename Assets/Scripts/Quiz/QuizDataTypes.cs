@@ -24,16 +24,3 @@ public class QuizQuestion
         };
     }
 }
-
-[System.Serializable]
-public class QuizSubmission
-{
-    public List<List<string>> answers;
-}
-
-[System.Serializable]
-public class QuizResult
-{
-    public int score;
-    public bool improved;
-}

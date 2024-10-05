@@ -12,18 +12,36 @@ public class QuizState
 
     public void SetQuizQuestions(List<QuizQuestion> questions)
     {
-        QuizQuestions = questions;
-        UserAnswers = new List<List<string>>(new List<string>[questions.Count]);
-        CurrentQuestionIndex = 0;
+        if (questions == null || questions.Count == 0)
+        {
+            QuizQuestions = new List<QuizQuestion>();
+            UserAnswers = new List<List<string>>();
+            CurrentQuestionIndex = 0;
+        }
+        else
+        {
+            QuizQuestions = questions;
+            UserAnswers = new List<List<string>>(new List<string>[questions.Count]);
+            CurrentQuestionIndex = 0;
+        }
     }
 
     public QuizQuestion GetCurrentQuestion()
     {
+        if (QuizQuestions == null || QuizQuestions.Count == 0 || CurrentQuestionIndex < 0 || CurrentQuestionIndex >= QuizQuestions.Count)
+        {
+            return null;
+        }
         return QuizQuestions[CurrentQuestionIndex];
     }
 
     public void NavigateQuestion(int direction)
     {
+        if (QuizQuestions.Count == 0)
+        {
+            return;
+        }
+
         CurrentQuestionIndex = (CurrentQuestionIndex + direction + TotalQuestions) % TotalQuestions;
     }
 
