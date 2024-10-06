@@ -12,25 +12,4 @@ public class GameEnd : MonoBehaviour
     {
         waveNumberText.text = ((EndlessWS.waveNumber)/3).ToString();
     }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //waveNumberText.text = ((EndlessWS.waveNumber) / 3).ToString();
-    }
-
-    public void Retry()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("Game");
-    }
 }
