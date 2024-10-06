@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class L2UpgradeManager : MonoBehaviour
 {
@@ -9,22 +10,28 @@ public class L2UpgradeManager : MonoBehaviour
 
     private PlatformManager target;
 
-    [Header("Buttons")]
-    public Button upgrade1Button;
-
+    [Header("UI")]
+    public Button upgradeButton;
     public Button sellButton;
-
+    public TextMeshProUGUI upgradeCost;
+    public TextMeshProUGUI sellAmt;
 
     [Header("Faded Button Settings")]
     public float fadeAlpha = 0.5f;
 
-
+    void Update()
+    {
+        UpdateButtonState(upgradeButton, PlayerInfo.Money >= target.turretBlueprint.stage2UpgradeCost);
+    }
 
     public void TargetPlatform(PlatformManager target)
     {
         this.target = target;
         Vector3 platformOffset = new Vector3(0f, 0.1f, 0f);
         transform.position = target.transform.position + platformOffset;
+
+        upgradeCost.text = "$" + target.turretBlueprint.stage2UpgradeCost;
+        sellAmt.text = "$" + target.turretBlueprint.SellAmount();
 
         upgradeMenuUI.SetActive(true);  
     }
@@ -33,7 +40,7 @@ public class L2UpgradeManager : MonoBehaviour
     {
         upgradeMenuUI.SetActive(false);
     }
-    /*
+
     void UpdateButtonState(Button button, bool canAfford)
     {
         ColorBlock colorBlock = button.colors;
@@ -42,13 +49,13 @@ public class L2UpgradeManager : MonoBehaviour
 
         if (canAfford)
         {
-            // Fully visible if player can afford the upgrade
+            // Fully visible if player can afford the turret
             SetButtonTransparency(button, buttonText, 1f);
             button.interactable = true;
         }
         else
         {
-            // Fade out the button and text if the player can't afford the upgrade
+            // Fade out the button and text if the player can't afford the turret
             SetButtonTransparency(button, buttonText, fadeAlpha);
             button.interactable = false;
         }
@@ -68,7 +75,7 @@ public class L2UpgradeManager : MonoBehaviour
             textColor.a = alpha;
             buttonText.color = textColor;
         }
-    }*/
+    }
 
     public void Upgrade()
     {

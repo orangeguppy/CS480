@@ -67,6 +67,11 @@ public class PlatformManager : MonoBehaviour
                     Debug.Log("Show stage 3 upgrade menu");
                     buildManager.ShowFinalUpgradeMenu(this); // Show level 3 upgrade menu
                 }
+                else if (turretBlueprint.level >= 3)
+                {
+                    //show sell menu
+                    buildManager.ShowSellMenu(this);
+                }
             }
             else
             {
@@ -144,6 +149,14 @@ public class PlatformManager : MonoBehaviour
     public void Sell()
     {
         Debug.Log("sell turr");
+        PlayerInfo.Money += turretBlueprint.SellAmount();
+
+        Destroy(turret);
+        GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, transform.position + platformOffset, Quaternion.identity);
+        Destroy(effect, 2f);
+
+        turretBlueprint = null;
+        buildManager.DeselectPlatform();
     }
 
     public void Stage3AUpgrade()
@@ -205,7 +218,7 @@ public class PlatformManager : MonoBehaviour
         Destroy(effect, 2f);
 
         Debug.Log("3B");
-        turretBlueprint.level = 3;
+        turretBlueprint.level = 4;
 
         buildManager.DeselectPlatform();
     }
