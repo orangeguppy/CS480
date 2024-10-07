@@ -326,7 +326,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1856908576}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.08444122
+  m_Size: 0.06288931
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1565,59 +1565,312 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1. Introduction to BEC\r\n\r\nBusiness Email Compromise (BEC) is a sophisticated
-    form of phishing that targets organizations to defraud them of money or sensitive
-    information. Unlike traditional phishing, BEC attacks are more targeted and often
-    involve impersonating trusted individuals within the company or its partners.\r\n2.
-    Types of BEC Attacks\r\n\r\na. CEO Fraud: Attackers impersonate high-level executives
-    to request urgent fund transfers.\r\n\r\nb. Account Compromise: Hackers gain
-    access to legitimate email accounts to request payments or sensitive information.\r\n\r\nc.
-    Bogus Invoice Schemes: Cybercriminals pose as suppliers and request payments
-    to fraudulent accounts.\r\n\r\nd. Attorney Impersonation: Attackers pretend to
-    be lawyers or legal representatives, often targeting employees on Fridays or
-    before holidays.\r\n\r\ne. Data Theft: Criminals aim to obtain confidential employee
-    or company information, often by targeting HR departments.\r\n3. Recognizing
-    BEC Attacks\r\n\r\nCommon characteristics of BEC emails include:\r\n\r\n    Spoofed
-    sender domains\r\n    Urgent requests in the subject line and body\r\n    Requests
-    for fund transfers or sensitive information\r\n    Impersonation of influential
-    people in the company\r\n    Unusual grammatical errors or typos\r\n\r\n4. Preventing
-    BEC Attacks\r\n\r\na. Verify requests: Always confirm unusual requests, especially
-    those involving money or sensitive information, through a different communication
-    channel.\r\n\r\nb. Implement multi-factor authentication for email accounts.\r\n\r\nc.
-    Train employees to recognize signs of BEC attacks.\r\n\r\nd. Be cautious of requests
-    creating a sense of urgency.\r\n\r\ne. Avoid allowing email forwarding to external
-    addresses.\r\n5. Best Practices for Handling Suspicious Emails\r\n\r\na. Do not
-    immediately comply with urgent requests for fund transfers or information changes.\r\n\r\nb.
-    Contact the supposed sender using known, verified contact information, not the
-    details provided in the suspicious email.\r\n\r\nc. Be wary of unexpected emails
-    requesting confidential information, even if they appear to be from trusted sources
-    like HR.\r\n\r\nd. When in doubt, consult with your IT security team.\r\n6. Introduction
-    to Quishing\r\n\r\nQuishing, or QR phishing, is a cyber attack that uses QR codes
-    to direct victims to malicious websites. Unlike traditional phishing that relies
-    on text-based links, quishing leverages the increasing use of QR codes in everyday
-    life.\r\n7. How Quishing Works\r\n\r\na. Attackers create a malicious QR code
-    linked to a fake website.\r\n\r\nb. The code is distributed via email, social
-    media, or even physical locations.\r\n\r\nc. When scanned, the code directs victims
-    to a fraudulent site that may steal information or install malware.\r\n8. Risks
-    Associated with Quishing\r\n\r\na. Entering login credentials on phishing sites\r\n\r\nb.
-    Downloading and installing malware\r\n\r\nc. Unauthorized financial transactions\r\n9.
-    Challenges in Detecting Quishing\r\n\r\na. QR codes are harder to scan for malicious
-    content than text-based links.\r\n\r\nb. Many email filters don't effectively
-    block or analyze QR codes.\r\n\r\nc. Quishing can involve multiple devices, including
-    personal ones, making organizational control difficult.\r\n10. Warning Signs
-    of Quishing Attacks\r\n\r\na. Misspellings and grammatical errors in the accompanying
-    message\r\n\r\nb. Emails from lookalike addresses\r\n\r\nc. A sense of urgency
-    in the message\r\n\r\nd. Unexpected QR codes from unknown senders\r\n11. Protecting
-    Against Quishing\r\n\r\na. Always check the URL after scanning a QR code before
-    proceeding to the website.\r\n\r\nb. Enable Multi-Factor Authentication (MFA)
-    to reduce the impact if credentials are compromised.\r\n\r\nc. Educate employees
-    about the risks of scanning unknown QR codes.\r\n\r\nd. Be cautious when scanning
-    QR codes, especially on personal devices that might later connect to company
-    networks.\r\n12. Organizational Measures Against Quishing\r\n\r\na. Implement
-    email scanners that can detect and analyze QR codes.\r\n\r\nb. Provide regular
-    training on emerging phishing techniques, including quishing.\r\n\r\nc. Establish
-    clear policies on handling QR codes in professional communication.\r\n\r\nd.
-    Encourage reporting of suspicious emails or QR codes to IT security."
+  m_text: 'Protecting Yourself from Phishing:
+
+    A Comprehensive Guide
+
+
+    In
+    today''s digital landscape, phishing attacks pose a significant threat to both
+    individuals and organizations. As an employee of our company, it''s crucial that
+    you understand the various forms of phishing and how to protect yourself and
+    our organization from these sophisticated cyber threats.
+
+    
+
+    What is
+    Phishing?
+
+
+    Phishing is a type of cyber attack where criminals attempt to
+    trick you into revealing sensitive information, such as login credentials, financial
+    details, or other personal data. These attacks can come in various forms, including
+    email, websites, and even phone calls or text messages.
+
+    
+
+    Types of
+    Phishing Attacks
+
+
+    1. Email Phishing
+
+
+    Email phishing is one of the
+    most common forms of attack. Cybercriminals send emails that appear to be from
+    legitimate sources, often creating a sense of urgency to prompt immediate action.
+
+    
+
+    How
+    to Protect Yourself:
+
+    
+
+    Be cautious of emails from unknown senders
+
+    Check
+    the sender''s email address carefully
+
+    Be wary of urgent requests for personal
+    information
+
+    Hover over links to verify their destination before clicking
+
+    Never
+    download attachments from suspicious emails
+
+    If you receive an email with
+    an attachment from an unknown sender, do not open it. Report it to IT security
+    immediately.
+
+    Look for signs of potentially malicious email attachments:
+
+    Unexpected
+    or unsolicited attachments
+
+    File extensions like .exe, .scr, or .zip
+
+    Double
+    file extensions (e.g., filename.pdf.exe)
+
+    Generic or vague file names
+
+
+    2.
+    Spear Phishing
+
+
+    Spear phishing is a more targeted form of phishing. Attackers
+    research their victims and craft personalized messages to increase the likelihood
+    of success.
+
+    
+
+    How to Protect Yourself:
+
+    
+
+    Be skeptical of
+    unexpected emails, even if they appear to be from known contacts
+
+    Verify
+    requests for sensitive information through a different communication channel
+
+    Be
+    cautious of emails that create a sense of urgency or panic
+
+    Check for inconsistencies
+    in language or tone compared to previous communications
+
+    Never rush to respond
+    to urgent requests without verifying their authenticity
+
+    3. Web-based Phishing
+
+    This
+    type of phishing involves creating fake websites that mimic legitimate ones to
+    steal user information.
+
+    
+
+    How to Protect Yourself:
+
+    
+
+    Always
+    check the URL of websites, especially before entering sensitive information
+
+    Look
+    for the padlock icon and "https" in the address bar
+
+    Be cautious of websites
+    with poor design or numerous spelling errors
+
+    Use bookmarks for frequently
+    visited sites instead of clicking on links
+
+    4. Pop-up Phishing
+
+    Pop-up
+    phishing uses malicious pop-up windows to trick users into downloading malware
+    or revealing sensitive information.
+
+    
+
+    How to Protect Yourself:
+
+    
+
+    Be
+    skeptical of pop-up windows, especially those claiming your computer is infected
+
+    Never
+    call phone numbers provided in pop-up messages
+
+    Avoid clicking on pop-up
+    windows; instead, close them using the ''X'' in the corner or Alt+F4
+
+    Keep
+    your browser and operating system updated to prevent malicious pop-ups
+
+    5.
+    Pharming
+
+    Pharming is a sophisticated attack that redirects users from legitimate
+    websites to fraudulent ones, even when the correct URL is entered.
+
+    
+
+    How
+    to Protect Yourself:
+
+    
+
+    Always check for the padlock icon and "https"
+    in the address bar
+
+    Be cautious if a familiar website suddenly looks different
+    or unprofessional
+
+    Use a reputable DNS service
+
+    Keep your computer''s
+    security software up to date
+
+    Email Security Best Practices
+
+    Use a
+    strong, unique password for your email account
+
+    Enable two-factor authentication
+    on your email account
+
+    Be cautious when opening attachments, even from known
+    senders
+
+    Don''t click on links in emails; instead, type the URL directly
+    into your browser
+
+    Keep your email client and security software up to date
+
+    Use
+    email encryption for sensitive communications
+
+    Regularly clean out your
+    inbox and delete suspicious emails
+
+    What to Do If You Suspect a Phishing
+    Attempt
+
+    Don''t click on any links or download any attachments
+
+    Report
+    the suspicious email or website to our IT security team immediately
+
+    If
+    you''ve accidentally clicked a suspicious link:
+
+    Disconnect your device
+    from the internet
+
+    Run a full anti-virus scan
+
+    Change your passwords
+    from a different, secure device
+
+    If you''ve entered financial information,
+    contact your bank or credit card company immediately
+
+    If you suspect your
+    email account has been compromised:
+
+    Change your password immediately
+
+    Check
+    your email settings for any unauthorized changes
+
+    Review your sent items
+    for any emails you didn''t send
+
+    Notify your contacts that your account
+    may have been compromised
+
+    Enable two-factor authentication if not already
+    active
+
+    Creating Strong Passwords
+
+    Use a combination of uppercase and
+    lowercase letters, numbers, and symbols
+
+    Make your password at least 12
+    characters long
+
+    Avoid using personal information like birthdates or names
+
+    Don''t
+    use common words or phrases
+
+    Use a unique password for each account
+
+    Consider
+    using a password manager to generate and store complex passwords securely
+
+    Handling
+    Unexpected Financial Charges
+
+    If you notice unexpected charges on your credit
+    card statement:
+
+    
+
+    Contact your bank or credit card company immediately
+
+    Report
+    the unauthorized charges and request a new card
+
+    Review your recent online
+    activities for any security breaches
+
+    Change passwords for all your online
+    accounts, especially those related to financial services
+
+    Monitor your credit
+    report for any suspicious activities
+
+    Consider placing a fraud alert or
+    credit freeze on your credit reports
+
+    General Best Practices
+
+    Keep
+    your software and operating systems up to date
+
+    Be cautious when sharing
+    personal information online
+
+    Use a reliable antivirus and anti-malware solution
+
+    Regularly
+    educate yourself on the latest phishing techniques
+
+    Use a Virtual Private
+    Network (VPN) when accessing sensitive information on public Wi-Fi
+
+    Be wary
+    of unsolicited phone calls or text messages asking for personal information
+
+    Remember,
+    staying vigilant and informed is our best defense against phishing attacks. If
+    you''re ever in doubt about the legitimacy of an email, website, or pop-up, it''s
+    always better to err on the side of caution and verify with our IT security team.
+
+    
+
+    By
+    following these guidelines and staying alert, you play a crucial role in protecting
+    both yourself and our organization from the growing threat of phishing attacks.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
