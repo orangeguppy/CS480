@@ -326,7 +326,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1856908576}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.06288931
+  m_Size: 0.059462477
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME GLOSSARY
+  m_text: lesson 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
@@ -1389,7 +1389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &855771951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1576,297 +1576,296 @@ MonoBehaviour:
     you understand the various forms of phishing and how to protect yourself and
     our organization from these sophisticated cyber threats.
 
-    
-
-    What is
-    Phishing?
 
 
-    Phishing is a type of cyber attack where criminals attempt to
-    trick you into revealing sensitive information, such as login credentials, financial
-    details, or other personal data. These attacks can come in various forms, including
-    email, websites, and even phone calls or text messages.
-
-    
-
-    Types of
-    Phishing Attacks
+    What is Phishing?
 
 
-    1. Email Phishing
+    Phishing
+    is a type of cyber attack where criminals attempt to trick you into revealing
+    sensitive information, such as login credentials, financial details, or other
+    personal data. These attacks can come in various forms, including email, websites,
+    and even phone calls or text messages.
 
 
-    Email phishing is one of the
-    most common forms of attack. Cybercriminals send emails that appear to be from
-    legitimate sources, often creating a sense of urgency to prompt immediate action.
 
-    
+    Types of Phishing Attacks
 
-    How
-    to Protect Yourself:
 
-    
+    1.
+    Email Phishing
 
-    Be cautious of emails from unknown senders
 
-    Check
-    the sender''s email address carefully
+    Email phishing is one of the most common forms of attack.
+    Cybercriminals send emails that appear to be from legitimate sources, often creating
+    a sense of urgency to prompt immediate action.
 
-    Be wary of urgent requests for personal
-    information
 
-    Hover over links to verify their destination before clicking
 
-    Never
-    download attachments from suspicious emails
+    How to Protect Yourself:
 
-    If you receive an email with
-    an attachment from an unknown sender, do not open it. Report it to IT security
-    immediately.
 
-    Look for signs of potentially malicious email attachments:
 
-    Unexpected
-    or unsolicited attachments
+    Be
+    cautious of emails from unknown senders
+
+    Check the sender''s email address
+    carefully
+
+    Be wary of urgent requests for personal information
+
+    Hover
+    over links to verify their destination before clicking
+
+    Never download attachments
+    from suspicious emails
+
+    If you receive an email with an attachment from an
+    unknown sender, do not open it. Report it to IT security immediately.
+
+    Look
+    for signs of potentially malicious email attachments:
+
+    Unexpected or unsolicited
+    attachments
 
     File extensions like .exe, .scr, or .zip
 
-    Double
-    file extensions (e.g., filename.pdf.exe)
+    Double file extensions
+    (e.g., filename.pdf.exe)
 
     Generic or vague file names
 
 
-    2.
-    Spear Phishing
+    2. Spear Phishing
 
 
-    Spear phishing is a more targeted form of phishing. Attackers
-    research their victims and craft personalized messages to increase the likelihood
-    of success.
+    Spear
+    phishing is a more targeted form of phishing. Attackers research their victims
+    and craft personalized messages to increase the likelihood of success.
 
-    
 
-    How to Protect Yourself:
-
-    
-
-    Be skeptical of
-    unexpected emails, even if they appear to be from known contacts
-
-    Verify
-    requests for sensitive information through a different communication channel
-
-    Be
-    cautious of emails that create a sense of urgency or panic
-
-    Check for inconsistencies
-    in language or tone compared to previous communications
-
-    Never rush to respond
-    to urgent requests without verifying their authenticity
-
-    3. Web-based Phishing
-
-    This
-    type of phishing involves creating fake websites that mimic legitimate ones to
-    steal user information.
-
-    
-
-    How to Protect Yourself:
-
-    
-
-    Always
-    check the URL of websites, especially before entering sensitive information
-
-    Look
-    for the padlock icon and "https" in the address bar
-
-    Be cautious of websites
-    with poor design or numerous spelling errors
-
-    Use bookmarks for frequently
-    visited sites instead of clicking on links
-
-    4. Pop-up Phishing
-
-    Pop-up
-    phishing uses malicious pop-up windows to trick users into downloading malware
-    or revealing sensitive information.
-
-    
-
-    How to Protect Yourself:
-
-    
-
-    Be
-    skeptical of pop-up windows, especially those claiming your computer is infected
-
-    Never
-    call phone numbers provided in pop-up messages
-
-    Avoid clicking on pop-up
-    windows; instead, close them using the ''X'' in the corner or Alt+F4
-
-    Keep
-    your browser and operating system updated to prevent malicious pop-ups
-
-    5.
-    Pharming
-
-    Pharming is a sophisticated attack that redirects users from legitimate
-    websites to fraudulent ones, even when the correct URL is entered.
-
-    
 
     How
     to Protect Yourself:
 
-    
 
-    Always check for the padlock icon and "https"
-    in the address bar
 
-    Be cautious if a familiar website suddenly looks different
-    or unprofessional
+    Be skeptical of unexpected emails, even if they appear
+    to be from known contacts
 
-    Use a reputable DNS service
+    Verify requests for sensitive information through
+    a different communication channel
 
-    Keep your computer''s
-    security software up to date
+    Be cautious of emails that create a sense
+    of urgency or panic
 
-    Email Security Best Practices
+    Check for inconsistencies in language or tone compared
+    to previous communications
 
-    Use a
-    strong, unique password for your email account
+    Never rush to respond to urgent requests without
+    verifying their authenticity
 
-    Enable two-factor authentication
-    on your email account
+    3. Web-based Phishing
 
-    Be cautious when opening attachments, even from known
-    senders
+    This type of phishing
+    involves creating fake websites that mimic legitimate ones to steal user information.
 
-    Don''t click on links in emails; instead, type the URL directly
-    into your browser
 
-    Keep your email client and security software up to date
 
-    Use
-    email encryption for sensitive communications
+    How
+    to Protect Yourself:
 
-    Regularly clean out your
-    inbox and delete suspicious emails
 
-    What to Do If You Suspect a Phishing
-    Attempt
+
+    Always check the URL of websites, especially before
+    entering sensitive information
+
+    Look for the padlock icon and "https" in
+    the address bar
+
+    Be cautious of websites with poor design or numerous spelling
+    errors
+
+    Use bookmarks for frequently visited sites instead of clicking on
+    links
+
+    4. Pop-up Phishing
+
+    Pop-up phishing uses malicious pop-up windows
+    to trick users into downloading malware or revealing sensitive information.
+
+
+
+    How
+    to Protect Yourself:
+
+
+
+    Be skeptical of pop-up windows, especially those
+    claiming your computer is infected
+
+    Never call phone numbers provided in
+    pop-up messages
+
+    Avoid clicking on pop-up windows; instead, close them using
+    the ''X'' in the corner or Alt+F4
+
+    Keep your browser and operating system
+    updated to prevent malicious pop-ups
+
+    5. Pharming
+
+    Pharming is a sophisticated
+    attack that redirects users from legitimate websites to fraudulent ones, even
+    when the correct URL is entered.
+
+
+
+    How to Protect Yourself:
+
+
+
+    Always
+    check for the padlock icon and "https" in the address bar
+
+    Be cautious if
+    a familiar website suddenly looks different or unprofessional
+
+    Use a reputable
+    DNS service
+
+    Keep your computer''s security software up to date
+
+    Email
+    Security Best Practices
+
+    Use a strong, unique password for your email account
+
+    Enable
+    two-factor authentication on your email account
+
+    Be cautious when opening
+    attachments, even from known senders
+
+    Don''t click on links in emails; instead,
+    type the URL directly into your browser
+
+    Keep your email client and security
+    software up to date
+
+    Use email encryption for sensitive communications
+
+    Regularly
+    clean out your inbox and delete suspicious emails
+
+    What to Do If You Suspect
+    a Phishing Attempt
 
     Don''t click on any links or download any attachments
 
     Report
     the suspicious email or website to our IT security team immediately
 
-    If
-    you''ve accidentally clicked a suspicious link:
+    If you''ve
+    accidentally clicked a suspicious link:
 
-    Disconnect your device
-    from the internet
+    Disconnect your device from the
+    internet
 
     Run a full anti-virus scan
 
-    Change your passwords
-    from a different, secure device
+    Change your passwords from a different,
+    secure device
 
-    If you''ve entered financial information,
-    contact your bank or credit card company immediately
+    If you''ve entered financial information, contact your bank
+    or credit card company immediately
 
-    If you suspect your
-    email account has been compromised:
+    If you suspect your email account has
+    been compromised:
 
     Change your password immediately
 
-    Check
-    your email settings for any unauthorized changes
+    Check your email
+    settings for any unauthorized changes
 
-    Review your sent items
-    for any emails you didn''t send
+    Review your sent items for any emails
+    you didn''t send
 
-    Notify your contacts that your account
-    may have been compromised
+    Notify your contacts that your account may have been compromised
 
-    Enable two-factor authentication if not already
-    active
+    Enable
+    two-factor authentication if not already active
 
     Creating Strong Passwords
 
-    Use a combination of uppercase and
-    lowercase letters, numbers, and symbols
+    Use
+    a combination of uppercase and lowercase letters, numbers, and symbols
 
-    Make your password at least 12
-    characters long
+    Make
+    your password at least 12 characters long
 
-    Avoid using personal information like birthdates or names
+    Avoid using personal information
+    like birthdates or names
 
-    Don''t
-    use common words or phrases
+    Don''t use common words or phrases
 
-    Use a unique password for each account
+    Use a unique
+    password for each account
 
-    Consider
-    using a password manager to generate and store complex passwords securely
+    Consider using a password manager to generate
+    and store complex passwords securely
 
-    Handling
-    Unexpected Financial Charges
+    Handling Unexpected Financial Charges
 
-    If you notice unexpected charges on your credit
-    card statement:
+    If
+    you notice unexpected charges on your credit card statement:
 
-    
 
-    Contact your bank or credit card company immediately
 
-    Report
-    the unauthorized charges and request a new card
+    Contact your
+    bank or credit card company immediately
 
-    Review your recent online
-    activities for any security breaches
+    Report the unauthorized charges
+    and request a new card
 
-    Change passwords for all your online
-    accounts, especially those related to financial services
+    Review your recent online activities for any security
+    breaches
 
-    Monitor your credit
-    report for any suspicious activities
+    Change passwords for all your online accounts, especially those
+    related to financial services
 
-    Consider placing a fraud alert or
-    credit freeze on your credit reports
+    Monitor your credit report for any suspicious
+    activities
+
+    Consider placing a fraud alert or credit freeze on your credit
+    reports
 
     General Best Practices
 
-    Keep
-    your software and operating systems up to date
+    Keep your software and operating systems
+    up to date
 
-    Be cautious when sharing
-    personal information online
+    Be cautious when sharing personal information online
 
-    Use a reliable antivirus and anti-malware solution
+    Use
+    a reliable antivirus and anti-malware solution
 
-    Regularly
-    educate yourself on the latest phishing techniques
+    Regularly educate yourself
+    on the latest phishing techniques
 
-    Use a Virtual Private
-    Network (VPN) when accessing sensitive information on public Wi-Fi
+    Use a Virtual Private Network (VPN) when
+    accessing sensitive information on public Wi-Fi
 
-    Be wary
-    of unsolicited phone calls or text messages asking for personal information
+    Be wary of unsolicited phone
+    calls or text messages asking for personal information
 
-    Remember,
-    staying vigilant and informed is our best defense against phishing attacks. If
-    you''re ever in doubt about the legitimacy of an email, website, or pop-up, it''s
-    always better to err on the side of caution and verify with our IT security team.
+    Remember, staying
+    vigilant and informed is our best defense against phishing attacks. If you''re
+    ever in doubt about the legitimacy of an email, website, or pop-up, it''s always
+    better to err on the side of caution and verify with our IT security team.
 
-    
+
 
     By
     following these guidelines and staying alert, you play a crucial role in protecting
@@ -2640,7 +2639,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 5
   m_Viewport: {fileID: 416576318}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 194616151}
@@ -3389,7 +3388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1960001729
 RectTransform:
   m_ObjectHideFlags: 0
