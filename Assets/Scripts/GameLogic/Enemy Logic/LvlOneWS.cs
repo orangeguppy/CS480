@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LvlOneWS : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class LvlOneWS : MonoBehaviour
     {
         public Transform enemyPrefab;
         public int enemyCount;
-        public float rate; // higher number = smaller gap
+        public float spawnDiff; // higher number = smaller gap
     }
 
     public Wave[] waves;
@@ -23,11 +24,15 @@ public class LvlOneWS : MonoBehaviour
 
     private SpawnState spawnState = SpawnState.Counting;
 
-    public Transform[] spawnPoints; // spawn point array
+    public Transform spawnPoint; // spawn point array
 
     private bool gameStarted = false; // Track if the game has started
 
     public GameObject arrows; // Reference to the arrows GameObject
+
+    public TextMeshProUGUI countdownText;
+
+    public GameObject gameCompleteScreen;
 
     void Start()
     {
@@ -43,10 +48,10 @@ public class LvlOneWS : MonoBehaviour
         // Wait for player input to start the first wave
         if (!gameStarted)
         {
-            // Check for player input to start the game (spacebar in this case)
+            // Check for player input to start the game
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                gameStarted = true; // Set the flag to indicate the game has started
+                gameStarted = true; 
             }
             return; // Exit Update until the game is started
         }
@@ -65,16 +70,27 @@ public class LvlOneWS : MonoBehaviour
         }
 
         // Countdown only when not currently spawning a wave
-        if (countdown <= 0f)
+        if(spawnState == SpawnState.Counting)
         {
-            if (spawnState != SpawnState.Spawning)
+            countdownText.gameObject.SetActive(true);
+
+            if (countdown <= 0f)
             {
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                if (spawnState != SpawnState.Spawning)
+                {
+                    StartCoroutine(SpawnWave(waves[nextWave]));
+                }
+            }
+            else
+            {
+                countdown -= Time.deltaTime;
+                countdownText.text = Mathf.Round(countdown).ToString();
             }
         }
         else
         {
-            countdown -= Time.deltaTime;
+            // Hide the countdown text when not in Counting state
+            countdownText.gameObject.SetActive(false);
         }
     }
 
@@ -93,7 +109,7 @@ public class LvlOneWS : MonoBehaviour
         for (int i = 0; i < _wave.enemyCount; i++)
         {
             SpawnEnemy(_wave.enemyPrefab);
-            yield return new WaitForSeconds(1f / _wave.rate);
+            yield return new WaitForSeconds(_wave.spawnDiff);
         }
 
         spawnState = SpawnState.Waiting;
@@ -103,8 +119,7 @@ public class LvlOneWS : MonoBehaviour
     void SpawnEnemy(Transform enemy)
     {
         Debug.Log("Spawning enemy: " + enemy.name);
-        Transform sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        Instantiate(enemy, sp.position, sp.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
     }
 
     bool EnemiesAlive()
@@ -137,12 +152,18 @@ public class LvlOneWS : MonoBehaviour
         // Cycle to the next wave or loop back if at the end
         if (nextWave + 1 > waves.Length - 1)
         {
-            nextWave = 0;
-            Debug.Log("Looping waves");
+            Time.timeScale = 0f;
+            gameCompleteScreen.SetActive(true);
+
         }
         else
         {
             nextWave++;
         }
+    }
+
+    void EndGame()
+    {
+
     }
 }
