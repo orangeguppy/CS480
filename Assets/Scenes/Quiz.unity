@@ -2518,6 +2518,9 @@ MonoBehaviour:
   ScoreUI: {fileID: 955732918}
   submitButton: {fileID: 1572886183}
   popupPrefab: {fileID: 298485215}
+  scoreText: {fileID: 0}
+  quizScoreUIHandler: {fileID: 0}
+  quizManager: {fileID: 0}
 --- !u!1 &1283537292
 GameObject:
   m_ObjectHideFlags: 0
@@ -4821,6 +4824,8 @@ GameObject:
   - component: {fileID: 2029852637}
   - component: {fileID: 2029852639}
   - component: {fileID: 2029852638}
+  - component: {fileID: 2029852641}
+  - component: {fileID: 2029852640}
   m_Layer: 0
   m_Name: QuizManager
   m_TagString: Untagged
@@ -4856,6 +4861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiController: {fileID: 2029852639}
+  submitPopupController: {fileID: 1185987984}
+  quizScoreUIHandler: {fileID: 955732923}
 --- !u!114 &2029852639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4875,9 +4882,42 @@ MonoBehaviour:
   - {fileID: 430684795}
   - {fileID: 887390147}
   - {fileID: 427119605}
-  submitButton: {fileID: 1572886183}
   leftButton: {fileID: 855771952}
   rightButton: {fileID: 1960001730}
+  submitButton: {fileID: 1572886183}
+--- !u!114 &2029852640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029852636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e78b64e3195f6547ab18b7a5f2cbd9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreUI: {fileID: 955732918}
+  Score: 0
+  ScoreInteger: {fileID: 142926866}
+--- !u!114 &2029852641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029852636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba10cc7bed6d3514ba2b5efc5a219c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreUI: {fileID: 955732918}
+  submitButton: {fileID: 1572886183}
+  popupPrefab: {fileID: 298485215}
+  scoreText: {fileID: 2009532419}
+  quizScoreUIHandler: {fileID: 955732923}
+  quizManager: {fileID: 2029852638}
 --- !u!1 &2040951470
 GameObject:
   m_ObjectHideFlags: 0

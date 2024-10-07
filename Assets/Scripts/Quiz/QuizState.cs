@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 
 public class QuizState
 {
-    public string Subcategory { get; set; } = "SSRF"; // Default value, change as needed
+    public string Subcategory { get; set; } = "BEC_and_quishing"; // Default value, change as needed
     public string UserEmail { get; set; } = "test@email.com"; // Default value, change as needed
 
     public List<QuizQuestion> QuizQuestions { get; private set; }
@@ -66,5 +67,20 @@ public class QuizState
     public bool IsOptionSelected(int questionIndex, int optionIndex)
     {
         return UserAnswers[questionIndex]?.Contains($"option_{optionIndex + 1}") ?? false;
+    }
+
+    public int CalculateScore()
+    {
+        int score = 0;
+        for (int i = 0; i < QuizQuestions.Count; i++)
+        {
+            if (UserAnswers[i] != null &&
+                UserAnswers[i].Count == QuizQuestions[i].correct_answer.Count &&
+                UserAnswers[i].All(answer => QuizQuestions[i].correct_answer.Contains(answer)))
+            {
+                score++;
+            }
+        }
+        return score;
     }
 }

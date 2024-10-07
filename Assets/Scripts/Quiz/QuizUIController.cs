@@ -9,6 +9,7 @@ public class QuizUIController : MonoBehaviour
     public Toggle[] optionToggles;
     public Button leftButton;
     public Button rightButton;
+    public Button submitButton;
     private QuizManager quizManager;
     private QuizState quizState;
 
@@ -51,5 +52,7 @@ public class QuizUIController : MonoBehaviour
             int index = i;
             optionToggles[i].onValueChanged.AddListener((bool isOn) => quizManager.UpdateAnswer(index, isOn));
         }
+
+        submitButton.onClick.AddListener(() => quizManager.SubmitQuiz());
     }
 }

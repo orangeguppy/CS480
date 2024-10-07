@@ -6,10 +6,14 @@ public class QuizManager : MonoBehaviour
     public QuizUIController uiController;
     private QuizAPIService apiService;
     private QuizState quizState;
+    public SubmitPopupController submitPopupController;
+    public QuizScoreUIHandler quizScoreUIHandler;
 
     private void Start()
     {
         uiController = GetComponent<QuizUIController>();
+        submitPopupController = GetComponent<SubmitPopupController>();
+        quizScoreUIHandler = GetComponent<QuizScoreUIHandler>();
         quizState = new QuizState();
         apiService = new QuizAPIService();
         StartCoroutine(InitializeQuiz());
@@ -37,5 +41,12 @@ public class QuizManager : MonoBehaviour
     public void UpdateAnswer(int optionIndex, bool isSelected)
     {
         quizState.UpdateAnswer(optionIndex, isSelected);
+    }
+
+    public void SubmitQuiz()
+    {
+        int score = quizState.CalculateScore();
+        quizScoreUIHandler.Score = score;
+        submitPopupController.ShowUI();
     }
 }

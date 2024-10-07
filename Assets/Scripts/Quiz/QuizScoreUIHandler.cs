@@ -18,8 +18,8 @@ public class QuizScoreUIHandler : MonoBehaviour
     // Update is called once per frame
 
     public void showScoreUI()
-    { 
-        ScoreUI.SetActive(true); 
+    {
+        ScoreUI.SetActive(true);
     }
     public void hideScoreUI()
     {
