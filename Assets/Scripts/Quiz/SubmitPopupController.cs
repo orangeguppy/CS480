@@ -4,34 +4,46 @@ using TMPro;
 
 public class SubmitPopupController : MonoBehaviour
 {
-    public GameObject ScoreUI;
-    public Button submitButton;
     public GameObject popupPrefab;
+    public GameObject ScoreUI;
+    public Button yesButton;
+    public Button noButton;
     public TextMeshProUGUI scoreText;
-    public QuizScoreUIHandler quizScoreUIHandler;
-    public QuizManager quizManager;
+    private QuizManager quizManager;
 
-    public void ShowUI()
+    private void Start()
+    {
+        quizManager = GetComponent<QuizManager>();
+        if (yesButton != null)
+            yesButton.onClick.AddListener(OnYesClicked);
+        if (noButton != null)
+            noButton.onClick.AddListener(OnNoClicked);
+    }
+
+    public void ShowConfirmationPopup()
     {
         popupPrefab.SetActive(true);
     }
 
-    public void HideUI()
+    public void HideConfirmationPopup()
     {
         popupPrefab.SetActive(false);
     }
 
-    // public void showScoreUI()
-    // {
-    //     ScoreUI.SetActive(true);
-    //     HideUI();
-    // }
-
-    public void showScoreUI(int score)
+    public void ShowScoreUI(int score)
     {
         ScoreUI.SetActive(true);
         scoreText.text = $"Your Score: {score}/15";
-        HideUI();
     }
 
+    private void OnYesClicked()
+    {
+        HideConfirmationPopup();
+        quizManager.FinalizeSubmission();
+    }
+
+    private void OnNoClicked()
+    {
+        HideConfirmationPopup();
+    }
 }

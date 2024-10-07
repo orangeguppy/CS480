@@ -45,8 +45,13 @@ public class QuizManager : MonoBehaviour
 
     public void SubmitQuiz()
     {
+        submitPopupController.ShowConfirmationPopup();
+    }
+
+    public void FinalizeSubmission()
+    {
         int score = quizState.CalculateScore();
         quizScoreUIHandler.Score = score;
-        submitPopupController.ShowUI();
+        submitPopupController.ShowScoreUI(score);
     }
 }

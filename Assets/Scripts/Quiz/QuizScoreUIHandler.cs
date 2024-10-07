@@ -9,12 +9,6 @@ public class QuizScoreUIHandler : MonoBehaviour
     // Start is called before the first frame update
     public GameObject ScoreUI;
     public int Score;
-    public TextMeshProUGUI ScoreInteger;
-    void Awake()
-    {
-        ScoreInteger.text = Score.ToString();
-    }
-
     // Update is called once per frame
 
     public void showScoreUI()
