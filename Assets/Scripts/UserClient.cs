@@ -199,8 +199,27 @@ public class UserClient : MonoBehaviour
                 Debug.Log("Response: " + res);
                 // Go to the next screen
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
-                GameObject currentPage = sceneController.sendOTP;
-                GameObject nextPage = sceneController.resetPwPage;
+                GameObject currentPage = null;
+                GameObject nextPage = null;
+                if (sceneController != null && sceneController.sendOTP != null)
+                {
+                    currentPage = sceneController.sendOTP;
+                }
+                else
+                {
+                    MainMenuManager mainMenuManager = GameObject.Find("ButtonController").GetComponent<MainMenuManager>();
+                    currentPage = mainMenuManager.sendOTP;
+                }
+                
+                if (sceneController != null && sceneController.resetPwPage != null)
+                {
+                    nextPage = sceneController.resetPwPage;
+                }
+                else
+                {
+                    MainMenuManager mainMenuManager = GameObject.Find("ButtonController").GetComponent<MainMenuManager>();
+                    nextPage = mainMenuManager.resetPw;
+                }
                 currentPage.SetActive(false);
                 nextPage.SetActive(true);
 
