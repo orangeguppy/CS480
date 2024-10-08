@@ -12,7 +12,7 @@ public class TurretBBB : MonoBehaviour
 
     [Header("Turret Parts")]
     public Transform rotatePart;
-    public Transform bulletPrefab;
+    public Transform missilePrefab;
     public Transform firingPoint1;
     public Transform firingPoint2;
 
@@ -81,12 +81,13 @@ public class TurretBBB : MonoBehaviour
         Transform chosenFiringPoint = useFiringPoint1 ? firingPoint1 : firingPoint2;
         useFiringPoint1 = !useFiringPoint1; // Toggle between firing points
 
-        GameObject bulletObject = Instantiate(bulletPrefab, chosenFiringPoint.position, chosenFiringPoint.rotation).gameObject;
-        Bullet bullet = bulletObject.GetComponent<Bullet>();
+        GameObject missileObject = Instantiate(missilePrefab, chosenFiringPoint.position, chosenFiringPoint.rotation).gameObject;
+        Missile missile = missileObject.GetComponent<Missile>();
 
-        if (bullet != null)
+        if (missile != null)
         {
-            bullet.Hit(target);
+            missile.Hit(target);
+            missile.SetDamage(damage);
         }
     }
 

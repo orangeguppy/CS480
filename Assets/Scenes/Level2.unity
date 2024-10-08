@@ -177,18 +177,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4165398a04f8e3a4ea771645c315cbd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buyUI: {fileID: 0}
   gunner:
     prefab: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
     cost: 100
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
   zapper:
     prefab: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
     cost: 150
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
   bomber:
     prefab: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
     cost: 200
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
   flamethrower:
     prefab: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
     cost: 200
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  gunnerButton: {fileID: 0}
+  zapperButton: {fileID: 0}
+  bomberButton: {fileID: 0}
+  flamethrowerButton: {fileID: 0}
+  fadeAlpha: 0.5
 --- !u!114 &7656265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,14 +847,14 @@ MonoBehaviour:
   waves:
   - enemyPrefab: {fileID: 3492383660332115132, guid: 849a95ef89ec24f4e92eee8e6a3c6fb2, type: 3}
     enemyCount: 4
-    rate: 1
+    spawnDiff: 1
   - enemyPrefab: {fileID: 854232675171514055, guid: 0ec229c23249ddb4198657e50d003738, type: 3}
     enemyCount: 5
-    rate: 5
+    spawnDiff: 2
   timeDiff: 5
-  spawnPoints:
-  - {fileID: 563920954}
+  spawnPoint: {fileID: 563920954}
   arrows: {fileID: 0}
+  countdownText: {fileID: 0}
 --- !u!65 &563920956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1923,6 +1957,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingMoney: 500
+  startingLives: 20
+  moneyUI: {fileID: 0}
+  livesUI: {fileID: 0}
 --- !u!114 &1305191304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,6 +1972,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildEffect: {fileID: 0}
+  upgradeEffect: {fileID: 0}
+  sellEffect: {fileID: 0}
+  L2upgradeUI: {fileID: 0}
+  L3upgradeUI: {fileID: 0}
+  buyUI: {fileID: 0}
+  SellUI: {fileID: 0}
 --- !u!1 &1318672225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,14 +2531,14 @@ MonoBehaviour:
   waves:
   - enemyPrefab: {fileID: 3492383660332115132, guid: 811a52edac3fba14f9a4f411cafb6fba, type: 3}
     enemyCount: 4
-    rate: 1
+    spawnDiff: 1
   - enemyPrefab: {fileID: 3492383660332115132, guid: 811a52edac3fba14f9a4f411cafb6fba, type: 3}
     enemyCount: 5
-    rate: 5
+    spawnDiff: 2
   timeDiff: 5
-  spawnPoints:
-  - {fileID: 1665081199}
+  spawnPoint: {fileID: 1665081199}
   arrows: {fileID: 0}
+  countdownText: {fileID: 0}
 --- !u!65 &1665081201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4022,10 +4066,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 538450687}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  isUpgradable: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &6944656104127907883
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4288,10 +4340,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 538450687}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  isUpgradable: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &7339356832120407847
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4584,10 +4644,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 538450687}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  isUpgradable: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8670761335187040728
 Transform:
   m_ObjectHideFlags: 0
@@ -4639,10 +4707,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 538450687}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  isUpgradable: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8700725329844579605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4699,10 +4775,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 538450687}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  isUpgradable: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8946660040001327334
 Transform:
   m_ObjectHideFlags: 0
@@ -4754,10 +4838,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 538450687}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  isUpgradable: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &9078949020562484796
 Transform:
   m_ObjectHideFlags: 0
@@ -4825,10 +4917,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 538450687}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  isUpgradable: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
