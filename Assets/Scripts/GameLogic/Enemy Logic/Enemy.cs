@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public enum PathType { PathOne, PathTwo, PathThree, PathFour }
     public PathType pathType = PathType.PathOne; // choose the path type from Inspector
     [Header("Enemy Mvmt")]
-    public float rotationSpeed = 25f;
+    private float rotationSpeed = 25f;
     private Transform target;
     private int waypointIdx = 0;
 
