@@ -10024,7 +10024,7 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 854232675171514055, guid: 0ec229c23249ddb4198657e50d003738, type: 3}
     enemyCount: 5
     spawnDiff: 1
-  - enemyPrefab: {fileID: 3492383660332115132, guid: 849a95ef89ec24f4e92eee8e6a3c6fb2, type: 3}
+  - enemyPrefab: {fileID: 3492383660332115132, guid: 811a52edac3fba14f9a4f411cafb6fba, type: 3}
     enemyCount: 5
     spawnDiff: 2
   timeDiff: 5
