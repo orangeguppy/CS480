@@ -16,6 +16,7 @@ TagManager:
   - ConfirmPwForPwReset
   - SendOTPForEmailVerification
   - Enemy
+  - AccSettingsEmail
   layers:
   - Default
   - TransparentFX

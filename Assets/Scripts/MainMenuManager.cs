@@ -9,7 +9,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject gameSettings;
     public GameObject accountSettings;
     public GameObject sendOTP;
-    public GameObject resetPw;
+    public GameObject resetPwPage;
 
     public void ShowScreen(GameObject toEnable, GameObject toDisable)
     {
@@ -24,6 +24,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void ShowPWResetScreen()
     {
-        ShowScreen(resetPw, sendOTP);
+        ShowScreen(resetPwPage, sendOTP);
     }
 }

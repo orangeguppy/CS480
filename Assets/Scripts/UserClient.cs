@@ -136,6 +136,8 @@ public class UserClient : MonoBehaviour
             // Handle the response
             if (request.result == UnityWebRequest.Result.Success)
             {
+                // Save details to autofill
+                PlayerPrefs.SetString("Email", username.text);
                 Debug.Log("Success: " + request.downloadHandler.text);
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
                 GameObject currentPage = sceneController.createAccPage;
@@ -218,7 +220,7 @@ public class UserClient : MonoBehaviour
                 else
                 {
                     MainMenuManager mainMenuManager = GameObject.Find("ButtonController").GetComponent<MainMenuManager>();
-                    nextPage = mainMenuManager.resetPw;
+                    nextPage = mainMenuManager.resetPwPage;
                 }
                 currentPage.SetActive(false);
                 nextPage.SetActive(true);
@@ -234,9 +236,21 @@ public class UserClient : MonoBehaviour
         TMP_InputField pw = GameObject.FindWithTag("PwForPwReset").GetComponent<TMP_InputField>();
         TMP_InputField confirmPw = GameObject.FindWithTag("ConfirmPwForPwReset").GetComponent<TMP_InputField>();
 
+        PopUpController popUpController = FindObjectOfType<PopUpController>();
+
         if (pw.text != confirmPw.text)
         {
+            popUpController.ShowPopup("red", "Error", "The passwords don't match. User not created");
             Debug.Log("The passwords don't match. Password request not sent.");
+            yield break;
+        }
+
+        // Validate email and password
+        bool emailIsValid = ValidateEmail(email.text);
+        bool pwIsValid = ValidatePassword(pw.text);
+
+        if (emailIsValid == false || pwIsValid == false)
+        {
             yield break;
         }
 
@@ -250,8 +264,6 @@ public class UserClient : MonoBehaviour
         // Create the UnityWebRequest
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
-            PopUpController popUpController = FindObjectOfType<PopUpController>();
-
             // Attach JSON data as raw bytes
             request.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(jsonData));
             request.downloadHandler = new DownloadHandlerBuffer();
@@ -276,10 +288,21 @@ public class UserClient : MonoBehaviour
                 popUpController.ShowPopup("green", "Success", "Password changed!");
                 // Destroy the current page and show the next one
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
-                GameObject currentPage = sceneController.sendOTP;
-                GameObject nextPage = sceneController.resetPwPage;
-                currentPage.SetActive(false);
-                nextPage.SetActive(true);
+                
+                if(sceneController == null) {
+                    MainMenuManager sceneController2 = GameObject.Find("ButtonController").GetComponent<MainMenuManager>();
+                     GameObject currentPage2 = sceneController2.sendOTP;
+                    GameObject nextPage2 = sceneController2.resetPwPage;
+                    currentPage2.SetActive(false);
+                    nextPage2.SetActive(true);
+                }
+
+                if(sceneController != null) {
+                    GameObject currentPage = sceneController.sendOTP;
+                    GameObject nextPage = sceneController.resetPwPage;
+                    currentPage.SetActive(false);
+                    nextPage.SetActive(true);
+                }
             }
         }
     }

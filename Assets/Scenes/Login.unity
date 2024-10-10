@@ -1887,6 +1887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 409012218}
   - component: {fileID: 409012219}
+  - component: {fileID: 409012220}
   m_Layer: 5
   m_Name: SendOTPForEmailVerification
   m_TagString: SendOTPForEmailVerification
@@ -1933,6 +1934,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstInput: {fileID: 1089124127}
   submitButton: {fileID: 1294572879}
+--- !u!114 &409012220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409012217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e253ca0d4b4ded54d948ff57f7e608d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &420284590
 GameObject:
   m_ObjectHideFlags: 0
@@ -10221,6 +10234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1874642341}
   - component: {fileID: 1874642342}
+  - component: {fileID: 1874642343}
   m_Layer: 5
   m_Name: Reset Password
   m_TagString: Untagged
@@ -10268,6 +10282,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstInput: {fileID: 636113029}
   submitButton: {fileID: 111859052}
+--- !u!114 &1874642343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874642340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e253ca0d4b4ded54d948ff57f7e608d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1879172051
 GameObject:
   m_ObjectHideFlags: 0
@@ -10546,6 +10572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1897655548}
   - component: {fileID: 1897655549}
+  - component: {fileID: 1897655550}
   m_Layer: 5
   m_Name: SendOTPForPWReset
   m_TagString: Untagged
@@ -10591,6 +10618,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstInput: {fileID: 425379137}
   submitButton: {fileID: 1078904535}
+--- !u!114 &1897655550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897655547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e253ca0d4b4ded54d948ff57f7e608d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1929043638
 GameObject:
   m_ObjectHideFlags: 0
@@ -10605,7 +10644,7 @@ GameObject:
   - component: {fileID: 1929043640}
   m_Layer: 5
   m_Name: EmailForAccVerification
-  m_TagString: Untagged
+  m_TagString: SendOTPForEmailVerification
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

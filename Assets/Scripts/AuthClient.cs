@@ -28,6 +28,9 @@ public class AuthClient : MonoBehaviour
         formData.AddField("username", username.text);
         formData.AddField("password", password.text);
 
+        // Save the email for autofilling
+        PlayerPrefs.SetString("Email", username.text);
+
         using (UnityWebRequest request = UnityWebRequest.Post("http://127.0.0.1:8000/auth/login/token", formData))
         {
             Debug.Log("Sending request now");
@@ -44,6 +47,7 @@ public class AuthClient : MonoBehaviour
                 Debug.Log("User ID: " + response.token_type);
                 // Save the access token to PlayerPrefs
                 PlayerPrefs.SetString("AccessToken", response.access_token);
+
                 sceneNav.loadMainMenu();
             }
             else if (request.responseCode == 403)
