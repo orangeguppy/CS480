@@ -6,13 +6,13 @@ using Newtonsoft.Json;
 
 public class QuizAPIService
 {
-    private const string API_URL = "http://localhost:8001/api/v1";
+    private const string API_URL = "http://localhost:8000/api/v1";
 
     public List<QuizQuestion> QuizQuestions { get; private set; }
 
-    public IEnumerator FetchQuizQuestions(string subcategory, string userEmail)
+    public IEnumerator FetchQuizQuestions(string subcategory)
     {
-        string url = $"{API_URL}/generate-quiz/{subcategory}?user_email={userEmail}";
+        string url = $"{API_URL}/generate-quiz/{subcategory}";
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
             yield return request.SendWebRequest();

@@ -4,8 +4,6 @@ using System.Linq;
 public class QuizState
 {
     public string Subcategory { get; set; } = "BEC_and_quishing"; // Default value, change as needed
-    public string UserEmail { get; set; } = "test@email.com"; // Default value, change as needed
-
     public List<QuizQuestion> QuizQuestions { get; private set; }
     public List<List<string>> UserAnswers { get; private set; }
     public int CurrentQuestionIndex { get; private set; }

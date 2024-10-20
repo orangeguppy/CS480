@@ -21,7 +21,7 @@ public class QuizManager : MonoBehaviour
 
     private IEnumerator InitializeQuiz()
     {
-        yield return StartCoroutine(apiService.FetchQuizQuestions(quizState.Subcategory, quizState.UserEmail));
+        yield return StartCoroutine(apiService.FetchQuizQuestions(quizState.Subcategory));
         if (apiService.QuizQuestions != null && apiService.QuizQuestions.Count > 0)
         {
             quizState.SetQuizQuestions(apiService.QuizQuestions);
