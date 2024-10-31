@@ -2,27 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretBBB : MonoBehaviour
+public class Sniper : MonoBehaviour
 {
-    // custom turret script for bb
-
     [Header("Targeting")]
     public string targetTag = "Enemy";
     private Transform target;
 
     [Header("Turret Parts")]
     public Transform rotatePart;
-    public Transform missilePrefab;
-    public Transform firingPoint1;
-    public Transform firingPoint2;
+    public Transform firingPoint;
+    public ParticleSystem flashPrefab;
 
     [Header("Turret Stats")]
     public float range = 5f;
     public float fireRate = 1f; // higher == faster
     private float fireCooldown = 0f;
     public int damage = 5;
-
-    private bool useFiringPoint1 = true; // Keeps track of which firing point to use
 
     void Start()
     {
@@ -33,7 +28,7 @@ public class TurretBBB : MonoBehaviour
     {
         if (target == null)
         {
-            return;
+            return;  //stop muzzle flash & reset when curr target dies/outofrange
         }
 
         RotateTowardsTarget();
@@ -50,25 +45,43 @@ public class TurretBBB : MonoBehaviour
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        float shortestDistanceToCloaked = Mathf.Infinity;
+        float shortestDistanceToUncloaked = Mathf.Infinity;
+        GameObject cloakedEnemy = null;
+        GameObject uncloakedEnemy = null;
 
         foreach (GameObject enemy in enemies)
         {
-            // Check if the enemy is cloaked and skip if true
             Enemy enemyScript = enemy.GetComponent<Enemy>();
-            if (enemyScript != null && enemyScript.isCloaked)
-                continue;
+            if (enemyScript == null) continue;
 
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+
+            if (enemyScript.isCloaked && distanceToEnemy < shortestDistanceToCloaked)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                shortestDistanceToCloaked = distanceToEnemy;
+                cloakedEnemy = enemy;
+            }
+            else if (!enemyScript.isCloaked && distanceToEnemy < shortestDistanceToUncloaked)
+            {
+                shortestDistanceToUncloaked = distanceToEnemy;
+                uncloakedEnemy = enemy;
             }
         }
 
-        target = nearestEnemy != null && shortestDistance <= range ? nearestEnemy.transform : null;
+        // Prioritize cloaked enemy if found within range, otherwise use nearest uncloaked enemy
+        if (cloakedEnemy != null && shortestDistanceToCloaked <= range)
+        {
+            target = cloakedEnemy.transform;
+        }
+        else if (uncloakedEnemy != null && shortestDistanceToUncloaked <= range)
+        {
+            target = uncloakedEnemy.transform;
+        }
+        else
+        {
+            target = null;
+        }
     }
 
     //rotato potato
@@ -82,19 +95,24 @@ public class TurretBBB : MonoBehaviour
 
     void Shoot()
     {
-        // Alternate between firingPoint1 and firingPoint2
-        Transform chosenFiringPoint = useFiringPoint1 ? firingPoint1 : firingPoint2;
-        useFiringPoint1 = !useFiringPoint1; // Toggle between firing points
-
-        GameObject missileObject = Instantiate(missilePrefab, chosenFiringPoint.position, chosenFiringPoint.rotation).gameObject;
-        Missile missile = missileObject.GetComponent<Missile>();
-
-        if (missile != null)
-        {
-            missile.Hit(target);
-            missile.SetDamage(damage);
-        }
+        ActivateFlashEffect();
+        Damage(target);
     }
+
+    void Damage(Transform enemy)
+    {
+        Enemy e = enemy.GetComponent<Enemy>();
+        e.TakeDamage(damage);
+    }
+
+    void ActivateFlashEffect()
+    {
+        ParticleSystem flash = Instantiate(flashPrefab, firingPoint.position, Quaternion.identity);
+        flash.Play();
+
+        Destroy(flash.gameObject, flash.main.duration);
+    }
+
 
     // turret range viz onclick
     void OnDrawGizmosSelected()
@@ -103,4 +121,3 @@ public class TurretBBB : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 }
-
