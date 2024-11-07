@@ -2003,7 +2003,7 @@ GameObject:
   - component: {fileID: 265189405}
   - component: {fileID: 265189404}
   m_Layer: 5
-  m_Name: BuyFlamethrower
+  m_Name: BuySniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2075,7 +2075,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 899995489}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: BuyFlamethrower
+        m_MethodName: BuySniper
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6294,19 +6294,19 @@ MonoBehaviour:
     stage3BUpgradeCost: 3
     level: 0
   sniper:
-    prefab: {fileID: 0}
+    prefab: {fileID: 6181043834309927451, guid: 5f4d6a7a1388c004baa5071a3fa1c5e1, type: 3}
     cost: 0
-    stage2: {fileID: 0}
+    stage2: {fileID: 6538036525269794504, guid: 45aa98aaa12f39b4fb15535655f9c733, type: 3}
     stage2UpgradeCost: 0
-    stage3A: {fileID: 0}
+    stage3A: {fileID: 6423544024595421538, guid: 327f8082371c52946908c582d7625894, type: 3}
     stage3AUpgradeCost: 0
-    stage3B: {fileID: 0}
+    stage3B: {fileID: 8562959581003039960, guid: 53335b3f6bc54714bb36f51cb963c862, type: 3}
     stage3BUpgradeCost: 0
     level: 0
   gunnerButton: {fileID: 654770826}
   zapperButton: {fileID: 1883338610}
   bomberButton: {fileID: 958819997}
-  sniperButton: {fileID: 0}
+  sniperButton: {fileID: 265189404}
   fadeAlpha: 0.5
 --- !u!114 &899995490
 MonoBehaviour:
@@ -13590,7 +13590,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6507901978019420286
 GameObject:
@@ -13763,7 +13762,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6919683764030261027
 GameObject:
@@ -13831,7 +13829,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &6944656103721740627
 MeshRenderer:
@@ -14105,7 +14102,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!33 &7236462063621560653
 MeshFilter:
@@ -14321,7 +14317,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &7783642028802570112
 MeshRenderer:
@@ -14527,7 +14522,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8224663808266898453
 GameObject:
@@ -14671,7 +14665,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8670761335058598048
 Transform:
@@ -14734,7 +14727,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8700725330521803885
 GameObject:
@@ -14802,7 +14794,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!33 &8751516053465261712
 MeshFilter:
@@ -14866,7 +14857,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8857944161297716956
 Transform:
@@ -14944,7 +14934,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &9078949020165869380
 Transform:
@@ -15023,7 +15012,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

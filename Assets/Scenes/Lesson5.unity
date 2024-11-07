@@ -351,7 +351,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1856908576}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.16513187
+  m_Size: 0.12996747
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LESSON 3
+  m_text: LESSON 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
@@ -691,61 +691,68 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=20><b>What is BEC?</size></b>\r\n\r\nBusiness Email Compromise (BEC)
-    is a sophisticated form of phishing that targets organizations to defraud them
-    of money or sensitive information. Unlike traditional phishing, BEC attacks are
-    more targeted and often involve impersonating trusted individuals within the
-    company or its partners.\r\n\r\n<size=16><b>Types of BEC Attacks</size></b>\r\n\r\n
-    - CEO Fraud: Attackers impersonate high-level executives to request urgent fund
-    transfers.\r\n - Account Compromise: Hackers gain access to legitimate email
-    accounts to request payments or sensitive information.\r\n - Bogus Invoice Schemes:
-    Cybercriminals pose as suppliers and request payments to fraudulent accounts.\r\n
-    - Attorney Impersonation: Attackers pretend to be lawyers or legal representatives,
-    often targeting employees on Fridays or before holidays.\r\n - Data Theft: Criminals
-    aim to obtain confidential employee or company information, often by targeting
-    HR departments.\r\n\r\n<size=16><b>Recognizing BEC Attacks</size></b>\r\n\r\nCommon
-    characteristics of BEC emails include:\r\n\r\n - Spoofed sender domains\r\n -
-    Urgent requests in the subject line and body\r\n - Requests for fund transfers
-    or sensitive information\r\n - Impersonation of influential people in the company\r\n
-    - Unusual grammatical errors or typos\r\n\r\n<size=16><b>Preventing BEC Attacks</size></b>\r\n\r\n
-    - Verify requests: Always confirm unusual requests, especially those involving
-    money or sensitive information, through a different communication channel.\r\n
-    - Implement multi-factor authentication for email accounts.\r\n - Train employees
-    to recognize signs of BEC attacks.\r\n - Be cautious of requests creating a sense
-    of urgency.\r\n - Avoid allowing email forwarding to external addresses.\r\n\r\n<size=16><b>Best
-    Practices for Handling Suspicious Emails</size></b>\r\n\r\n - Do not immediately
-    comply with urgent requests for fund transfers or information changes.\r\n -
-    Contact the supposed sender using known, verified contact information, not the
-    details provided in the suspicious email.\r\n - Be wary of unexpected emails
-    requesting confidential information, even if they appear to be from trusted sources
-    like HR.\r\n - When in doubt, consult with your IT security team.\r\n\r\n<size=20><b>What
-    is Quishing?</size></b>\r\n\r\nQuishing, or QR phishing, is a cyber attack that
-    uses QR codes to direct victims to malicious websites. Unlike traditional phishing
-    that relies on text-based links, quishing leverages the increasing use of QR
-    codes in everyday life.\r\n\r\n<size=16><b>How Quishing Works</size></b>\r\n\r\n
-    - Attackers create a malicious QR code linked to a fake website.\r\n - The code
-    is distributed via email, social media, or even physical locations.\r\n - When
-    scanned, the code directs victims to a fraudulent site that may steal information
-    or install malware.\r\n\r\n<size=16><b>Risks Associated with Quishing</size></b>\r\n\r\n
-    - Entering login credentials on phishing sites\r\n - Downloading and installing
-    malware\r\n - Unauthorized financial transactions\r\n\r\n<size=16><b>Challenges
-    in Detecting Quishing</size></b>\r\n\r\n - QR codes are harder to scan for malicious
-    content than text-based links.\r\n - Many email filters don't effectively block
-    or analyze QR codes.\r\n - Quishing can involve multiple devices, including personal
-    ones, making organizational control difficult.\r\n\r\n<size=16><b>Warning Signs
-    of Quishing Attacks</size></b>\r\n\r\n - Misspellings and grammatical errors
-    in the accompanying message\r\n - Emails from lookalike addresses\r\n - A sense
-    of urgency in the message\r\n - Unexpected QR codes from unknown senders\r\n\r\n<size=16><b>Protecting
-    Against Quishing</size></b>\r\n\r\n - Always check the URL after scanning a QR
-    code before proceeding to the website.\r\n - Enable Multi-Factor Authentication
-    (MFA) to reduce the impact if credentials are compromised.\r\n - Educate employees
-    about the risks of scanning unknown QR codes.\r\n - Be cautious when scanning
-    QR codes, especially on personal devices that might later connect to company
-    networks.\r\n\r\n<size=16><b>Organizational Measures Against Quishing</size></b>\r\n\r\n
-    - Implement email scanners that can detect and analyze QR codes.\r\n - Provide
-    regular training on emerging phishing techniques, including quishing.\r\n - Establish
-    clear policies on handling QR codes in professional communication.\r\n - Encourage
-    reporting of suspicious emails or QR codes to IT security."
+  m_text: "<size=20><b>What is SSRF?</size></b>\r\n\r\nServer-Side Request Forgery
+    (SSRF) is a critical web security vulnerability that allows attackers to manipulate
+    a server into making unauthorized requests. This can lead to:\r\n - Unauthorized
+    access to internal services\r\n - Data exposure\r\n - System compromise\r\n -
+    Remote code execution\r\n\r\nSSRF attacks are becoming more common and are now
+    included in the OWASP Top 10 list of web application security risks.\r\n\r\n<size=16><b>How
+    SSRF Works</size></b>\r\n\r\nIn an SSRF attack:\r\n - An attacker manipulates
+    input that specifies a URL for a server-side HTTP request.\r\n - The server processes
+    this malicious input and makes a request to the specified URL.\r\n - This request
+    is made from the server's perspective, potentially accessing internal resources.\r\nExample:
+    A social media app allows users to set profile pictures by providing a URL. An
+    attacker could exploit this by providing a URL to an internal resource, causing
+    the server to access and potentially expose sensitive data.\r\n\r\n<size=16><b>Types
+    of SSRF Attacks</size></b>\r\n\r\n<b>Standard SSRF</b>\r\n - Attacker can see
+    the server's response directly\r\n - Useful for gathering information about internal
+    networks\r\n\r\n<b>Blind SSRF</b>\r\n - Attacker doesn't directly see the server's
+    response\r\n - Success is inferred from changes in application behavior\r\n\r\n<b>Time-Based
+    Blind SSRF</b>\r\n - Attacker observes response times to infer success\r\n -
+    Used to extract information about internal resources\r\n\r\n<size=16><b>Impacts
+    of SSRF</size></b>\r\n\r\nSSRF can have severe consequences:\r\n - Full compromise
+    of cloud environments\r\n - Exposure of internal administrative dashboards\r\n
+    - Exploitation of internal hosts\r\n - Access to sensitive data and services\r\n
+    - Potential for remote code execution\r\n\r\n<size=16><b>Common SSRF Targets</size></b>\r\n\r\n
+    - Internal services (e.g., admin panels on localhost)\r\n - Cloud metadata services
+    (e.g., AWS EC2 metadata)\r\n - Internal APIs and databases\r\n - Network devices
+    and services not meant for public access\r\n\r\n<size=16><b>Identifying SSRF
+    Vulnerabilities</size></b>\r\n\r\nSigns that an application might be vulnerable
+    to SSRF:\r\n - Accepts full URLs as user input\r\n - Makes server-side HTTP requests
+    based on user input\r\n - Allows specifying hostnames or IP addresses for certain
+    features\r\n\r\n<size=16><b>SSRF Prevention and Mitigation</size></b>\r\n\r\n<b>Input
+    Validation and Sanitization</b>\r\n - Rigorously validate and sanitize user-supplied
+    input\r\n - Implement URL allowlisting for trusted domains\r\n\r\n<b>Network
+    Segmentation</b>\r\n - Isolate critical resources and internal services\r\n -
+    Limit the exposure of internal systems to external-facing servers\r\n\r\n<b>Restrict
+    Unnecessary Protocols</b>\r\n - Disable potentially risky protocols like file://
+    or ftp://\r\n - Only allow necessary protocols (typically http:// and https://)\r\n\r\n<b>Implement
+    Allowlists</b>\r\n - Maintain a list of allowed hosts and IP addresses\r\n -
+    Ensure only external hosts are accessible when necessary\r\n\r\n<b>Handle Redirects
+    Carefully</b>\r\n - Be cautious of URL redirects that could bypass restrictions\r\n
+    - Validate the final destination of any redirects\r\n\r\n<b>Use Static Analysis
+    Tools</b>\r\n - Incorporate security testing tools in your development pipeline\r\n
+    - Regularly scan code for potential SSRF vulnerabilities\r\n\r\n<size=16><b>Recognizing
+    and Responding to SSRF Attempts</size></b>\r\n\r\nSigns of potential SSRF attacks:\r\n
+    - Unexpected responses from internal services\r\n - Server making requests to
+    unknown or local addresses without user input\r\n - Unusual network activity
+    to internal resources\r\n\r\nIf you suspect an SSRF attack:\r\n - Report to your
+    IT or security team immediately\r\n - Do not attempt to exploit or confirm the
+    vulnerability yourself\r\n - Avoid using the suspected vulnerable application\r\n
+    - Follow UBS's incident response procedures\r\n\r\n<size=16><b>SSRF and Cloud
+    Services</size></b>\r\n\r\nSSRF can be particularly dangerous in cloud environments:\r\n
+    - Can provide access to cloud service metadata\r\n - May allow unauthorized access
+    to cloud-based APIs\r\n - Could enable attackers to control cloud service configurations\r\n\r\n<size=16><b>Best
+    Practices for Employees</size></b>\r\n\r\n - Be cautious when clicking links,
+    especially from unknown sources\r\n - Report suspicious emails or links to IT
+    without interacting with them\r\n - Follow the principle of least privilege in
+    system access\r\n - Stay informed about potential security risks and best practices\r\n\r\n<size=16><b>Advanced
+    SSRF Concepts</size></b>\r\n\r\n<b>SSRF Evasion Techniques</b>\r\nAttackers might
+    try to bypass SSRF defenses using:\r\n - Alternative IP representations (e.g.,
+    2130706433 for 127.0.0.1)\r\n - URL encoding or obfuscation\r\n - DNS rebinding
+    attacks\r\n\r\n<b>Why Whitelisting is Preferred</b>\r\n - Blacklists can be bypassed
+    more easily\r\n - Whitelisting ensures only trusted URLs are accessed\r\n - Blacklists
+    are harder to maintain and keep updated"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

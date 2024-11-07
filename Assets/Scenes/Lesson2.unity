@@ -351,7 +351,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1856908576}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.16513187
+  m_Size: 0.18492721
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LESSON 3
+  m_text: LESSON 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
@@ -691,61 +691,57 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=20><b>What is BEC?</size></b>\r\n\r\nBusiness Email Compromise (BEC)
-    is a sophisticated form of phishing that targets organizations to defraud them
-    of money or sensitive information. Unlike traditional phishing, BEC attacks are
-    more targeted and often involve impersonating trusted individuals within the
-    company or its partners.\r\n\r\n<size=16><b>Types of BEC Attacks</size></b>\r\n\r\n
-    - CEO Fraud: Attackers impersonate high-level executives to request urgent fund
-    transfers.\r\n - Account Compromise: Hackers gain access to legitimate email
-    accounts to request payments or sensitive information.\r\n - Bogus Invoice Schemes:
-    Cybercriminals pose as suppliers and request payments to fraudulent accounts.\r\n
-    - Attorney Impersonation: Attackers pretend to be lawyers or legal representatives,
-    often targeting employees on Fridays or before holidays.\r\n - Data Theft: Criminals
-    aim to obtain confidential employee or company information, often by targeting
-    HR departments.\r\n\r\n<size=16><b>Recognizing BEC Attacks</size></b>\r\n\r\nCommon
-    characteristics of BEC emails include:\r\n\r\n - Spoofed sender domains\r\n -
-    Urgent requests in the subject line and body\r\n - Requests for fund transfers
-    or sensitive information\r\n - Impersonation of influential people in the company\r\n
-    - Unusual grammatical errors or typos\r\n\r\n<size=16><b>Preventing BEC Attacks</size></b>\r\n\r\n
-    - Verify requests: Always confirm unusual requests, especially those involving
-    money or sensitive information, through a different communication channel.\r\n
-    - Implement multi-factor authentication for email accounts.\r\n - Train employees
-    to recognize signs of BEC attacks.\r\n - Be cautious of requests creating a sense
-    of urgency.\r\n - Avoid allowing email forwarding to external addresses.\r\n\r\n<size=16><b>Best
-    Practices for Handling Suspicious Emails</size></b>\r\n\r\n - Do not immediately
-    comply with urgent requests for fund transfers or information changes.\r\n -
-    Contact the supposed sender using known, verified contact information, not the
-    details provided in the suspicious email.\r\n - Be wary of unexpected emails
-    requesting confidential information, even if they appear to be from trusted sources
-    like HR.\r\n - When in doubt, consult with your IT security team.\r\n\r\n<size=20><b>What
-    is Quishing?</size></b>\r\n\r\nQuishing, or QR phishing, is a cyber attack that
-    uses QR codes to direct victims to malicious websites. Unlike traditional phishing
-    that relies on text-based links, quishing leverages the increasing use of QR
-    codes in everyday life.\r\n\r\n<size=16><b>How Quishing Works</size></b>\r\n\r\n
-    - Attackers create a malicious QR code linked to a fake website.\r\n - The code
-    is distributed via email, social media, or even physical locations.\r\n - When
-    scanned, the code directs victims to a fraudulent site that may steal information
-    or install malware.\r\n\r\n<size=16><b>Risks Associated with Quishing</size></b>\r\n\r\n
-    - Entering login credentials on phishing sites\r\n - Downloading and installing
-    malware\r\n - Unauthorized financial transactions\r\n\r\n<size=16><b>Challenges
-    in Detecting Quishing</size></b>\r\n\r\n - QR codes are harder to scan for malicious
-    content than text-based links.\r\n - Many email filters don't effectively block
-    or analyze QR codes.\r\n - Quishing can involve multiple devices, including personal
-    ones, making organizational control difficult.\r\n\r\n<size=16><b>Warning Signs
-    of Quishing Attacks</size></b>\r\n\r\n - Misspellings and grammatical errors
-    in the accompanying message\r\n - Emails from lookalike addresses\r\n - A sense
-    of urgency in the message\r\n - Unexpected QR codes from unknown senders\r\n\r\n<size=16><b>Protecting
-    Against Quishing</size></b>\r\n\r\n - Always check the URL after scanning a QR
-    code before proceeding to the website.\r\n - Enable Multi-Factor Authentication
-    (MFA) to reduce the impact if credentials are compromised.\r\n - Educate employees
-    about the risks of scanning unknown QR codes.\r\n - Be cautious when scanning
-    QR codes, especially on personal devices that might later connect to company
-    networks.\r\n\r\n<size=16><b>Organizational Measures Against Quishing</size></b>\r\n\r\n
-    - Implement email scanners that can detect and analyze QR codes.\r\n - Provide
-    regular training on emerging phishing techniques, including quishing.\r\n - Establish
-    clear policies on handling QR codes in professional communication.\r\n - Encourage
-    reporting of suspicious emails or QR codes to IT security."
+  m_text: "<size=20><b>What is Vishing? </b></size>\r\n\r\nVishing is a form of social
+    engineering attack that uses voice communication to trick individuals into revealing
+    sensitive information or taking actions that compromise security. Unlike traditional
+    phishing attacks that primarily use email, vishing leverages phone calls to manipulate
+    victims.\r\n\r\n<size=16><b>The Growing Threat of AI-Powered Vishing</size></b>\r\nRecent
+    advancements in artificial intelligence have made vishing attacks more dangerous
+    than ever. AI-powered voice cloning can now mimic human speech with uncanny precision,
+    making it incredibly difficult to distinguish between a legitimate caller and
+    an impersonator. This technology allows attackers to create highly convincing
+    and personalized scams.\r\n\r\n<size=16><b>Common Vishing Scenarios</size></b>\r\n\r\nVishers
+    often impersonate trusted entities such as:\r\n - IT Support: Claiming to need
+    your password to resolve an urgent issue\r\n - Executives: Requesting immediate
+    fund transfers or sensitive information\r\n - Banks: Asking for account details
+    to \"resolve\" a security problem\r\n - Government agencies: Demanding immediate
+    payment for taxes or fines\r\n\r\n<size=16><b>How Vishing Attacks Work</size></b>\r\n\r\n
+    - Attackers gather information about their targets from various sources, including
+    social media and public records.\r\n - They may use email phishing or other methods
+    to obtain your phone number.\r\n - Using spoofed caller IDs and AI-generated
+    voices, they create a sense of urgency or authority.\r\n - They exploit human
+    emotions like fear, trust, or the desire to help.\r\n - They attempt to extract
+    sensitive information or convince you to take harmful actions.\r\n\r\n<size=16><b>Recognizing
+    Vishing Attempts</size></b>\r\n\r\nBe alert for these red flags:\r\n - Unexpected
+    calls from unfamiliar numbers\r\n - Pressure to act quickly or make immediate
+    decisions\r\n - Requests for sensitive information (passwords, account numbers,
+    etc.)\r\n - Unusual background noise or voice irregularities\r\n - Callers who
+    refuse to provide verifiable contact information\r\n\r\n<size=16><b>Best Practices
+    to Protect Yourself and the Company</size></b>\r\n\n1. Verify the Caller's identity\r\n\t-
+    Don't rely solely on caller ID, as it can be spoofed\r\n\t- Ask for the caller's
+    name and official contact information\r\n\t- Hang up and call back using a known,
+    official number\r\n\r\n2. Never share sensitive information over the phone\r\n\t-
+    Legitimate organizations won't ask for passwords or full account details\r\n\t-
+    If in doubt, offer to call back through official channels\r\n\r\n3. Be wary of
+    urgent requests\r\n\t- Resist pressure to make immediate decisions\r\n\t- Take
+    time to verify the legitimacy of urgent requests, especially those involving
+    money transfers\r\n\r\n4. Use established communication channels\r\n\t- For sensitive
+    matters, use official company communication platforms\r\n\t- Be cautious of requests
+    to use unfamiliar apps or services\r\n\r\n5. Implement a verification system\r\n\t-
+    Establish code words or phrases for sensitive internal communications\r\n\t-
+    Use multi-factor authentication for important transactions\r\n\r\n6. Stay informed
+    and alert\r\n\t- Keep up-to-date with the latest vishing tactics\r\n\t- Report
+    suspicious calls to your IT security team\r\n\r\n7. Trust your instincts\r\n\t-
+    If something feels off about a call, it probably is\r\n\t- It's better to be
+    cautious than to fall victim to a scam\r\n\r\n8. Educate and Share\r\n\t- Discuss
+    vishing attempts with colleagues\r\n\t- Report incidents to help protect others
+    in the organization\r\n\r\n9. Use Technology Wisely\r\n\t- Enable spam-blocking
+    features on your phone\r\n\t- Consider using call-screening apps approved by
+    your IT department\r\n\r\n<size=16><b>What to Do If You Suspect a Vishing Attack</size></b>\n\r\n
+    - Don't panic or make hasty decisions\r\n - Politely terminate the conversation\r\n
+    - Immediately notify your IT security team\r\n - Write down what you remember
+    about the call\r\n - If you shared any sensitive information, change your passwords
+    immediately\r\n - Keep a close eye on your accounts for any suspicious activity"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

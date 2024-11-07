@@ -351,7 +351,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1856908576}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.16513187
+  m_Size: 0.15110153
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LESSON 3
+  m_text: LESSON 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
@@ -691,61 +691,59 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=20><b>What is BEC?</size></b>\r\n\r\nBusiness Email Compromise (BEC)
-    is a sophisticated form of phishing that targets organizations to defraud them
-    of money or sensitive information. Unlike traditional phishing, BEC attacks are
-    more targeted and often involve impersonating trusted individuals within the
-    company or its partners.\r\n\r\n<size=16><b>Types of BEC Attacks</size></b>\r\n\r\n
-    - CEO Fraud: Attackers impersonate high-level executives to request urgent fund
-    transfers.\r\n - Account Compromise: Hackers gain access to legitimate email
-    accounts to request payments or sensitive information.\r\n - Bogus Invoice Schemes:
-    Cybercriminals pose as suppliers and request payments to fraudulent accounts.\r\n
-    - Attorney Impersonation: Attackers pretend to be lawyers or legal representatives,
-    often targeting employees on Fridays or before holidays.\r\n - Data Theft: Criminals
-    aim to obtain confidential employee or company information, often by targeting
-    HR departments.\r\n\r\n<size=16><b>Recognizing BEC Attacks</size></b>\r\n\r\nCommon
-    characteristics of BEC emails include:\r\n\r\n - Spoofed sender domains\r\n -
-    Urgent requests in the subject line and body\r\n - Requests for fund transfers
-    or sensitive information\r\n - Impersonation of influential people in the company\r\n
-    - Unusual grammatical errors or typos\r\n\r\n<size=16><b>Preventing BEC Attacks</size></b>\r\n\r\n
-    - Verify requests: Always confirm unusual requests, especially those involving
-    money or sensitive information, through a different communication channel.\r\n
-    - Implement multi-factor authentication for email accounts.\r\n - Train employees
-    to recognize signs of BEC attacks.\r\n - Be cautious of requests creating a sense
-    of urgency.\r\n - Avoid allowing email forwarding to external addresses.\r\n\r\n<size=16><b>Best
-    Practices for Handling Suspicious Emails</size></b>\r\n\r\n - Do not immediately
-    comply with urgent requests for fund transfers or information changes.\r\n -
-    Contact the supposed sender using known, verified contact information, not the
-    details provided in the suspicious email.\r\n - Be wary of unexpected emails
-    requesting confidential information, even if they appear to be from trusted sources
-    like HR.\r\n - When in doubt, consult with your IT security team.\r\n\r\n<size=20><b>What
-    is Quishing?</size></b>\r\n\r\nQuishing, or QR phishing, is a cyber attack that
-    uses QR codes to direct victims to malicious websites. Unlike traditional phishing
-    that relies on text-based links, quishing leverages the increasing use of QR
-    codes in everyday life.\r\n\r\n<size=16><b>How Quishing Works</size></b>\r\n\r\n
-    - Attackers create a malicious QR code linked to a fake website.\r\n - The code
-    is distributed via email, social media, or even physical locations.\r\n - When
-    scanned, the code directs victims to a fraudulent site that may steal information
-    or install malware.\r\n\r\n<size=16><b>Risks Associated with Quishing</size></b>\r\n\r\n
-    - Entering login credentials on phishing sites\r\n - Downloading and installing
-    malware\r\n - Unauthorized financial transactions\r\n\r\n<size=16><b>Challenges
-    in Detecting Quishing</size></b>\r\n\r\n - QR codes are harder to scan for malicious
-    content than text-based links.\r\n - Many email filters don't effectively block
-    or analyze QR codes.\r\n - Quishing can involve multiple devices, including personal
-    ones, making organizational control difficult.\r\n\r\n<size=16><b>Warning Signs
-    of Quishing Attacks</size></b>\r\n\r\n - Misspellings and grammatical errors
-    in the accompanying message\r\n - Emails from lookalike addresses\r\n - A sense
-    of urgency in the message\r\n - Unexpected QR codes from unknown senders\r\n\r\n<size=16><b>Protecting
-    Against Quishing</size></b>\r\n\r\n - Always check the URL after scanning a QR
-    code before proceeding to the website.\r\n - Enable Multi-Factor Authentication
-    (MFA) to reduce the impact if credentials are compromised.\r\n - Educate employees
-    about the risks of scanning unknown QR codes.\r\n - Be cautious when scanning
-    QR codes, especially on personal devices that might later connect to company
-    networks.\r\n\r\n<size=16><b>Organizational Measures Against Quishing</size></b>\r\n\r\n
-    - Implement email scanners that can detect and analyze QR codes.\r\n - Provide
-    regular training on emerging phishing techniques, including quishing.\r\n - Establish
-    clear policies on handling QR codes in professional communication.\r\n - Encourage
-    reporting of suspicious emails or QR codes to IT security."
+  m_text: "<size=16><b>Password Security</size></b>\r\n\r\n<b>Creating Strong Passwords</b>\r\n
+    - Use a unique password for each of your accounts, especially work-related ones\r\n
+    - Create passwords that are at least 12 characters long\r\n - Include a mix of
+    uppercase and lowercase letters, numbers, and symbols\r\n - Avoid using personal
+    information like birthdays or names\r\n - Don't use common words or phrases\r\n
+    - Consider using a password manager to generate and store complex passwords securely\r\n\r\n<b>Password
+    Management\r\n - Consider using a company-approved password manager to generate
+    and store strong, unique passwords\r\n - Never share your passwords with anyone,
+    including IT staff\r\n - Change your passwords regularly, especially if you suspect
+    they might have been compromised\r\n\r\n<size=16><b>Multi-Factor Authentication
+    (MFA)</size></b>\r\n\r\n - Enable MFA on all your work accounts if available.
+    This adds an extra layer of security\r\n - MFA typically involves something you
+    know (password) and something you have (like your phone for receiving a code).\r\n
+    - Even if someone gets your password, MFA can prevent unauthorized access to
+    your account\r\n\r\n<size=16><b>Phishing and Suspicious Emails</size></b>\r\n\r\n
+    - Be cautious of unexpected emails asking you to reset your password or provide
+    account information\r\n - If you receive an unsolicited email about password
+    reset:\r\n\t- Do not click on links in the email\r\n\t- Instead, go directly
+    to the official website by typing the URL in your browser\r\n\t- Contact IT support
+    to verify the request\r\n\r\n<size=16><b>Safe Browsing Practices</size></b>\r\n\r\n
+    - Always check that you're on the legitimate company website before entering
+    your credentials.\r\n - Look for \"https://\" and a padlock icon in the address
+    bar.\r\n - Be wary of pop-ups or redirects asking for your login information.\r\n\r\n<size=16><b>Public
+    Wi-Fi and Shared Computers</size></b>\r\n\r\n - Avoid accessing sensitive work
+    accounts on public Wi-Fi networks.\r\n - If you must use public Wi-Fi, use the
+    company-provided VPN service.\r\n - After using a shared or public computer:\r\n\t-
+    Log out of all accounts.\r\n\t- Clear the browser history and cache.\r\n\t- Consider
+    changing your passwords from a secure device later.\r\n\r\n<size=16><b>Handling
+    Potential Security Breaches</size></b>\r\n\r\nIf you suspect your credentials
+    have been compromised:\r\n - Change your password immediately from a secure device.\r\n
+    - Contact IT support to report the issue.\r\n - Review your recent account activity
+    for any unauthorized actions.\r\n\r\n<size=16><b>Unfamiliar Devices and Suspicious
+    Activity</size></b>\r\n\r\nIf you notice an unfamiliar device logged into your
+    account:\r\n - Log out all devices from your account settings if possible.\r\n
+    - Change your password immediately.\r\n - Contact IT support to report the suspicious
+    activity.\r\n\r\n<size=16><b>Understanding Automated Attacks</size></b>\r\n\r\n<b>Credential
+    Stuffing</b>\r\nCredential stuffing is an attack where cybercriminals use stolen
+    username/password pairs to gain unauthorized access to user accounts through
+    large-scale automated login requests.\r\n\r\n<b>Brute Force Attacks</b>\r\nIn
+    a brute force attack, attackers systematically check all possible passwords until
+    the correct one is found.\r\n\r\n<size=16><b>CAPTCHAs and Anti-Automation Measures</size></b>\r\n\r\n
+    - CAPTCHAs are puzzles designed to distinguish humans from automated programs.\r\n
+    - Always complete CAPTCHAs when prompted, as they help protect against automated
+    attacks.\r\n\r\n<size=16><b>Session Security</size></b>\r\n - Always log out
+    of your accounts when you're done, especially on shared devices.\r\n - Be aware
+    of session timeouts and re-authenticate when required.\r\n\r\n<size=16><b>Mobile
+    Device Security</size></b>\r\n\r\n - Only download work-related apps from official
+    app stores or as directed by IT.\r\n - Keep your apps and device operating system
+    updated.\r\n - Don't store work passwords or sensitive information on your personal
+    devices.\r\n\r\n<size=16><b>Social Engineering Awareness</size></b>\r\n\r\n -
+    Be cautious of unsolicited phone calls claiming to be from IT or executives.\r\n
+    - Never give out sensitive information over the phone unless you initiated the
+    call.\r\n - If in doubt, hang up and call back using the official company directory."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

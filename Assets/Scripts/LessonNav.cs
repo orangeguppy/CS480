@@ -73,8 +73,8 @@ public class LessonNav : MonoBehaviour
         }
         else if (vishLessonMenu.activeSelf)
         {
-            //SceneManager.LoadScene("Lesson2"); 
-            Debug.Log("load Lesson2");
+            SceneManager.LoadScene("Lesson2"); 
+
         }
         else if (becLessonMenu.activeSelf)
         {
@@ -82,13 +82,11 @@ public class LessonNav : MonoBehaviour
         }
         else if (authLessonMenu.activeSelf)
         {
-            //SceneManager.LoadScene("Lesson4"); 
-            Debug.Log("load Lesson4");
+            SceneManager.LoadScene("Lesson4"); 
         }
         else if (ssrfLessonMenu.activeSelf)
         {
-            //SceneManager.LoadScene("Lesson5"); 
-            Debug.Log("load Lesson5");
+            SceneManager.LoadScene("Lesson5"); 
         }
     }
 
