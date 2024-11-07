@@ -11,19 +11,34 @@ public class EmailService
     public IEnumerator FetchEmail()
     {
         string url = $"{API_URL}/minigame";
+        Debug.Log($"[EmailService] Starting API call to: {url}"); // Debug log
+
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
+            Debug.Log("[EmailService] Sending request..."); // Debug log
             yield return request.SendWebRequest();
+            Debug.Log("[EmailService] Request completed"); // Debug log
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                // Debug.LogError($"Error: {request.error}");
+                Debug.LogError($"[EmailService] API Error: {request.error}");
+                Debug.LogError($"[EmailService] Response Code: {request.responseCode}");
             }
             else
             {
                 string json = request.downloadHandler.text;
-                EmailResponse response = JsonConvert.DeserializeObject<EmailResponse>(json);
-                CurrentEmail = response.ToEmailData();
+                Debug.Log($"[EmailService] Received JSON: {json}"); // Debug log
+
+                try
+                {
+                    EmailResponse response = JsonConvert.DeserializeObject<EmailResponse>(json);
+                    CurrentEmail = response.ToEmailData();
+                    Debug.Log($"[EmailService] Successfully parsed email data"); // Debug log
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError($"[EmailService] JSON Parsing Error: {e.Message}");
+                }
             }
         }
     }

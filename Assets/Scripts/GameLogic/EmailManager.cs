@@ -4,50 +4,70 @@ using UnityEngine;
 
 public class EmailManager : MonoBehaviour
 {
-    [SerializeField] private EmailController emailController;
     private EmailService emailService;
+    private EmailController emailController;
     private int correctAnswers = 0;
     private int totalAnswers = 0;
+    private bool isLoading = false;
 
     private void Awake()
     {
+        Debug.Log("[EmailManager] Awake called");
         emailService = new EmailService();
-        emailController.Initialize(this);
+        emailController = GetComponent<EmailController>();
+
+        if (emailController == null)
+        {
+            Debug.LogError("[EmailManager] EmailController component not found!");
+        }
     }
 
-    // Called by external button
     public void LoadNewEmail()
     {
+        if (isLoading)
+        {
+            Debug.Log("[EmailManager] Already loading email, skipping request");
+            return;
+        }
+
+        Debug.Log("[EmailManager] LoadNewEmail called");
         StartCoroutine(FetchAndDisplayEmail());
     }
 
     private IEnumerator FetchAndDisplayEmail()
     {
+        isLoading = true;
+        Debug.Log("[EmailManager] Starting to fetch email");
+
         yield return StartCoroutine(emailService.FetchEmail());
 
+        Debug.Log("[EmailManager] Fetch completed");
         if (emailService.CurrentEmail != null)
         {
+            Debug.Log("[EmailManager] Email received, displaying...");
             emailController.DisplayEmail(emailService.CurrentEmail);
-            emailController.ShowEmailMinigame();
         }
         else
         {
-            // Debug.LogError("Failed to fetch email");
+            Debug.LogError("[EmailManager] Failed to fetch email: CurrentEmail is null");
         }
+
+        isLoading = false;
     }
 
     public void HandleAnswer(bool answerIsFake)
     {
+        if (emailService.CurrentEmail == null)
+        {
+            Debug.LogError("[EmailManager] Trying to handle answer but CurrentEmail is null!");
+            return;
+        }
+
         totalAnswers++;
         if (answerIsFake == emailService.CurrentEmail.is_modified)
         {
             correctAnswers++;
         }
-
-        // Debug.Log($"Score: {correctAnswers}/{totalAnswers}");
-        emailController.HideEmailMinigame();
+        Debug.Log($"[EmailManager] Score: {correctAnswers}/{totalAnswers}");
     }
-
-    public int GetCorrectAnswers() => correctAnswers;
-    public int GetTotalAnswers() => totalAnswers;
 }
