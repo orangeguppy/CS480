@@ -3481,6 +3481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1055370918}
+  - component: {fileID: 1055370919}
   m_Layer: 0
   m_Name: LeaderboardManager
   m_TagString: Untagged
@@ -3503,6 +3504,84 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055370919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055370917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36d3b4e3428eba43ac3767155bba6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  individualView: {fileID: 1854532775}
+  teamView: {fileID: 278434879}
+  departmentView: {fileID: 2043239484}
+  soloButton: {fileID: 783843050}
+  teamsButton: {fileID: 1561490311}
+  deptButton: {fileID: 1468202594}
+  individualRankTexts:
+  - {fileID: 205153317}
+  - {fileID: 976871946}
+  - {fileID: 1780694281}
+  - {fileID: 106104338}
+  - {fileID: 1315005819}
+  individualNameTexts:
+  - {fileID: 1023274751}
+  - {fileID: 1669993894}
+  - {fileID: 1545349096}
+  - {fileID: 718918710}
+  - {fileID: 457774972}
+  individualTeamTexts:
+  - {fileID: 258604419}
+  - {fileID: 766308658}
+  - {fileID: 281204512}
+  - {fileID: 276683994}
+  - {fileID: 807820646}
+  individualScoreTexts:
+  - {fileID: 1226928842}
+  - {fileID: 1586772617}
+  - {fileID: 247410834}
+  - {fileID: 1433549061}
+  - {fileID: 1677545965}
+  teamRankTexts:
+  - {fileID: 205153317}
+  - {fileID: 976871946}
+  - {fileID: 1780694281}
+  - {fileID: 106104338}
+  - {fileID: 1315005819}
+  teamNameTexts:
+  - {fileID: 258604419}
+  - {fileID: 766308658}
+  - {fileID: 281204512}
+  - {fileID: 276683994}
+  - {fileID: 807820646}
+  teamScoreTexts:
+  - {fileID: 1226928842}
+  - {fileID: 1586772617}
+  - {fileID: 247410834}
+  - {fileID: 1433549061}
+  - {fileID: 1677545965}
+  deptRankTexts:
+  - {fileID: 205153317}
+  - {fileID: 976871946}
+  - {fileID: 1780694281}
+  - {fileID: 106104338}
+  - {fileID: 1315005819}
+  deptNameTexts:
+  - {fileID: 258604419}
+  - {fileID: 766308658}
+  - {fileID: 281204512}
+  - {fileID: 276683994}
+  - {fileID: 807820646}
+  deptScoreTexts:
+  - {fileID: 1226928842}
+  - {fileID: 1586772617}
+  - {fileID: 247410834}
+  - {fileID: 1433549061}
+  - {fileID: 1677545965}
 --- !u!1 &1226928840
 GameObject:
   m_ObjectHideFlags: 0
