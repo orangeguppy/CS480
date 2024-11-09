@@ -13,13 +13,13 @@ public class ShopManager : MonoBehaviour
     public Blueprint gunner;
     public Blueprint zapper;
     public Blueprint bomber;
-    public Blueprint flamethrower;
+    public Blueprint sniper;
 
     [Header("Buttons")]
     public Button gunnerButton;
     public Button zapperButton;
     public Button bomberButton;
-    public Button flamethrowerButton;
+    public Button sniperButton;
 
     [Header("Faded Button Settings")]
     public float fadeAlpha = 0.5f; // Set to how transparent you want the button to be when inactive
@@ -35,7 +35,7 @@ public class ShopManager : MonoBehaviour
         UpdateButtonState(gunnerButton, PlayerInfo.Money >= gunner.cost);
         UpdateButtonState(zapperButton, PlayerInfo.Money >= zapper.cost);
         UpdateButtonState(bomberButton, PlayerInfo.Money >= bomber.cost);
-        UpdateButtonState(flamethrowerButton, PlayerInfo.Money >= flamethrower.cost);
+        UpdateButtonState(sniperButton, PlayerInfo.Money >= sniper.cost);
     }
 
     void UpdateButtonState(Button button, bool canAfford)
@@ -101,11 +101,11 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void BuyFlamethrower()
+    public void BuySniper()
     {
-        if (PlayerInfo.Money >= flamethrower.cost)
+        if (PlayerInfo.Money >= sniper.cost)
         {
-            buildManager.SetTurretToBuild(flamethrower);
+            buildManager.SetTurretToBuild(sniper);
             buildManager.DeselectPlatform();
         }
     }

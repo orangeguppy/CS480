@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Endless.unity
     guid: 0400d71d9095150479d53911464a37c7
   - enabled: 1
-    path: Assets/Scenes/Lesson 4.unity
+    path: Assets/Scenes/Lesson4.unity
     guid: 3df385dd46bf3874eb8edbb007ffc79c
   - enabled: 1
     path: Assets/Scenes/Lesson1.unity
@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: b031193236d6d2e489a89bd58119b6d1
+  - enabled: 1
+    path: Assets/Scenes/Lesson5.unity
+    guid: 190ae1f841924f949a3b2304dfa00ffa
+  - enabled: 1
+    path: Assets/Scenes/Lesson2.unity
+    guid: 436f2d71b1efc5348a6ff746561b3cc9
   m_configObjects: {}

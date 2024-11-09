@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 53571219}
   - component: {fileID: 53571218}
   m_Layer: 5
-  m_Name: BuyFlamethrower
+  m_Name: BuySniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -433,7 +433,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 444619317}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: BuyFlamethrower
+        m_MethodName: BuySniper
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2039,17 +2039,17 @@ MonoBehaviour:
   buyUI: {fileID: 444619318}
   gunner:
     prefab: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
-    cost: 100
+    cost: 1
     stage2: {fileID: 356583337942532171, guid: 2d1cb1ffc3193444e8c82daf01e598f7, type: 3}
-    stage2UpgradeCost: 100
+    stage2UpgradeCost: 1
     stage3A: {fileID: 5938222859346946325, guid: f8fccb5bc9b05a5448fd6fc7154f5383, type: 3}
-    stage3AUpgradeCost: 100
+    stage3AUpgradeCost: 1
     stage3B: {fileID: 2381195798902971391, guid: c69f50e158eac3541903f23349411e3f, type: 3}
-    stage3BUpgradeCost: 150
+    stage3BUpgradeCost: 1
     level: 0
   zapper:
     prefab: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
-    cost: 150
+    cost: 1
     stage2: {fileID: 3323388641264355447, guid: 25fdd9be4bcb572459789aa228036b97, type: 3}
     stage2UpgradeCost: 1
     stage3A: {fileID: 6125059127887134557, guid: 10aa222342cc97449abe30d833ecb712, type: 3}
@@ -2059,7 +2059,7 @@ MonoBehaviour:
     level: 0
   bomber:
     prefab: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
-    cost: 200
+    cost: 1
     stage2: {fileID: 6127691539567980718, guid: fe38db05bb6fe8247be675824b9e5b78, type: 3}
     stage2UpgradeCost: 1
     stage3A: {fileID: 2045680557324030766, guid: b6db55ece09ce3c4181bf78e1f977c26, type: 3}
@@ -2067,20 +2067,20 @@ MonoBehaviour:
     stage3B: {fileID: 1442560551862948017, guid: f18b5d06e5f4c604c9b5d36548fbd9f2, type: 3}
     stage3BUpgradeCost: 3
     level: 0
-  flamethrower:
-    prefab: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
-    cost: 200
-    stage2: {fileID: 4108454273166221811, guid: 2f3bc21cb60b76143a2a07322271d997, type: 3}
+  sniper:
+    prefab: {fileID: 6181043834309927451, guid: 5f4d6a7a1388c004baa5071a3fa1c5e1, type: 3}
+    cost: 0
+    stage2: {fileID: 6538036525269794504, guid: 45aa98aaa12f39b4fb15535655f9c733, type: 3}
     stage2UpgradeCost: 0
-    stage3A: {fileID: 2841364585293625895, guid: 959304f43c7389c47815d27981e3ec48, type: 3}
-    stage3AUpgradeCost: 3000
-    stage3B: {fileID: 1108606245600990443, guid: b7b803cd6a06bdd48bb22cdb49ba4573, type: 3}
+    stage3A: {fileID: 6423544024595421538, guid: 327f8082371c52946908c582d7625894, type: 3}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 8562959581003039960, guid: 53335b3f6bc54714bb36f51cb963c862, type: 3}
     stage3BUpgradeCost: 0
     level: 0
   gunnerButton: {fileID: 411680481}
   zapperButton: {fileID: 490156753}
   bomberButton: {fileID: 1473616001}
-  flamethrowerButton: {fileID: 53571218}
+  sniperButton: {fileID: 53571218}
   fadeAlpha: 0.5
 --- !u!114 &444619318
 MonoBehaviour:
@@ -6791,7 +6791,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: F
+  m_text: S
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
