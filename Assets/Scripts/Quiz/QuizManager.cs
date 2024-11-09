@@ -8,6 +8,7 @@ public class QuizManager : MonoBehaviour
     private QuizState quizState;
     public SubmitPopupController submitPopupController;
     public QuizScoreUIHandler quizScoreUIHandler;
+    private QuizTimer quizTimer;
 
     private void Start()
     {
@@ -16,6 +17,8 @@ public class QuizManager : MonoBehaviour
         quizScoreUIHandler = GetComponent<QuizScoreUIHandler>();
         quizState = new QuizState();
         apiService = new QuizAPIService();
+        quizTimer = GetComponent<QuizTimer>();
+        quizTimer.OnTimerEnd += HandleTimerEnd;
         StartCoroutine(InitializeQuiz());
     }
 
@@ -26,10 +29,23 @@ public class QuizManager : MonoBehaviour
         {
             quizState.SetQuizQuestions(apiService.QuizQuestions);
             uiController.InitializeUI(quizState);
+            quizTimer.StartTimer();
         }
         else
         {
         }
+    }
+    private void Update()
+    {
+        if (quizTimer != null)
+        {
+            uiController.UpdateTimerDisplay(quizTimer.GetFormattedTime());
+        }
+    }
+
+    private void HandleTimerEnd()
+    {
+        FinalizeSubmission();
     }
 
     public void NavigateQuestion(int direction)
