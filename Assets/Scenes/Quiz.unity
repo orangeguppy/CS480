@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 141795555}
   - component: {fileID: 141795557}
   - component: {fileID: 141795556}
+  - component: {fileID: 141795558}
   m_Layer: 5
   m_Name: TimerNeedle
   m_TagString: Untagged
@@ -423,6 +424,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141795554}
   m_CullTransparentMesh: 1
+--- !u!114 &141795558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141795554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923dfad9ede5fc24095914d83a37382e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &142926864
 GameObject:
   m_ObjectHideFlags: 0
@@ -5034,7 +5047,6 @@ GameObject:
   - component: {fileID: 2029852638}
   - component: {fileID: 2029852641}
   - component: {fileID: 2029852640}
-  - component: {fileID: 2029852642}
   - component: {fileID: 2029852643}
   m_Layer: 0
   m_Name: QuizManager
@@ -5127,18 +5139,6 @@ MonoBehaviour:
   yesButton: {fileID: 390005834}
   noButton: {fileID: 1019979922}
   scoreText: {fileID: 142926866}
---- !u!114 &2029852642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029852636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 923dfad9ede5fc24095914d83a37382e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2029852643
 MonoBehaviour:
   m_ObjectHideFlags: 0
