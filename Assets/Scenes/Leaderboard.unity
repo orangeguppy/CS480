@@ -3582,6 +3582,21 @@ MonoBehaviour:
   - {fileID: 247410834}
   - {fileID: 1433549061}
   - {fileID: 1677545965}
+  teamNameComponent: {fileID: 43481679}
+  deptNameComponent: {fileID: 1574110890}
+  yourRankRow: {fileID: 730844745}
+  yourRankText: {fileID: 366529035}
+  yourNameText: {fileID: 2029693286}
+  yourTeamOrDeptText: {fileID: 2060795502}
+  yourScoreText: {fileID: 882242794}
+  nameHeader: {fileID: 913456712}
+  individualNameComponents:
+  - {fileID: 1023274751}
+  - {fileID: 1669993894}
+  - {fileID: 1545349096}
+  - {fileID: 718918710}
+  - {fileID: 457774972}
+  - {fileID: 2029693286}
 --- !u!1 &1226928840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5201,7 +5216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1574110891
 RectTransform:
   m_ObjectHideFlags: 0
