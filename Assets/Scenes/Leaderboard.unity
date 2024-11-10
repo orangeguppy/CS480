@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 43481682}
   - component: {fileID: 43481681}
   m_Layer: 5
-  m_Name: Team
+  m_Name: TeamName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RANk
+  m_text: RANK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
@@ -5196,7 +5196,7 @@ GameObject:
   - component: {fileID: 1574110893}
   - component: {fileID: 1574110892}
   m_Layer: 5
-  m_Name: TeamName
+  m_Name: DeptName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5218,7 +5218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -133, y: 59}
+  m_AnchoredPosition: {x: 30.4, y: 59}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1574110892
@@ -5241,7 +5241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TEAM
+  m_text: DEPT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
@@ -6042,7 +6042,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: solo
+  m_text: Solo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
@@ -6568,7 +6568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: dept
+  m_text: Dept
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
