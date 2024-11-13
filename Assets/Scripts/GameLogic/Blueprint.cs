@@ -18,7 +18,7 @@ public class Blueprint
     public GameObject stage3B;
     public int stage3BUpgradeCost;
     [HideInInspector]
-    public int level; //lvl 1 or 2
+    public int level;
 
     public int SellAmount()
     {

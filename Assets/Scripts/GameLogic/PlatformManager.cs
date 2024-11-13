@@ -10,7 +10,7 @@ public class PlatformManager : MonoBehaviour
 
     public GameObject turret;
     public Blueprint turretBlueprint;
-    public bool isUpgradable;
+    //public bool isUpgradable;
 
 
     BuildManager buildManager;

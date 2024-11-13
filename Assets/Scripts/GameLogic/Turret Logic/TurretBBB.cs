@@ -55,6 +55,11 @@ public class TurretBBB : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
+            // Check if the enemy is cloaked and skip if true
+            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            if (enemyScript != null && enemyScript.isCloaked)
+                continue;
+
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
             {

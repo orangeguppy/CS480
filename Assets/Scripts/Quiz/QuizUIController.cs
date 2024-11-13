@@ -12,6 +12,7 @@ public class QuizUIController : MonoBehaviour
     public Button submitButton;
     private QuizManager quizManager;
     private QuizState quizState;
+    public TextMeshProUGUI timerText;
 
     private void Start()
     {
@@ -54,5 +55,12 @@ public class QuizUIController : MonoBehaviour
         }
 
         submitButton.onClick.AddListener(() => quizManager.SubmitQuiz());
+    }
+    public void UpdateTimerDisplay(string time)
+    {
+        if (timerText != null)
+        {
+            timerText.text = "Time: " + time;
+        }
     }
 }

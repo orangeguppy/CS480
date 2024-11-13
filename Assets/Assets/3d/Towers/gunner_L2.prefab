@@ -229,9 +229,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1a1b02eef6a99347aad6e7abb849e00, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1480183320745627601}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1a1b02eef6a99347aad6e7abb849e00, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3042001174877180227}
   m_SourcePrefab: {fileID: 100100000, guid: e1a1b02eef6a99347aad6e7abb849e00, type: 3}
 --- !u!1 &356583337942532171 stripped
@@ -239,26 +236,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e1a1b02eef6a99347aad6e7abb849e00, type: 3}
   m_PrefabInstance: {fileID: 591026506603330842}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1480183320745627601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356583337942532171}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83eb9cb3bfcdc940bf1b0ad322e6a51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Enemy
-  rotatePart: {fileID: 1132943397864282865}
-  bulletPrefab: {fileID: 3803143140842821955, guid: dc938328702048f4b9ed9ef95d3f50d6, type: 3}
-  firingPoint: {fileID: 990040420145327141}
-  flash: {fileID: 5374730210159702609}
-  range: 5
-  fireRate: 3
-  damage: 5
 --- !u!114 &3042001174877180227
 MonoBehaviour:
   m_ObjectHideFlags: 0

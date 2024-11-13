@@ -8,6 +8,7 @@ public class QuizManager : MonoBehaviour
     private QuizState quizState;
     public SubmitPopupController submitPopupController;
     public QuizScoreUIHandler quizScoreUIHandler;
+    private QuizTimer quizTimer;
 
     private void Start()
     {
@@ -16,20 +17,35 @@ public class QuizManager : MonoBehaviour
         quizScoreUIHandler = GetComponent<QuizScoreUIHandler>();
         quizState = new QuizState();
         apiService = new QuizAPIService();
+        quizTimer = GetComponent<QuizTimer>();
+        quizTimer.OnTimerEnd += HandleTimerEnd;
         StartCoroutine(InitializeQuiz());
     }
 
     private IEnumerator InitializeQuiz()
     {
-        yield return StartCoroutine(apiService.FetchQuizQuestions(quizState.Subcategory, quizState.UserEmail));
+        yield return StartCoroutine(apiService.FetchQuizQuestions(quizState.Subcategory));
         if (apiService.QuizQuestions != null && apiService.QuizQuestions.Count > 0)
         {
             quizState.SetQuizQuestions(apiService.QuizQuestions);
             uiController.InitializeUI(quizState);
+            quizTimer.StartTimer();
         }
         else
         {
         }
+    }
+    private void Update()
+    {
+        if (quizTimer != null)
+        {
+            uiController.UpdateTimerDisplay(quizTimer.GetFormattedTime());
+        }
+    }
+
+    private void HandleTimerEnd()
+    {
+        FinalizeSubmission();
     }
 
     public void NavigateQuestion(int direction)

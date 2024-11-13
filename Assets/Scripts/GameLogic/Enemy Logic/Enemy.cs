@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private float speed;
     public float health;
     public int gold;
+    public bool isCloaked;
 
     void Start()
     {
