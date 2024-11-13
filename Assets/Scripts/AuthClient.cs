@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public class AuthClient : MonoBehaviour
 {
@@ -30,8 +31,11 @@ public class AuthClient : MonoBehaviour
 
         // Save the email for autofilling
         PlayerPrefs.SetString("Email", username.text);
+        PlayerPrefs.Save();
 
-        using (UnityWebRequest request = UnityWebRequest.Post("http://127.0.0.1:8000/auth/login/token", formData))
+        Debug.Log("HERE");
+        using (UnityWebRequest request = UnityWebRequest.Post("https://phishfindersrealforrealsbs.org/auth/login/token", formData))
+        // using (UnityWebRequest request = UnityWebRequest.Post("http://132.147.102.248//auth/login/token", formData))
         {
             Debug.Log("Sending request now");
             yield return request.SendWebRequest();
@@ -45,8 +49,12 @@ public class AuthClient : MonoBehaviour
                 LoginResponse response = JsonUtility.FromJson<LoginResponse>(jsonResponse);
                 Debug.Log("Token: " + response.access_token);
                 Debug.Log("User ID: " + response.token_type);
-                // Save the access token to PlayerPrefs
+                // Save the access token to PlayerPrefs, and session ID too
                 PlayerPrefs.SetString("AccessToken", response.access_token);
+                PlayerPrefs.Save();
+
+                // Save session data to local storage
+                SaveSessionData(response.session);
 
                 sceneNav.loadMainMenu();
             }
@@ -72,5 +80,17 @@ public class AuthClient : MonoBehaviour
                 popUpController.ShowPopup("red", "Error", res);
             }
         }
+    }
+
+    private static void SaveSessionData(SessionData sessionData)
+    {
+        // Store session information in PlayerPrefs
+        PlayerPrefs.SetString("session_id", sessionData.session_id);
+        PlayerPrefs.SetString("username", sessionData.username);
+        PlayerPrefs.SetString("created_at", sessionData.created_at.ToString("o")); // ISO 8601 format
+        PlayerPrefs.SetString("expires_at", sessionData.expires_at.ToString("o")); // ISO 8601 format
+        PlayerPrefs.Save();
+
+        Debug.Log($"Session saved: {sessionData.session_id}, Username: {sessionData.username}, Expires At: {sessionData.expires_at}");
     }
 }

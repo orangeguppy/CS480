@@ -1,8 +1,12 @@
+using System;
+
 [System.Serializable]
 public class LoginResponse
 {
     public string access_token;
     public string token_type;
+    public string session_id;
+    public SessionData session;
 }
 
 [System.Serializable]
@@ -39,4 +43,13 @@ public class AccActivationRequest
 public class HTTPResponse
 {
     public string detail;
+}
+
+[Serializable]
+public class SessionData
+{
+    public string session_id;
+    public string username;
+    public DateTime created_at;
+    public DateTime expires_at;
 }

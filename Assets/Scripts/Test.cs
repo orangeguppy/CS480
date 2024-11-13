@@ -7,7 +7,7 @@ public class Test : MonoBehaviour
     void Start()
     {
         Debug.Log("Hello");
-        StartCoroutine(GetRequest("http://localhost:8001/"));
+        StartCoroutine(GetRequest("https://phishfindersrealforrealsbs.org:8001/"));
     }
 
     IEnumerator GetRequest(string uri)
