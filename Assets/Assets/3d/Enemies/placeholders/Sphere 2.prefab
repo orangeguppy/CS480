@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 123145732468314403}
   - component: {fileID: 3179235298526372883}
   - component: {fileID: 5699075076864919134}
-  - component: {fileID: 4312249719212976017}
-  - component: {fileID: 6263995135335546520}
+  - component: {fileID: 7365729259496841678}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Sphere 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,22 +106,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4312249719212976017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8317837124232213266}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82a9b8a6501bfb64eba35153a0f1831a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 25
-  speed: 5
-  health: 0
---- !u!114 &6263995135335546520
+--- !u!114 &7365729259496841678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fea20573d2eeb54ebd75978e3092ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathType: 0
-  rotationSpeed: 25
+  pathType: 2
   initSpeed: 5
   health: 10
   gold: 4
+  isCloaked: 0

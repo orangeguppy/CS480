@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class LessonNav : MonoBehaviour
 {
@@ -14,10 +15,21 @@ public class LessonNav : MonoBehaviour
     public GameObject ssrfLessonMenu;
 
     private GameObject targetMenu;
+    public SceneFader sceneFader;
+
+    public Button[] lessonButtons;
     
     void Start()
     {
-        
+        int highestLesson = PlayerPrefs.GetInt("highestLesson", 1);
+        for (int i = 0; i < lessonButtons.Length; i++)
+        {
+            if( i+1 > highestLesson)
+            {
+                lessonButtons[i].interactable = false;
+            }
+            
+        }
     }
 
     // Update is called once per frame
@@ -69,24 +81,25 @@ public class LessonNav : MonoBehaviour
     {
         if (webLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Lesson1");
+            //SceneManager.LoadScene("Lesson1");
+            sceneFader.FadeToScene("Lesson1");
         }
         else if (vishLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Lesson2"); 
+            sceneFader.FadeToScene("Lesson2"); 
 
         }
         else if (becLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Lesson3"); 
+            sceneFader.FadeToScene("Lesson3"); 
         }
         else if (authLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Lesson4"); 
+            sceneFader.FadeToScene("Lesson4"); 
         }
         else if (ssrfLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Lesson5"); 
+            sceneFader.FadeToScene("Lesson5"); 
         }
     }
 
@@ -95,28 +108,33 @@ public class LessonNav : MonoBehaviour
     {
         if (webLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Level1"); 
+            sceneFader.FadeToScene("Level1"); 
         }
         else if (vishLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Level2"); 
+            sceneFader.FadeToScene("Level2"); 
         }
         else if (becLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Level3");
+            sceneFader.FadeToScene("Level3");
         }
         else if (authLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Level4"); 
+            sceneFader.FadeToScene("Level4"); 
         }
         else if (ssrfLessonMenu.activeSelf)
         {
-            SceneManager.LoadScene("Level5"); // Load scene for SSRF lessons
+            sceneFader.FadeToScene("Level5"); // Load scene for SSRF lessons
         }
     }
 
     public void GoToQuiz()
     {
-        SceneManager.LoadScene("Quiz"); 
+        sceneFader.FadeToScene("Quiz"); 
+    }
+
+    public void GoToMainMenu()
+    {
+        sceneFader.FadeToScene("Game");
     }
 }

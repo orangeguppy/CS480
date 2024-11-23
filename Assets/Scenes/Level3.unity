@@ -10032,6 +10032,7 @@ MonoBehaviour:
   arrows: {fileID: 0}
   countdownText: {fileID: 1311741439}
   gameCompleteScreen: {fileID: 1881498059}
+  nextLevel: 4
 --- !u!65 &1967247397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12154,7 +12155,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &6944656103386561369
 MeshRenderer:
@@ -12428,7 +12428,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &7339356831511213141
 MeshRenderer:
@@ -12774,7 +12773,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8670761334722501290
 Transform:
@@ -12837,7 +12835,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8700725330185379431
 GameObject:
@@ -12905,7 +12902,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!33 &8777296173572460836
 MeshFilter:
@@ -12961,7 +12957,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8946660039392125844
 Transform:
@@ -13024,7 +13019,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &9078949019963727182
 Transform:
@@ -13103,7 +13097,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

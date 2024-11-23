@@ -33,6 +33,7 @@ public class LvlOneWS : MonoBehaviour
     public TextMeshProUGUI countdownText;
 
     public GameObject gameCompleteScreen;
+    public int nextLevel;
 
     void Start()
     {
@@ -139,7 +140,6 @@ public class LvlOneWS : MonoBehaviour
 
     void WaveCompleted()
     {
-        Debug.Log("Wave completed");
         spawnState = SpawnState.Counting;
         countdown = timeDiff;
 
@@ -152,9 +152,7 @@ public class LvlOneWS : MonoBehaviour
         // Cycle to the next wave or loop back if at the end
         if (nextWave + 1 > waves.Length - 1)
         {
-            Time.timeScale = 0f;
-            gameCompleteScreen.SetActive(true);
-
+            EndGame();
         }
         else
         {
@@ -164,6 +162,13 @@ public class LvlOneWS : MonoBehaviour
 
     void EndGame()
     {
-
+        Time.timeScale = 0f;
+        gameCompleteScreen.SetActive(true);
+        Debug.Log("level won");
+        if( nextLevel > PlayerPrefs.GetInt("highestlesson", 1))
+        {
+            PlayerPrefs.SetInt("highestLesson", nextLevel);
+        }
+        
     }
 }
