@@ -17,23 +17,28 @@ public class LvlOneWS : MonoBehaviour
 
     public Wave[] waves;
     private int nextWave = 0;
-    public float timeDiff = 5f; // time between each wave
+    public float timeDiff = 15f; // time between each wave
     private float countdown = 2f; // first wave timer
 
     private float searchTimer = 1f; // optimize enemy search
 
     private SpawnState spawnState = SpawnState.Counting;
 
-    public Transform spawnPoint; // spawn point array
+    public Transform spawnPoint;
 
     private bool gameStarted = false; // Track if the game has started
-
+    [Header("UI")]
     public GameObject arrows; // Reference to the arrows GameObject
 
     public TextMeshProUGUI countdownText;
 
     public GameObject gameCompleteScreen;
     public int nextLevel;
+
+    [Header("questions")]
+    public GameObject[] questions;
+    private List<int> idx =  new List<int>(); // index tracker 
+
 
     void Start()
     {
@@ -149,7 +154,7 @@ public class LvlOneWS : MonoBehaviour
             arrows.SetActive(true);
         }
 
-        // Cycle to the next wave or loop back if at the end
+        // Check if the current wave is the last one
         if (nextWave + 1 > waves.Length - 1)
         {
             EndGame();
@@ -157,6 +162,7 @@ public class LvlOneWS : MonoBehaviour
         else
         {
             nextWave++;
+            ShowQuestion(); // Show a question only if there are more waves
         }
     }
 
@@ -170,5 +176,38 @@ public class LvlOneWS : MonoBehaviour
             PlayerPrefs.SetInt("highestLesson", nextLevel);
         }
         
+    }
+
+    void ShowQuestion()
+    {
+
+        if (idx.Count == 0)
+        {
+            for (int i = 0; i < questions.Length; i++)
+            {
+                idx.Add(i);
+            }
+        }
+
+        int randomIndex = Random.Range(0, idx.Count);
+        int questionIndex = idx[randomIndex];
+        idx.RemoveAt(randomIndex); // Remove it from the list
+
+        // Activate the selected question
+        StartCoroutine(ShowQ(questionIndex));
+    }
+
+    IEnumerator ShowQ(int questionIndex)
+    {
+        // Activate the selected question
+        questions[questionIndex].SetActive(true);
+        Debug.Log("Showing question: " + questions[questionIndex].name);
+
+        // Wait for the predetermined display time
+        yield return new WaitForSeconds(timeDiff);
+
+        // Deactivate the question
+        questions[questionIndex].SetActive(false);
+        Debug.Log("Hiding question: " + questions[questionIndex].name);
     }
 }

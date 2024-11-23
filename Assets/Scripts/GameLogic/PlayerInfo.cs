@@ -7,10 +7,12 @@ public class PlayerInfo : MonoBehaviour
 {
     public static int Money;
     public static int Lives;
+    public static int Score;
 
     [Header("Player stats")]
     public int startingMoney = 500;
     public int startingLives = 20;
+    public int startingScore = 0;
 
     [Header("ui")]
     public TextMeshProUGUI moneyUI;
@@ -21,6 +23,7 @@ public class PlayerInfo : MonoBehaviour
     {
         Money = startingMoney;
         Lives = startingLives;
+        Score = startingScore;
     }
 
     // Update is called once per frame
