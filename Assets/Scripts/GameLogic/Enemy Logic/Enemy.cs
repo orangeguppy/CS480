@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     public float initHealth;
     public int gold;
     public bool isCloaked;
+    public int score;
 
     void Start()
     {
@@ -103,6 +104,7 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         PlayerInfo.Money += gold;
+        PlayerInfo.EndlessScore += score;
     }
 
     // Helper method to get the current path waypoints

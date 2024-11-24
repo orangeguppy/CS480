@@ -106,6 +106,7 @@ MonoBehaviour:
   initHealth: 3
   gold: 6
   isCloaked: 0
+  score: 1
 --- !u!135 &1713426546186594885
 SphereCollider:
   m_ObjectHideFlags: 0

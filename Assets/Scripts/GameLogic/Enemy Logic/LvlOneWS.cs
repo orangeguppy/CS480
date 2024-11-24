@@ -26,9 +26,9 @@ public class LvlOneWS : MonoBehaviour
 
     public Transform spawnPoint;
 
-    private bool gameStarted = false; // Track if the game has started
+    private bool gameStarted = false; // track if the game has started
     [Header("UI")]
-    public GameObject arrows; // Reference to the arrows GameObject
+    public GameObject arrows;
 
     public TextMeshProUGUI countdownText;
 
@@ -42,7 +42,6 @@ public class LvlOneWS : MonoBehaviour
 
     void Start()
     {
-        // Make the arrows visible initially since no waves have started
         if (arrows != null)
         {
             arrows.SetActive(true);
@@ -162,7 +161,7 @@ public class LvlOneWS : MonoBehaviour
         else
         {
             nextWave++;
-            ShowQuestion(); // Show a question only if there are more waves
+            ShowQuestion();
         }
     }
 

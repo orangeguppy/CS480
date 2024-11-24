@@ -367,7 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b78c8448ec5d943a6905a3c8de1fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - {fileID: 1123350831863855231, guid: 2a441c5d23b20884392332d02f65055e, type: 3}
   timeDiff: 7
   spawnpoint: {fileID: 24523329}
   spawnDiff: 0.4
@@ -2507,6 +2508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94acbf3682b1df4c8b2419aaa4ed3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HighScore: 0
   startingMoney: 500
   startingLives: 20
   moneyUI: {fileID: 2117236065}
@@ -3423,7 +3425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb3b2e95ae6b8545bae8417763cd21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveNumberText: {fileID: 1333884940}
+  waveNumberText: {fileID: 912815570}
+  scoreText: {fileID: 1333884940}
 --- !u!1 &382882281
 GameObject:
   m_ObjectHideFlags: 0
@@ -6614,7 +6617,7 @@ GameObject:
   - component: {fileID: 912815571}
   - component: {fileID: 912815570}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: waves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8917,7 +8920,7 @@ GameObject:
   - component: {fileID: 1333884941}
   - component: {fileID: 1333884940}
   m_Layer: 5
-  m_Name: waveNumb
+  m_Name: score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8989,8 +8992,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
