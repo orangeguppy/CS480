@@ -718,6 +718,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16fa2a2795e48847acc85e4e1eed942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildEffect: {fileID: 0}
+  upgradeEffect: {fileID: 0}
+  sellEffect: {fileID: 0}
+  L2upgradeUI: {fileID: 0}
+  L3upgradeUI: {fileID: 0}
+  buyUI: {fileID: 0}
+  SellUI: {fileID: 0}
 --- !u!114 &469071473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +737,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94acbf3682b1df4c8b2419aaa4ed3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HighScore: 0
   startingMoney: 500
+  startingLives: 20
+  moneyUI: {fileID: 0}
+  livesUI: {fileID: 0}
 --- !u!1 &525739422
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,11 +886,14 @@ MonoBehaviour:
   waves:
   - enemyPrefab: {fileID: 8078548778023897338, guid: f171e9b3d5be4cc458f5e50c36b694cb, type: 3}
     enemyCount: 10
-    rate: 1
+    spawnDiff: 0
   timeDiff: 5
-  spawnPoints:
-  - {fileID: 584934863}
+  spawnPoint: {fileID: 0}
   arrows: {fileID: 0}
+  countdownText: {fileID: 0}
+  gameCompleteScreen: {fileID: 0}
+  nextLevel: 0
+  questions: []
 --- !u!65 &584934865
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1044,6 +1058,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1776753508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &717188683
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1420121895}
+    m_Modifications:
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321671346940406782, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_Name
+      value: field_endless
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+--- !u!4 &717188684 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+  m_PrefabInstance: {fileID: 717188683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &735849306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,18 +1432,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4165398a04f8e3a4ea771645c315cbd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buyUI: {fileID: 0}
   gunner:
     prefab: {fileID: 5513482608598437814, guid: 4a068314e33f5df40bdef08ac97a16c7, type: 3}
     cost: 100
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
   zapper:
     prefab: {fileID: 1751493329958704439, guid: cc9cb3cebf84ca64a9a9ee7706d24a0b, type: 3}
     cost: 150
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
   bomber:
     prefab: {fileID: 3860456373384042077, guid: a5d081c173867dc418bb1ca6d7eb10e0, type: 3}
     cost: 200
-  flamethrower:
-    prefab: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
-    cost: 200
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  sniper:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  gunnerButton: {fileID: 0}
+  zapperButton: {fileID: 0}
+  bomberButton: {fileID: 0}
+  sniperButton: {fileID: 0}
+  fadeAlpha: 0.5
 --- !u!114 &998452484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2055,6 +2165,7 @@ Transform:
   - {fileID: 249185188242190375}
   - {fileID: 4930808672940508928}
   - {fileID: 3565238051864191875}
+  - {fileID: 717188684}
   - {fileID: 1729776007753436283}
   m_Father: {fileID: 543450653354182350}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3833,7 +3944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &4773068486645967925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4194,10 +4305,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 583479682}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &6944656104152245005
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4460,10 +4578,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 583479682}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &7400049671241385099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4740,10 +4865,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 583479682}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8670761335236526846
 Transform:
   m_ObjectHideFlags: 0
@@ -4795,10 +4927,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 583479682}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8700725329873192499
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,10 +4994,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 583479682}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!33 &8777296173209356656
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4903,10 +5049,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 583479682}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8946660039968619456
 Transform:
   m_ObjectHideFlags: 0
@@ -4958,10 +5111,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 583479682}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &9078949020595193114
 Transform:
   m_ObjectHideFlags: 0
@@ -5029,10 +5189,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.24313726, g: 0.76862746, b: 0.7882353, a: 0}
   turret: {fileID: 0}
-  buildMenu: {fileID: 583479682}
-  heightOffset: 0.2
-  xOffset: 0
-  zOffset: 0
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    stage2: {fileID: 0}
+    stage2UpgradeCost: 0
+    stage3A: {fileID: 0}
+    stage3AUpgradeCost: 0
+    stage3B: {fileID: 0}
+    stage3BUpgradeCost: 0
+    level: 0
+  platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

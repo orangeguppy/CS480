@@ -208,9 +208,9 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  flamethrower:
-    prefab: {fileID: 3444929406470223263, guid: 9b8e72d2701c35e4c98655f5f80fed87, type: 3}
-    cost: 200
+  sniper:
+    prefab: {fileID: 0}
+    cost: 0
     stage2: {fileID: 0}
     stage2UpgradeCost: 0
     stage3A: {fileID: 0}
@@ -221,7 +221,7 @@ MonoBehaviour:
   gunnerButton: {fileID: 0}
   zapperButton: {fileID: 0}
   bomberButton: {fileID: 0}
-  flamethrowerButton: {fileID: 0}
+  sniperButton: {fileID: 0}
   fadeAlpha: 0.5
 --- !u!114 &7656265
 MonoBehaviour:
@@ -855,6 +855,9 @@ MonoBehaviour:
   spawnPoint: {fileID: 563920954}
   arrows: {fileID: 0}
   countdownText: {fileID: 0}
+  gameCompleteScreen: {fileID: 0}
+  nextLevel: 0
+  questions: []
 --- !u!65 &563920956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1904,11 +1907,86 @@ Transform:
   - {fileID: 1677264337759472894}
   - {fileID: 9078949020562484796}
   - {fileID: 249185188276476673}
+  - {fileID: 1261647925}
   - {fileID: 3565238051911682213}
   - {fileID: 1729776007731734365}
   - {fileID: 7685259905995821296}
   m_Father: {fileID: 543450653332450792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1261647924
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1257406709}
+    m_Modifications:
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100.00007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100.000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100.000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321671346940406782, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+      propertyPath: m_Name
+      value: field_endless
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+--- !u!4 &1261647925 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4464686313660794439, guid: e5efdedae49490e44aff9d0235a429e0, type: 3}
+  m_PrefabInstance: {fileID: 1261647924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1305191301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,6 +2034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94acbf3682b1df4c8b2419aaa4ed3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HighScore: 0
   startingMoney: 500
   startingLives: 20
   moneyUI: {fileID: 0}
@@ -2539,6 +2618,9 @@ MonoBehaviour:
   spawnPoint: {fileID: 1665081199}
   arrows: {fileID: 0}
   countdownText: {fileID: 0}
+  gameCompleteScreen: {fileID: 0}
+  nextLevel: 0
+  questions: []
 --- !u!65 &1665081201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3755,7 +3837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &4773068486623627027
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4076,7 +4158,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &6944656104127907883
 MeshRenderer:
@@ -4350,7 +4431,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!23 &7339356832120407847
 MeshRenderer:
@@ -4654,7 +4734,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8670761335187040728
 Transform:
@@ -4717,7 +4796,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &8700725329844579605
 GameObject:
@@ -4785,7 +4863,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8946660040001327334
 Transform:
@@ -4848,7 +4925,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &9078949020562484796
 Transform:
@@ -4927,7 +5003,6 @@ MonoBehaviour:
     stage3B: {fileID: 0}
     stage3BUpgradeCost: 0
     level: 0
-  isUpgradable: 0
   platformOffset: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

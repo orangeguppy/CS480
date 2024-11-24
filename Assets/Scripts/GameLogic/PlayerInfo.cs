@@ -7,7 +7,7 @@ public class PlayerInfo : MonoBehaviour
 {
     public static int Money;
     public static int Lives;
-    public static int Score;
+    public static int LessonScore;
     public static int EndlessScore;
     public int HighScore;
 
@@ -25,7 +25,7 @@ public class PlayerInfo : MonoBehaviour
     {
         Money = startingMoney;
         Lives = startingLives;
-        Score = startingScore;
+        LessonScore = startingScore;
         EndlessScore = startingScore;
 
         HighScore = PlayerPrefs.GetInt("HighScore", 0);

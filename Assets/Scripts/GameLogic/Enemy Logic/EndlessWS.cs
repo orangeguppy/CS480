@@ -22,7 +22,7 @@ public class EndlessWS : MonoBehaviour
 
     void Start()
     {
-
+        waveNumText.text = " ";
     }
 
     // Update is called once per frame
@@ -48,7 +48,12 @@ public class EndlessWS : MonoBehaviour
             }
 
             countdown -= Time.deltaTime;
-            waveNumText.text = Mathf.Round(countdown).ToString();
+
+            waveNumText.text ="Next Wave: " + Mathf.Round(countdown).ToString();
+        }
+        else
+        {
+            waveNumText.text = " ";
         }
     }
 
