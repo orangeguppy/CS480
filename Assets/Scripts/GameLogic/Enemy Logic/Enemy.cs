@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     public enum PathType { PathOne, PathTwo, PathThree, PathFour }
+    [Header("Enemy Mvmt")]
     public PathType pathType = PathType.PathOne; // choose the path type from Inspector
+    public Image healthBar;
+
     [Header("Enemy Mvmt")]
     private float rotationSpeed = 25f;
     private Transform target;
@@ -14,7 +18,8 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Stats")]
     public float initSpeed;
     private float speed;
-    public float health;
+    private float health;
+    public float initHealth;
     public int gold;
     public bool isCloaked;
 
@@ -37,6 +42,7 @@ public class Enemy : MonoBehaviour
         }
 
         speed = initSpeed;
+        health = initHealth;
     }
 
     // Move between waypoints
@@ -79,6 +85,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        healthBar.fillAmount = health / initHealth;
+
         if (health <= 0)
         {
             Die();
