@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 12158120}
   - component: {fileID: 12158119}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: InputField (team)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1807,8 +1807,8 @@ MonoBehaviour:
   resetPwPage: {fileID: 430085514}
   teamsScreen: {fileID: 2048347502}
   departmentScreen: {fileID: 992294480}
-  teamInput: {fileID: 0}
-  deptInput: {fileID: 0}
+  teamInput: {fileID: 12158119}
+  deptInput: {fileID: 2134521807}
 --- !u!114 &226404708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11504,7 +11504,7 @@ GameObject:
   - component: {fileID: 1964976540}
   - component: {fileID: 1964976539}
   m_Layer: 5
-  m_Name: join team
+  m_Name: join dept
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11576,7 +11576,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 226404707}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: JoinTeam
+        m_MethodName: JoinDept
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12546,7 +12546,7 @@ GameObject:
   - component: {fileID: 2134521808}
   - component: {fileID: 2134521807}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: InputField (dept)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
