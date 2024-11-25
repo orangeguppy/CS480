@@ -9,6 +9,7 @@ public class GameEnd : MonoBehaviour
     public TextMeshProUGUI waveNumberText;
     public TextMeshProUGUI scoreText;
     public int HighScore;
+    public GameObject logoutPopup;
 
     void Start()
     {
@@ -129,14 +130,25 @@ public class GameEnd : MonoBehaviour
 
     IEnumerator UpdateUserScore(int userId, int newScore)
     {
+        Debug.Log(userId);
         // Base URL of the API endpoint
         string baseUrl = $"https://phishfindersrealforrealsbs.org/api/v1/leaderboard/individual/score/{userId}";
 
         // Add query parameter
         string urlWithQuery = $"{baseUrl}?new_score={newScore}";
 
+        // Create a JSON containing the session ID
+        string session_id = PlayerPrefs.GetString("SessionID");
+        Debug.Log(session_id);
+        // Create the data object
+        SessionID sessionID = new SessionID();
+        sessionID.session_id = session_id;
+
+        // Convert to JSON string
+        string jsonBody = JsonUtility.ToJson(sessionID);
+
         // Create the UnityWebRequest for a PUT request
-        using (UnityWebRequest request = UnityWebRequest.Put(urlWithQuery, ""))
+        using (UnityWebRequest request = UnityWebRequest.Put(urlWithQuery, jsonBody))
         {
             // Optional: Add headers if needed
             request.SetRequestHeader("Content-Type", "application/json");
@@ -144,17 +156,20 @@ public class GameEnd : MonoBehaviour
             // Send the request and wait for the response
             yield return request.SendWebRequest();
 
+
             // Check for errors
-            if (request.result == UnityWebRequest.Result.ConnectionError ||
-                request.result == UnityWebRequest.Result.ProtocolError)
+            if (request.responseCode == 401)
             {
-                Debug.LogError($"Error: {request.error}");
-                Debug.LogError($"Response Code: {request.responseCode}");
+                Debug.Log("Invalid Session");
+                logoutPopup.SetActive(true);
             }
-            else
+            else if (request.responseCode == 200)
             {
                 // Handle success
                 Debug.Log($"Success: {request.downloadHandler.text}");
+            }
+            else {
+                Debug.Log(request.responseCode);
             }
         }
     }

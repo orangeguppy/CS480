@@ -77,3 +77,10 @@ public class UserInLeaderboardDB
     public string department;
     public string last_updated;
 }
+
+
+[System.Serializable]
+public class SessionID
+{
+    public string session_id;
+}

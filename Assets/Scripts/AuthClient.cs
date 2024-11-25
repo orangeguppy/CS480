@@ -53,7 +53,8 @@ public class AuthClient : MonoBehaviour
                 // Save the access token to PlayerPrefs, and session ID too
                 PlayerPrefs.SetString("AccessToken", response.access_token);
                 PlayerPrefs.SetString("Email", username.text);
-                PlayerPrefs.SetString("SessionID", response.session_id)
+                PlayerPrefs.SetString("SessionID", response.session_id);
+                Debug.Log(response.session_id);
                 PlayerPrefs.Save();
 
                 // Save session data to local storage
