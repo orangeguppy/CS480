@@ -124,22 +124,8 @@ public class LessonNav : MonoBehaviour
         }
         else if (ssrfLessonMenu.activeSelf)
         {
-            sceneFader.FadeToScene("Level5"); // Load scene for SSRF lessons
+            sceneFader.FadeToScene("Level5");
         }
     }
 
-    public void GoToQuiz()
-    {
-        sceneFader.FadeToScene("Quiz"); 
-    }
-
-    public void GoToMainMenu()
-    {
-        sceneFader.FadeToScene("Game");
-    }
-
-    public void GoToEndless()
-    {
-        sceneFader.FadeToScene("Endless");
-    }
 }

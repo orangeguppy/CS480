@@ -5,70 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class SceneNav : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public SceneFader sceneFader;
+    
 
     public void loadGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        sceneFader.FadeToScene("Game");
     }
 
     public void loadSettings()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        sceneFader.FadeToScene("Game");
     }
 
     public void loadLeaderboard()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Leaderboard", LoadSceneMode.Single);
+        sceneFader.FadeToScene("Leaderboard");
     }
 
     public void loadMainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        sceneFader.FadeToScene("MainMenu");
     }
 
-    public void loadRegister()
+    public void loadEndless()
     {
-        Debug.Log("Register here");
-        //Time.timeScale = 1;
-        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        sceneFader.FadeToScene("Endless");
     }
 
-    public void loadPasswordReset()
+    public void loadQuiz()
     {
-        Debug.Log("reset pw here");
-        //Time.timeScale = 1;
-        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        sceneFader.FadeToScene("Quiz");
     }
-
-    public void sendOTP()
-    {
-        Debug.Log("send otp pepega");
-        //Time.timeScale = 1;
-        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-    }
-
-    public void registerAccount()
-    {
-        Debug.Log("send register details ");
-        //Time.timeScale = 1;
-        //SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-    }
-
 
     public void exitGame()
     {
