@@ -45,7 +45,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void JoinTeam()
     {
-        string teamName = teamInput.text; 
+        string teamName = teamInput.text;
 
         if (!string.IsNullOrEmpty(teamName))
         {

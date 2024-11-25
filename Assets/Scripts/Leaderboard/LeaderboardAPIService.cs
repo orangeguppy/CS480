@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 public class LeaderboardAPIService
 {
-    private const string API_BASE_URL = "http://localhost:8000/api/v1/leaderboard";
+    private const string API_BASE_URL = "https://phishfindersrealforrealsbs.org/api/v1/leaderboard";
 
     public List<IndividualLeaderboardEntry> IndividualLeaderboard { get; private set; }
     public List<TeamLeaderboardEntry> TeamLeaderboard { get; private set; }

@@ -37,7 +37,6 @@ public class AuthClient : MonoBehaviour
         Debug.Log(username.text);
         Debug.Log(password.text);
         using (UnityWebRequest request = UnityWebRequest.Post("https://phishfindersrealforrealsbs.org/auth/login/token", formData))
-        // using (UnityWebRequest request = UnityWebRequest.Post("http://132.147.102.248//auth/login/token", formData))
         {
             Debug.Log("Sending request now");
             yield return request.SendWebRequest();
@@ -54,6 +53,7 @@ public class AuthClient : MonoBehaviour
                 // Save the access token to PlayerPrefs, and session ID too
                 PlayerPrefs.SetString("AccessToken", response.access_token);
                 PlayerPrefs.SetString("Email", username.text);
+                PlayerPrefs.SetString("SessionID", response.session_id)
                 PlayerPrefs.Save();
 
                 // Save session data to local storage

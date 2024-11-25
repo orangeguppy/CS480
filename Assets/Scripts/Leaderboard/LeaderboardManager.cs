@@ -115,7 +115,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private void UpdateIndividualUI(List<IndividualLeaderboardEntry> entries)
     {
-        string currentUserEmail = "test1@mail.com";
+        string currentUserEmail = PlayerPrefs.GetString("Email");
         bool userInTopFive = false;
 
         for (int i = 0; i < individualRankTexts.Length; i++)
