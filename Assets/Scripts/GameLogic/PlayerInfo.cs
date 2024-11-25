@@ -9,7 +9,6 @@ public class PlayerInfo : MonoBehaviour
     public static int Lives;
     public static int LessonScore;
     public static int EndlessScore;
-    public int HighScore;
 
     [Header("Player stats")]
     public int startingMoney = 500;
@@ -27,8 +26,6 @@ public class PlayerInfo : MonoBehaviour
         Lives = startingLives;
         LessonScore = startingScore;
         EndlessScore = startingScore;
-
-        HighScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     // Update is called once per frame
@@ -38,4 +35,5 @@ public class PlayerInfo : MonoBehaviour
         livesUI.text = Lives.ToString();
         // Debug.Log(EndlessScore);
     }
+
 }
