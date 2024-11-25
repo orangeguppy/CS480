@@ -11,6 +11,7 @@ public class GameEnd : MonoBehaviour
 
     void OnEnable()
     {
+        Debug.Log("Here");
         waveNumberText.text = ((EndlessWS.waveNumber)/3).ToString() + " Waves Cleared!";
         scoreText.text = "Score: " + (PlayerInfo.EndlessScore).ToString();
 
@@ -32,13 +33,13 @@ public class GameEnd : MonoBehaviour
         {
             Debug.Log($"User found: {userId}");
             // Update the player score based on User ID
-            yield return StartCoroutine(UpdateUserScore(userId, PlayerInfo.EndlessScore));
+            yield return StartCoroutine(UpdateUserScore(userId, PlayerPrefs.GetInt("HighScore", 0)));
 
         }
         else // There is no existing record in the leaderboard, create a new user with their current score
         {
             Debug.Log("User not found");
-            yield return StartCoroutine(CreateNewUser(userEmail, PlayerInfo.EndlessScore));
+            yield return StartCoroutine(CreateNewUser(userEmail, PlayerPrefs.GetInt("HighScore", 0)));
         }
     }
 
@@ -122,7 +123,7 @@ public class GameEnd : MonoBehaviour
     IEnumerator UpdateUserScore(int userId, int newScore)
     {
         // Base URL of the API endpoint
-        string baseUrl = $"https://your-api-domain/leaderboard/individual/score/{userId}";
+        string baseUrl = $"https://phishfindersrealforrealsbs.org/api/v1/leaderboard/individual/score/{userId}";
 
         // Add query parameter
         string urlWithQuery = $"{baseUrl}?new_score={newScore}";
