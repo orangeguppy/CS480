@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class AuthClient : MonoBehaviour
 {
@@ -18,11 +19,9 @@ public class AuthClient : MonoBehaviour
         username = GameObject.FindWithTag("Username").GetComponent<TMP_InputField>();
         password = GameObject.FindWithTag("Password").GetComponent<TMP_InputField>();
         PopUpController popUpController = FindObjectOfType<PopUpController>();
-    
-        if (sceneNav == null)
-        {
-            sceneNav = GameObject.Find("Canvas").GetComponent<SceneNav>();
-        }
+
+        sceneNav = GameObject.Find("Canvas").GetComponent<SceneNav>();
+
 
         // Use UnityWebRequest for HTTP requests
         var formData = new WWWForm();
@@ -59,8 +58,11 @@ public class AuthClient : MonoBehaviour
 
                 // Save session data to local storage
                 SaveSessionData(response.session);
-
-                sceneNav.loadMainMenu();
+                Time.timeScale = 1;
+                SceneManager.LoadScene("MainMenu");
+                //sceneNav = GameObject.Find("Canvas").GetComponent<SceneNav>();
+                //Debug.Log(sceneNav);
+                //sceneNav.loadMainMenu();
             }
             else if (request.responseCode == 403)
             {

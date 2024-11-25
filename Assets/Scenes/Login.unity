@@ -9554,11 +9554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd289aa798771a448707863b3dad4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  sceneFader: {fileID: 0}
-=======
   sceneFader: {fileID: 455236252}
->>>>>>> df1c37a1fa0bf1bcb6102e40e59e66d483ab5824
 --- !u!1 &1566096884
 GameObject:
   m_ObjectHideFlags: 0
