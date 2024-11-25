@@ -7,12 +7,14 @@ public class PlayerInfo : MonoBehaviour
 {
     public static int Money;
     public static int Lives;
-    public static int Score;
+    public static int LessonScore;
+    public static int EndlessScore;
+    public int HighScore;
 
     [Header("Player stats")]
     public int startingMoney = 500;
     public int startingLives = 20;
-    public int startingScore = 0;
+    private int startingScore = 0;
 
     [Header("ui")]
     public TextMeshProUGUI moneyUI;
@@ -23,7 +25,10 @@ public class PlayerInfo : MonoBehaviour
     {
         Money = startingMoney;
         Lives = startingLives;
-        Score = startingScore;
+        LessonScore = startingScore;
+        EndlessScore = startingScore;
+
+        HighScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     // Update is called once per frame
