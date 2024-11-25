@@ -53,3 +53,27 @@ public class SessionData
     public DateTime created_at;
     public DateTime expires_at;
 }
+
+[System.Serializable]
+public class NewUserLeaderboard
+{
+    public string user_email;
+    public string team_name;
+    public string department;
+}
+
+[System.Serializable]
+public class UserInLeaderboardDB
+{
+    public int user_id;
+    public string user_email;
+    public int social_engineering_score;
+    public int bec_and_quishing_score;
+    public int email_web_score;
+    public int auth_score;
+    public int ssrf_score;
+    public int endless_score;
+    public string team_name;
+    public string department;
+    public string last_updated;
+}

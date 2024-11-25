@@ -137,4 +137,9 @@ public class LessonNav : MonoBehaviour
     {
         sceneFader.FadeToScene("Game");
     }
+
+    public void GoToEndless()
+    {
+        sceneFader.FadeToScene("Endless");
+    }
 }

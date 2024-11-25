@@ -120,7 +120,7 @@ public class UserClient : MonoBehaviour
         string jsonData = JsonUtility.ToJson(userData);
 
         // Set the URL of your FastAPI endpoint
-        string url = "http://127.0.0.1:8000/users/";
+        string url = "https://phishfindersrealforrealsbs.org/users/";
 
         // Create a new UnityWebRequest for POST
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
@@ -164,7 +164,7 @@ public class UserClient : MonoBehaviour
         Debug.Log(recipient_email_otp_pw.text);
 
         // Base URL
-        string url = "http://127.0.0.1:8000/otp";
+        string url = "https://phishfindersrealforrealsbs.org/otp";
 
         // Create JSON payload
         OTPRequest requestData = new OTPRequest { username = recipient_email_otp_pw.text, new_acc=false };
@@ -255,7 +255,7 @@ public class UserClient : MonoBehaviour
         }
 
         // Base URL
-        string url = "http://127.0.0.1:8000/users/update-password";
+        string url = "https://phishfindersrealforrealsbs.org/users/update-password";
 
         // Create JSON payload
         PWResetRequest requestData = new PWResetRequest { username = email.text, otp = int.Parse(otp.text), password = pw.text };
@@ -313,7 +313,7 @@ public class UserClient : MonoBehaviour
         TMP_InputField otp = GameObject.Find("OTPForAccVerification").GetComponent<TMP_InputField>();
 
         // Base URL
-        string url = "http://127.0.0.1:8000/users/activate-account";
+        string url = "https://phishfindersrealforrealsbs.org/users/activate-account";
 
         // Create JSON payload
         AccActivationRequest requestData = new AccActivationRequest { username = email.text, otp = int.Parse(otp.text) };

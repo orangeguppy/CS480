@@ -36,5 +36,6 @@ public class PlayerInfo : MonoBehaviour
     {
         moneyUI.text = "$" + Money.ToString();
         livesUI.text = Lives.ToString();
+        Debug.Log(EndlessScore);
     }
 }

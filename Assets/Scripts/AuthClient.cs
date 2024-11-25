@@ -34,6 +34,8 @@ public class AuthClient : MonoBehaviour
         PlayerPrefs.Save();
 
         Debug.Log("HERE");
+        Debug.Log(username.text);
+        Debug.Log(password.text);
         using (UnityWebRequest request = UnityWebRequest.Post("https://phishfindersrealforrealsbs.org/auth/login/token", formData))
         // using (UnityWebRequest request = UnityWebRequest.Post("http://132.147.102.248//auth/login/token", formData))
         {
@@ -51,6 +53,7 @@ public class AuthClient : MonoBehaviour
                 Debug.Log("User ID: " + response.token_type);
                 // Save the access token to PlayerPrefs, and session ID too
                 PlayerPrefs.SetString("AccessToken", response.access_token);
+                PlayerPrefs.SetString("Email", username.text);
                 PlayerPrefs.Save();
 
                 // Save session data to local storage
@@ -63,7 +66,7 @@ public class AuthClient : MonoBehaviour
                 string res = request.downloadHandler.text;
                 HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
                 res = httpRes.detail;
-                Debug.LogError($"Login failed: {request.downloadHandler.text}");
+                Debug.LogError($"Login failed, unauthorised: {request.downloadHandler.text}");
                 popUpController.ShowPopup("red", "Error", res);
                 SceneController sceneController = GameObject.Find("ButtonController").GetComponent<SceneController>();
                 GameObject loginPage = GameObject.Find("SignInPage");
@@ -74,9 +77,10 @@ public class AuthClient : MonoBehaviour
             else
             {
                 string res = request.downloadHandler.text;
+                Debug.Log(res);
                 HTTPResponse httpRes = JsonUtility.FromJson<HTTPResponse>(res);
                 res = httpRes.detail;
-                Debug.LogError($"Login failed: {request.downloadHandler.text}");
+                Debug.LogError($"Login failed other: {request.downloadHandler.text}");
                 popUpController.ShowPopup("red", "Error", res);
             }
         }
