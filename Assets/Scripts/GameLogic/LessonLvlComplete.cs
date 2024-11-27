@@ -6,9 +6,10 @@ using TMPro;
 public class LessonLvlComplete : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public int numQns;
 
     void OnEnable()
     {
-        scoreText.text = (PlayerInfo.LessonScore).ToString() + "/3 correct answers!";
+        scoreText.text = (PlayerInfo.LessonScore).ToString() + "/" + numQns.ToString() + " correct answers!";
     }
 }

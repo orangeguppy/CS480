@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     private bool gameOver = false;
     public GameObject gameOverScreen;
     public GameObject pauseScreen;
+
+    public SceneFader sceneFader;
+
     void Start()
     {
         
@@ -57,12 +60,43 @@ public class GameManager : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneFader.FadeToScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Game");
+        sceneFader.FadeToScene("Game");
+    }
+
+    public void Quiz()
+    {
+        Time.timeScale = 1f;
+        sceneFader.FadeToScene("Quiz");
+    }
+    
+    public void RedoLesson()
+    {
+        string currScene = SceneManager.GetActiveScene().name;
+        if (currScene == "Level1")
+        {
+            sceneFader.FadeToScene("Lesson1");
+        } 
+        else if (currScene == "Level2")
+        {
+            sceneFader.FadeToScene("Lesson2");
+        }
+        else if (currScene == "Level3")
+        {
+            sceneFader.FadeToScene("Lesson3");
+        }
+        else if (currScene == "Level4")
+        {
+            sceneFader.FadeToScene("Lesson4");
+        }
+        else if (currScene == "Level5")
+        {
+            sceneFader.FadeToScene("Lesson5");
+        }
     }
 }
