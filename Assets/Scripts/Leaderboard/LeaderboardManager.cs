@@ -52,6 +52,7 @@ public class LeaderboardManager : MonoBehaviour
     private void Start()
     {
         apiService = new LeaderboardAPIService();
+        StartCoroutine(apiService.GetUserTeamAndDepartment());
 
         // Setup button listeners
         soloButton.onClick.AddListener(() => SwitchView("solo"));
@@ -166,7 +167,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private void UpdateTeamUI(List<TeamLeaderboardEntry> entries)
     {
-        string currentUserTeam = "McDonalds"; // Get this from your auth system
+        string currentUserTeam = PlayerPrefs.GetString("Team"); // Get this from your auth system
         bool userTeamInTopFive = false;
 
         for (int i = 0; i < teamRankTexts.Length; i++)
@@ -213,7 +214,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private void UpdateDepartmentUI(List<DepartmentLeaderboardEntry> entries)
     {
-        string currentUserDept = "McDonalds";
+        string currentUserDept = PlayerPrefs.GetString("Department");
         bool userDeptInTopFive = false;
 
         for (int i = 0; i < deptRankTexts.Length; i++)

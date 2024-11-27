@@ -56,4 +56,39 @@ public class LeaderboardAPIService
             }
         }
     }
+
+    // This method will fetch the user's team and department by email
+    public IEnumerator GetUserTeamAndDepartment()
+    {
+        string userEmail = PlayerPrefs.GetString("Email");
+        string url = $"https://phishfindersrealforrealsbs.org/api/v1/users/email/{userEmail}";
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                // Parse the response data
+                string json = request.downloadHandler.text;
+                UserInLeaderboardDB user = JsonConvert.DeserializeObject<UserInLeaderboardDB>(json);
+
+                // Handle the retrieved team and department
+                if (user != null)
+                {
+                    Debug.Log($"User {user.user_email} is part of team: {user.team_name} and department: {user.department}");
+                    // You can now use user.team and user.department as needed
+                    PlayerPrefs.SetString("Team", user.team_name);
+                    PlayerPrefs.SetString("Department", user.department);
+                }
+                else
+                {
+                    Debug.LogWarning("User not found or invalid response.");
+                }
+            }
+            else
+            {
+                Debug.LogError($"Error retrieving user data: {request.error}");
+            }
+        }
+    }
 }
