@@ -22,7 +22,10 @@ public class Enemy : MonoBehaviour
     public float initHealth;
     public int gold;
     public bool isCloaked;
+    public bool onFire;
     public int score;
+    public GameObject fireEffect;
+    private Coroutine fireCoroutine;
 
     void Start()
     {
@@ -56,6 +59,12 @@ public class Enemy : MonoBehaviour
         }
 
         speed = initSpeed;
+
+
+        if (onFire && fireCoroutine == null)
+        {
+            StartBurning(); // Ensure burning starts if onFire is enabled during gameplay
+        }
     }
 
     void RotateTowardsTarget(Vector3 direction)
@@ -96,14 +105,44 @@ public class Enemy : MonoBehaviour
         speed = initSpeed * (1f - amount);
     }
 
+    public void SetOnFire(bool isBurning)
+    {
+        onFire = isBurning;
+
+        if (onFire)
+        {
+            StartBurning();
+        }
+    }
+
+    private void StartBurning()
+    {
+        fireCoroutine = StartCoroutine(BurningCoroutine());
+        fireEffect.SetActive(true);
+    }
+
+    private IEnumerator BurningCoroutine()
+    {
+        while (onFire)
+        {
+            TakeDamage(0.2f); // Adjust the damage per second as needed
+            yield return new WaitForSeconds(1f); // Wait for 1 second before applying the next damage
+        }
+    }
+
     void Die()
     {
         Destroy(gameObject);
         PlayerInfo.Money += gold;
         PlayerInfo.EndlessScore += score;
+
+        if (fireCoroutine != null)
+        {
+            StopCoroutine(fireCoroutine);
+        }
     }
 
-    // Helper method to get the current path waypoints
+
     Transform[] GetCurrentPathWaypoints()
     {
         if (pathType == PathType.PathOne)
