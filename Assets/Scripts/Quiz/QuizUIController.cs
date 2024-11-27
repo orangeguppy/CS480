@@ -18,6 +18,7 @@ public class QuizUIController : MonoBehaviour
     [SerializeField] private GameObject quizContent;
     [SerializeField] private CanvasGroup quizCanvasGroup;
     [SerializeField] private float fadeInDuration = 0.5f;
+    [SerializeField] private ToggleGroup singleAnswerToggleGroup;
 
     private void Start()
     {
@@ -66,11 +67,21 @@ public class QuizUIController : MonoBehaviour
         questionNumberText.text = $"Q{index + 1}";
         questionText.text = question.question_text;
 
+        bool isSingleAnswer = question.correct_answer.Count == 1;
+
         for (int i = 0; i < optionToggles.Length; i++)
         {
             optionToggles[i].GetComponentInChildren<TextMeshProUGUI>().text = question.GetOption(i);
             optionToggles[i].isOn = quizState.IsOptionSelected(index, i);
-            optionToggles[i].group = question.correct_answer.Count > 1 ? null : optionToggles[0].group;
+
+            if (isSingleAnswer)
+            {
+                optionToggles[i].group = singleAnswerToggleGroup;
+            }
+            else
+            {
+                optionToggles[i].group = null;
+            }
         }
 
         leftButton.interactable = index > 0;

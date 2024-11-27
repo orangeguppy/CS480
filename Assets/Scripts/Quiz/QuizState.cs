@@ -56,13 +56,26 @@ public class QuizState
         }
 
         string option = $"option_{optionIndex + 1}";
-        if (isSelected && !UserAnswers[CurrentQuestionIndex].Contains(option))
+        bool isSingleAnswer = QuizQuestions[CurrentQuestionIndex].correct_answer.Count == 1;
+
+        if (isSingleAnswer)
         {
-            UserAnswers[CurrentQuestionIndex].Add(option);
+            UserAnswers[CurrentQuestionIndex].Clear();
+            if (isSelected)
+            {
+                UserAnswers[CurrentQuestionIndex].Add(option);
+            }
         }
-        else if (!isSelected)
+        else
         {
-            UserAnswers[CurrentQuestionIndex].Remove(option);
+            if (isSelected && !UserAnswers[CurrentQuestionIndex].Contains(option))
+            {
+                UserAnswers[CurrentQuestionIndex].Add(option);
+            }
+            else if (!isSelected)
+            {
+                UserAnswers[CurrentQuestionIndex].Remove(option);
+            }
         }
     }
 
