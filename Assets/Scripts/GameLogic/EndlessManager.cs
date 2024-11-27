@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EndlessManager : MonoBehaviour
 {
     [SerializeField] private GameObject emailScreen;
     private EmailManager emailManager;
+    public TextMeshProUGUI endlessScoreUI;
 
     private void Start()
     {
@@ -15,6 +17,11 @@ public class EndlessManager : MonoBehaviour
         {
             Debug.LogError("[EndlessManager] EmailManager not found on emailScreen!");
         }
+    }
+
+    public void Update()
+    {
+        endlessScoreUI.text = "Score: " + PlayerInfo.EndlessScore.ToString();
     }
 
     public void Email()
