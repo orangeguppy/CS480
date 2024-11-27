@@ -2844,7 +2844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emailScreen: {fileID: 1953061247}
-  endlessScoreUI: {fileID: 0}
+  endlessScoreUI: {fileID: 325983239}
 --- !u!1 &286354530
 GameObject:
   m_ObjectHideFlags: 0
@@ -13945,8 +13945,8 @@ MonoBehaviour:
   toText: {fileID: 1217490776}
   subjectText: {fileID: 949064144}
   contentText: {fileID: 1524904124}
-  trueButton: {fileID: 1846509116}
-  falseButton: {fileID: 1148772975}
+  trueButton: {fileID: 1148772975}
+  falseButton: {fileID: 1846509116}
 --- !u!114 &1953061250
 MonoBehaviour:
   m_ObjectHideFlags: 0
