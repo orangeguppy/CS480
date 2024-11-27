@@ -4,27 +4,44 @@ using System;
 public class QuizTimer : MonoBehaviour
 {
     public event Action OnTimerEnd;
-    [SerializeField] private float totalTime = 120f;
-    public float TotalTime => totalTime;
+    [SerializeField] private float totalTime = 1200f;
     public float RemainingTime { get; private set; }
+    public float TotalTime => totalTime;
 
-    private bool isRunning = false;
+    private bool isRunning;
+    private bool isPaused;
 
     public void StartTimer()
     {
-        RemainingTime = TotalTime;
+        RemainingTime = totalTime;
         isRunning = true;
+        isPaused = false;
+    }
+
+    public void PauseTimer()
+    {
+        isPaused = true;
+    }
+
+    public void ResumeTimer()
+    {
+        isPaused = false;
+    }
+
+    public void StopTimer()
+    {
+        isRunning = false;
     }
 
     private void Update()
     {
-        if (isRunning)
+        if (isRunning && !isPaused && RemainingTime > 0)
         {
             RemainingTime -= Time.deltaTime;
             if (RemainingTime <= 0)
             {
-                isRunning = false;
                 RemainingTime = 0;
+                isRunning = false;
                 OnTimerEnd?.Invoke();
             }
         }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class QuizUIController : MonoBehaviour
 {
@@ -14,8 +15,16 @@ public class QuizUIController : MonoBehaviour
     private QuizState quizState;
     public TextMeshProUGUI timerText;
 
+    [SerializeField] private GameObject quizContent;
+    [SerializeField] private CanvasGroup quizCanvasGroup;
+    [SerializeField] private float fadeInDuration = 0.5f;
+
     private void Start()
     {
+        if (quizContent != null)
+        {
+            quizContent.SetActive(false);
+        }
         quizManager = GetComponent<QuizManager>();
         SetupListeners();
     }
@@ -23,7 +32,32 @@ public class QuizUIController : MonoBehaviour
     public void InitializeUI(QuizState state)
     {
         quizState = state;
+        if (quizContent != null)
+        {
+            quizContent.SetActive(true);
+            StartCoroutine(FadeInContent());
+        }
         DisplayQuestion(0);
+    }
+
+    private IEnumerator FadeInContent()
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < fadeInDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeInDuration);
+            if (quizCanvasGroup != null)
+            {
+                quizCanvasGroup.alpha = newAlpha;
+            }
+            yield return null;
+        }
+
+        if (quizCanvasGroup != null)
+        {
+            quizCanvasGroup.alpha = 1f;
+        }
     }
 
     public void DisplayQuestion(int index)
@@ -60,7 +94,7 @@ public class QuizUIController : MonoBehaviour
     {
         if (timerText != null)
         {
-            timerText.text = "Time: " + time;
+            timerText.text = time;
         }
     }
 }

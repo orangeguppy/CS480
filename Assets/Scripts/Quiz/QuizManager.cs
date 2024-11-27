@@ -10,16 +10,33 @@ public class QuizManager : MonoBehaviour
     public QuizScoreUIHandler quizScoreUIHandler;
     private QuizTimer quizTimer;
 
+    private string currentSubcategory;
+
+    public void InitializeQuiz(string subcategory)
+    {
+        currentSubcategory = subcategory;
+        quizState = new QuizState(subcategory);
+        StartCoroutine(InitializeQuiz());
+    }
+
     private void Start()
     {
         uiController = GetComponent<QuizUIController>();
         submitPopupController = GetComponent<SubmitPopupController>();
         quizScoreUIHandler = GetComponent<QuizScoreUIHandler>();
-        quizState = new QuizState();
         apiService = new QuizAPIService();
         quizTimer = GetComponent<QuizTimer>();
         quizTimer.OnTimerEnd += HandleTimerEnd;
-        StartCoroutine(InitializeQuiz());
+
+        if (!string.IsNullOrEmpty(ModuleData.CurrentSubcategory))
+        {
+            quizState = new QuizState(ModuleData.CurrentSubcategory);
+            StartCoroutine(InitializeQuiz());
+        }
+        else
+        {
+            Debug.LogError("No subcategory set before loading Quiz scene");
+        }
     }
 
     private IEnumerator InitializeQuiz()
@@ -61,7 +78,19 @@ public class QuizManager : MonoBehaviour
 
     public void SubmitQuiz()
     {
+        quizTimer.PauseTimer();
         submitPopupController.ShowConfirmationPopup();
+    }
+
+    public void OnSubmitConfirmed()
+    {
+        quizTimer.StopTimer();
+        FinalizeSubmission();
+    }
+
+    public void OnSubmitCancelled()
+    {
+        quizTimer.ResumeTimer();
     }
 
     public void FinalizeSubmission()

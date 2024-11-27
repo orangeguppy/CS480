@@ -3,11 +3,15 @@ using System.Linq;
 
 public class QuizState
 {
-    public string Subcategory { get; set; } = "BEC_and_quishing"; // Default value, change as needed
+    public string Subcategory { get; set; } // Default value, change as needed
     public List<QuizQuestion> QuizQuestions { get; private set; }
     public List<List<string>> UserAnswers { get; private set; }
     public int CurrentQuestionIndex { get; private set; }
     public int TotalQuestions => QuizQuestions?.Count ?? 0;
+    public QuizState(string subcategory)
+    {
+        Subcategory = subcategory;
+    }
 
     public void SetQuizQuestions(List<QuizQuestion> questions)
     {
