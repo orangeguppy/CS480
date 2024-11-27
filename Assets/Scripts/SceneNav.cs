@@ -42,6 +42,11 @@ public class SceneNav : MonoBehaviour
         sceneFader.FadeToScene("Quiz");
     }
 
+    public void loadGlossary()
+    {
+        sceneFader.FadeToScene("Glossary");
+    }
+
     public void exitGame()
     {
         Debug.Log("quitting");

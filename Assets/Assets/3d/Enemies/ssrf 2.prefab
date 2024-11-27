@@ -355,9 +355,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathType: 2
   healthBar: {fileID: 6809047256405347040}
-  initSpeed: 5
-  initHealth: 5
-  gold: 5
+  initSpeed: 7
+  initHealth: 7
+  gold: 7
   isCloaked: 0
   score: 1
 --- !u!135 &-3740957113335233262

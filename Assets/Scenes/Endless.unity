@@ -2793,7 +2793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hearts: {fileID: 1998116057}
-  startingMoney: 500
+  startingMoney: 100000
   startingLives: 20
   moneyUI: {fileID: 2117236065}
   livesUI: {fileID: 1398933323}

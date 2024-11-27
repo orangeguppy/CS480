@@ -356,7 +356,7 @@ MonoBehaviour:
   healthBar: {fileID: 7195998273369702238}
   initSpeed: 4
   initHealth: 6
-  gold: 9
+  gold: 7
   isCloaked: 1
   score: 1
 --- !u!135 &6979032684534754277

@@ -662,7 +662,7 @@ MonoBehaviour:
   rotatePart: {fileID: 6792059709394119188}
   missilePrefab: {fileID: 1715458827473549033, guid: 9f3d685561b7f1e499448f42f09387ec, type: 3}
   firingPoint: {fileID: 6960751484999953754}
-  range: 10
+  range: 5
   fireRate: 0.6
   damage: 5
 --- !u!1 &6488981328790236703

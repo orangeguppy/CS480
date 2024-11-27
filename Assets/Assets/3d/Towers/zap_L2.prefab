@@ -331,7 +331,7 @@ MonoBehaviour:
   firingPoint: {fileID: 7977901461452124894}
   lineRenderer: {fileID: 523838301276108731}
   range: 5
-  damage: 3
+  damage: 1
   slowAmt: 0.6
 --- !u!120 &523838301276108731
 LineRenderer:

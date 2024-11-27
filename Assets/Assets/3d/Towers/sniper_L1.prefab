@@ -281,7 +281,7 @@ MonoBehaviour:
   flashPrefab: {fileID: 1753767925341093797, guid: 52607bad3fc756c44b1fe30a77104093, type: 3}
   range: 8
   fireRate: 0.2
-  damage: 5
+  damage: 2
 --- !u!4 &6813007472318036129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 766b5b20fd34e244a832db935474643b, type: 3}
