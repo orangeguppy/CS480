@@ -97,7 +97,10 @@ public class Sniper : MonoBehaviour
     {
         ActivateFlashEffect();
         Damage(target);
+        SetEnemyOnFire(target);
     }
+
+
 
     void Damage(Transform enemy)
     {
@@ -113,6 +116,14 @@ public class Sniper : MonoBehaviour
         Destroy(flash.gameObject, flash.main.duration);
     }
 
+    void SetEnemyOnFire(Transform enemy)
+    {
+        Enemy e = enemy.GetComponent<Enemy>();
+        if (e != null)
+        {
+            e.onFire = true; // Set the enemy on fire
+        }
+    }
 
     // turret range viz onclick
     void OnDrawGizmosSelected()
