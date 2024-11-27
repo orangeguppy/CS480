@@ -84,3 +84,9 @@ public class SessionID
 {
     public string session_id;
 }
+
+[System.Serializable]
+public class UpdateTeamRequest
+{
+    public string new_team;
+}
