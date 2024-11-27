@@ -72,9 +72,32 @@ public class GameManager : MonoBehaviour
     public void Quiz()
     {
         Time.timeScale = 1f;
+        string currScene = SceneManager.GetActiveScene().name;
+
+        switch (currScene)
+        {
+            case "Level1":
+                ModuleData.CurrentSubcategory = "email_web";
+                break;
+            case "Level2":
+                ModuleData.CurrentSubcategory = "social_engineering";
+                break;
+            case "Level3":
+                ModuleData.CurrentSubcategory = "BEC_and_quishing";
+                break;
+            case "Level4":
+                ModuleData.CurrentSubcategory = "Auth";
+                break;
+            case "Level5":
+                ModuleData.CurrentSubcategory = "SSRF";
+                break;
+            default:
+                Debug.LogError("Invalid level for quiz transition");
+                return;
+        }
         sceneFader.FadeToScene("Quiz");
     }
-    
+
     public void RedoLesson()
     {
         string currScene = SceneManager.GetActiveScene().name;

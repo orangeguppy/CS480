@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 public class EmailService
 {
-    private const string API_URL = "http://localhost:8000/api/v1";
+    private const string API_URL = "https://phishfindersrealforrealsbs.org/api/v1";
     public EmailData CurrentEmail { get; private set; }
 
     public IEnumerator FetchEmail()
