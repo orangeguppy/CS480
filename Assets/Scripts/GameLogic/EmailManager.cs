@@ -64,9 +64,15 @@ public class EmailManager : MonoBehaviour
         }
 
         totalAnswers++;
-        if (answerIsFake == emailService.CurrentEmail.is_modified)
+        if (answerIsFake != emailService.CurrentEmail.is_modified)
         {
             correctAnswers++;
+            Debug.Log("correct ans");
+            PlayerInfo.EndlessScore = Mathf.RoundToInt((float)(PlayerInfo.EndlessScore  * 1.2));
+        }
+        else
+        {
+            PlayerInfo.EndlessScore = Mathf.RoundToInt((float)(PlayerInfo.EndlessScore * 0.8));
         }
         Debug.Log($"[EmailManager] Score: {correctAnswers}/{totalAnswers}");
     }

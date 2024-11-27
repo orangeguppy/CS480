@@ -3,11 +3,15 @@ using System.Linq;
 
 public class QuizState
 {
-    public string Subcategory { get; set; } = "BEC_and_quishing"; // Default value, change as needed
+    public string Subcategory { get; set; } // Default value, change as needed
     public List<QuizQuestion> QuizQuestions { get; private set; }
     public List<List<string>> UserAnswers { get; private set; }
     public int CurrentQuestionIndex { get; private set; }
     public int TotalQuestions => QuizQuestions?.Count ?? 0;
+    public QuizState(string subcategory)
+    {
+        Subcategory = subcategory;
+    }
 
     public void SetQuizQuestions(List<QuizQuestion> questions)
     {
@@ -52,13 +56,26 @@ public class QuizState
         }
 
         string option = $"option_{optionIndex + 1}";
-        if (isSelected && !UserAnswers[CurrentQuestionIndex].Contains(option))
+        bool isSingleAnswer = QuizQuestions[CurrentQuestionIndex].correct_answer.Count == 1;
+
+        if (isSingleAnswer)
         {
-            UserAnswers[CurrentQuestionIndex].Add(option);
+            UserAnswers[CurrentQuestionIndex].Clear();
+            if (isSelected)
+            {
+                UserAnswers[CurrentQuestionIndex].Add(option);
+            }
         }
-        else if (!isSelected)
+        else
         {
-            UserAnswers[CurrentQuestionIndex].Remove(option);
+            if (isSelected && !UserAnswers[CurrentQuestionIndex].Contains(option))
+            {
+                UserAnswers[CurrentQuestionIndex].Add(option);
+            }
+            else if (!isSelected)
+            {
+                UserAnswers[CurrentQuestionIndex].Remove(option);
+            }
         }
     }
 

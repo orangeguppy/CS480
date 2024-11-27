@@ -39,11 +39,12 @@ public class SubmitPopupController : MonoBehaviour
     private void OnYesClicked()
     {
         HideConfirmationPopup();
-        quizManager.FinalizeSubmission();
+        quizManager.OnSubmitConfirmed();
     }
 
     private void OnNoClicked()
     {
         HideConfirmationPopup();
+        quizManager.OnSubmitCancelled();
     }
 }

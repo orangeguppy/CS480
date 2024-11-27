@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public enum PathType { PathOne, PathTwo, PathThree, PathFour }
+    public enum PathType { PathOne, PathTwo, PathThree}
     [Header("Enemy Mvmt")]
     public PathType pathType = PathType.PathOne; // choose the path type from Inspector
     public Image healthBar;
@@ -37,11 +37,7 @@ public class Enemy : MonoBehaviour
         } else if (pathType == PathType.PathThree)
         {
             target = EnemyPathThr.waypoints[0];
-        } else if (pathType == PathType.PathFour)
-        {
-            target = EnemyPathFour.waypoints[0];
         }
-
         speed = initSpeed;
         health = initHealth;
     }

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour
 {
     public static int Money;
     public static int Lives;
+    public Image Hearts;
     public static int LessonScore;
     public static int EndlessScore;
 
@@ -31,9 +33,9 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyUI.text = "$" + Money.ToString();
+        moneyUI.text = Money.ToString();
         livesUI.text = Lives.ToString();
-        // Debug.Log(EndlessScore);
+        Hearts.fillAmount = (float)Lives / startingLives;
     }
 
 }

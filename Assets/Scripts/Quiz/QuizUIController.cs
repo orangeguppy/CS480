@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class QuizUIController : MonoBehaviour
 {
@@ -14,8 +15,17 @@ public class QuizUIController : MonoBehaviour
     private QuizState quizState;
     public TextMeshProUGUI timerText;
 
+    [SerializeField] private GameObject quizContent;
+    [SerializeField] private CanvasGroup quizCanvasGroup;
+    [SerializeField] private float fadeInDuration = 0.5f;
+    [SerializeField] private ToggleGroup singleAnswerToggleGroup;
+
     private void Start()
     {
+        if (quizContent != null)
+        {
+            quizContent.SetActive(false);
+        }
         quizManager = GetComponent<QuizManager>();
         SetupListeners();
     }
@@ -23,7 +33,32 @@ public class QuizUIController : MonoBehaviour
     public void InitializeUI(QuizState state)
     {
         quizState = state;
+        if (quizContent != null)
+        {
+            quizContent.SetActive(true);
+            StartCoroutine(FadeInContent());
+        }
         DisplayQuestion(0);
+    }
+
+    private IEnumerator FadeInContent()
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < fadeInDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeInDuration);
+            if (quizCanvasGroup != null)
+            {
+                quizCanvasGroup.alpha = newAlpha;
+            }
+            yield return null;
+        }
+
+        if (quizCanvasGroup != null)
+        {
+            quizCanvasGroup.alpha = 1f;
+        }
     }
 
     public void DisplayQuestion(int index)
@@ -32,11 +67,21 @@ public class QuizUIController : MonoBehaviour
         questionNumberText.text = $"Q{index + 1}";
         questionText.text = question.question_text;
 
+        bool isSingleAnswer = question.correct_answer.Count == 1;
+
         for (int i = 0; i < optionToggles.Length; i++)
         {
             optionToggles[i].GetComponentInChildren<TextMeshProUGUI>().text = question.GetOption(i);
             optionToggles[i].isOn = quizState.IsOptionSelected(index, i);
-            optionToggles[i].group = question.correct_answer.Count > 1 ? null : optionToggles[0].group;
+
+            if (isSingleAnswer)
+            {
+                optionToggles[i].group = singleAnswerToggleGroup;
+            }
+            else
+            {
+                optionToggles[i].group = null;
+            }
         }
 
         leftButton.interactable = index > 0;
@@ -60,7 +105,7 @@ public class QuizUIController : MonoBehaviour
     {
         if (timerText != null)
         {
-            timerText.text = "Time: " + time;
+            timerText.text = time;
         }
     }
 }
