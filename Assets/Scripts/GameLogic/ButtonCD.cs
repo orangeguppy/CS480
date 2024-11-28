@@ -41,7 +41,7 @@ public class ButtonCD : MonoBehaviour
             yield return null;
         }
 
-        buttonBackground.fillAmount = 0;
+        buttonBackground.fillAmount = 1f;
         button.interactable = true;
         onCooldown = false;  
     }
