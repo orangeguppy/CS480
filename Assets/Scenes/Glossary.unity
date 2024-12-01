@@ -447,7 +447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stage 3A
+  m_text: Stage 3B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
   m_sharedMaterial: {fileID: -7392496371524301684, guid: 3e60e55750cb1f34dbddb366999bead4, type: 2}
