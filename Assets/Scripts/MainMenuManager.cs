@@ -13,11 +13,11 @@ public class MainMenuManager : MonoBehaviour
     public GameObject accountSettings;
     public GameObject sendOTP;
     public GameObject resetPwPage;
-    public GameObject teamsScreen;
-    public GameObject departmentScreen;
+
 
     public TMP_InputField teamInput;
-    public TMP_InputField deptInput;
+    public TMP_Dropdown teamDropdown;
+    public TMP_Dropdown deptDropdown;
 
 
     void Start()
@@ -59,39 +59,32 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    public void ShowScreen(GameObject toEnable, GameObject toDisable)
-    {
-        toEnable.SetActive(true);
-        toDisable.SetActive(false);
-    }
-
-    public void ShowEmailSubmitScreen()
-    {
-        ShowScreen(sendOTP, accountSettings);
-    }
-
-    public void ShowPWResetScreen()
-    {
-        ShowScreen(resetPwPage, sendOTP);
-    }
-
-    public void ShowTeamsScreen()
-    {
-        ShowScreen(teamsScreen, accountSettings);
-    }
-
-    public void ShowDepartmentScreen()
-    {
-        ShowScreen(departmentScreen, accountSettings);
-    }
 
     public void JoinTeam()
+    {
+        
+        string teamName = teamDropdown.options[teamDropdown.value].text;
+
+        if (!string.IsNullOrEmpty(teamName))
+        {
+            PlayerPrefs.SetString("Team", teamName); 
+            PlayerPrefs.Save();
+            StartCoroutine(UpdateUserTeam(teamName));
+        }
+        else
+        {
+            Debug.LogWarning("Team empty");
+        }
+
+    }
+
+    public void CreateTeam()
     {
         string teamName = teamInput.text;
 
         if (!string.IsNullOrEmpty(teamName))
         {
-            PlayerPrefs.SetString("Team", teamName); 
+            PlayerPrefs.SetString("Team", teamName);
             PlayerPrefs.Save();
             StartCoroutine(UpdateUserTeam(teamName));
         }
@@ -106,7 +99,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void JoinDept()
     {
-        string deptName = deptInput.text;
+        string deptName = deptDropdown.options[deptDropdown.value].text;
 
         if (!string.IsNullOrEmpty(deptName))
         {
